@@ -1,6 +1,6 @@
 <?
-    $prototypeLink="http://prototype1.itech-test.ru/Pixelphone/3.1/";
-    $projectName = "Pixelphone"
+    $prototypeLink="";
+    $projectName = "Flamax"
 ?>
 
 <? /* ============================================================ */ ?>
@@ -52,6 +52,8 @@
                 </td>
             </tr>
 
+            <?if(!empty($prototypeLink)):?>
+
             <tr>
                 <td>
                     <a class="link" target="_blank" href="<?=$prototypeLink?>">
@@ -63,6 +65,8 @@
                     </a>
                 </td>
             </tr>
+
+            <?endif?>
 
             <?$c=1;?>
 

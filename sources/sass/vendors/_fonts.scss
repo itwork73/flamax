@@ -1,38 +1,21 @@
 @font-face {
-  font-family: 'din';
-  src: url('/assets/fonts/din.woff2') format('woff2'),
-  url('/assets/fonts/din.woff') format('woff');
+  font-family: 'intro';
+  src: url('/assets/fonts/intro.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'intro-black';
+  src: url('/assets/fonts/intro-black.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
-  font-family: 'din-medium';
-  src: url('/assets/fonts/din-medium.woff2') format('woff2'),
-  url('/assets/fonts/din-medium.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'din-bold';
-  src: url('/assets/fonts/din-bold.woff2') format('woff2'),
-  url('/assets/fonts/din-bold.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'din-cond';
-  src: url('/assets/fonts/din-cond.woff2') format('woff2'),
-  url('/assets/fonts/din-cond.woff') format('woff');
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'rouble';
-  src: url('/assets/fonts/rouble.woff') format('woff');
+  font-family: 'intro-book';
+  src: url('/assets/fonts/intro-book.woff') format('woff');
   font-weight: normal;
   font-style: normal;
 }
@@ -47,27 +30,17 @@
   font-weight: normal;
 }
 
-@mixin din {
-  font-family: 'din', 'Arial', sans-serif;
+@mixin intro {
+  font-family: 'intro', 'Arial', sans-serif;
   font-weight: normal;
 }
 
-@mixin din-medium {
-  font-family: 'din-medium', 'Arial', sans-serif;
+@mixin intro-black {
+  font-family: 'intro-black', 'Arial', sans-serif;
   font-weight: normal;
 }
 
-@mixin din-bold {
-  font-family: 'din-bold', 'Arial', sans-serif;
+@mixin intro-book {
+  font-family: 'intro-book', 'Arial', sans-serif;
   font-weight: normal;
 }
-
-@mixin din-cond {
-  font-family: 'din-cond', 'Arial', sans-serif;
-  font-weight: normal;
-}
-@mixin rouble {
-  font-family: 'rouble', 'Arial', sans-serif;
-  font-weight: normal;
-}
-
