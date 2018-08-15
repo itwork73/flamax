@@ -1,0 +1,73 @@
+@font-face {
+  font-family: 'din';
+  src: url('/assets/fonts/din.woff2') format('woff2'),
+  url('/assets/fonts/din.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'din-medium';
+  src: url('/assets/fonts/din-medium.woff2') format('woff2'),
+  url('/assets/fonts/din-medium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'din-bold';
+  src: url('/assets/fonts/din-bold.woff2') format('woff2'),
+  url('/assets/fonts/din-bold.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'din-cond';
+  src: url('/assets/fonts/din-cond.woff2') format('woff2'),
+  url('/assets/fonts/din-cond.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'rouble';
+  src: url('/assets/fonts/rouble.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@mixin arial {
+  font-family: 'Arial', sans-serif;
+  font-weight: normal;
+}
+
+@mixin times {
+  font-family: 'Times New Roman', serif;
+  font-weight: normal;
+}
+
+@mixin din {
+  font-family: 'din', 'Arial', sans-serif;
+  font-weight: normal;
+}
+
+@mixin din-medium {
+  font-family: 'din-medium', 'Arial', sans-serif;
+  font-weight: normal;
+}
+
+@mixin din-bold {
+  font-family: 'din-bold', 'Arial', sans-serif;
+  font-weight: normal;
+}
+
+@mixin din-cond {
+  font-family: 'din-cond', 'Arial', sans-serif;
+  font-weight: normal;
+}
+@mixin rouble {
+  font-family: 'rouble', 'Arial', sans-serif;
+  font-weight: normal;
+}
+

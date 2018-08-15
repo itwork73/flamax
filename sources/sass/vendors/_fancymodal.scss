@@ -1,0 +1,86 @@
+.is-fancy-modal-overlay {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+
+  box-sizing: border-box;
+  position: fixed;
+  z-index: 9000;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.6);
+
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .2s, visibility .2s;
+  will-change: opacity, visibility;
+
+  .fmo-parent {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+    width: 100%;
+    height: auto;
+    max-height: 100%;
+    padding: 40px 0;
+  }
+  .fmo-inner {
+    position: relative;
+    display: block;
+
+    opacity: 0;
+    transform: scale(.95);
+    transition: opacity .1s, transform .1s;
+    will-change: opacity, transform;
+  }
+  .fmo-cross {
+    display: block;
+    position: absolute;
+    z-index: 599;
+    cursor: pointer;
+    user-select: none;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    background-color: #fff;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAQlBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACO4fbyAAAAFXRSTlMAAlRVVldYWVpbXF1eX2BhmZv7/P0kXQwGAAAAnElEQVR42oWTCQrAIAwEt/d9Wv//1YaKpDQNuwgKM+CVoNhLuCn3Akc8K49XZzywXWpYfm14jPqP14kDazYsX2VORmi+vAmZS5bHMHyBRI32zdvENXM2lM+ANSzXTGJ0adkJnwDHUG4yitEDvfARcA2fS4YQg4wBGmsoJwLZgh+SX5M/FH9q/ln8u3nB8JLjRcvLnjYObT3avLT9b3j8Ea21VSSPAAAAAElFTkSuQmCC);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 18px 18px;
+    transition: background .2s;
+    &:hover {
+      background-color: #eee;
+    }
+  }
+}
+
+.state-show-fancy-test {
+  overflow-y: scroll !important;
+}
+
+.state-show-fancy-modal {
+  overflow: hidden;
+  .is-fancy-modal-overlay {
+    opacity: 1;
+    visibility: visible;
+    transition: opacity .2s, transform .2s;
+  }
+}
+
+.state-show-fancy-play {
+  .is-fancy-modal-overlay {
+    .fmo-inner {
+      opacity: 1;
+      transform: none;
+      transition: opacity .4s, transform .4s;
+    }
+  }
+}

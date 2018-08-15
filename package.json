@@ -1,0 +1,21 @@
+{
+  "name": "Excellent",
+  "version": "1.0.0",
+  "private": true,
+  "dependencies": {
+    "browser-sync": "^2.11.1",
+    "gulp": "^3.9.1",
+    "gulp-autoprefixer": "^3.0.2",
+    "gulp-concat": "^2.6.0",
+    "gulp-notify": "^2.2.0",
+    "gulp-plumber": "^1.0.1",
+    "gulp-sass": "^3.1.0",
+    "gulp-uglify": "^1.5.1",
+    "node-sass": "^4.9.0"
+  },
+  "scripts": {},
+  "author": "Bakaev O.",
+  "email": "itwork73@yandex.ru",
+  "telegram": "@itwork73",
+  "license": "ISC"
+}

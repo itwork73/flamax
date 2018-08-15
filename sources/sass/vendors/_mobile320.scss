@@ -1,0 +1,31 @@
+
+.d-hidden {
+  display: none !important;
+}
+
+$adaptiveWrapper: 86%;
+
+@media screen and (max-width: 737px) {
+
+    .a-hidden {
+        display: none !important;
+    }
+
+    .d-hidden {
+        display: block !important;
+    }
+
+    html {
+        -webkit-text-size-adjust: none;
+        width: 100%;
+        min-width: 320px;
+    }
+
+    body {
+        overflow: visible;
+        height: 100%;
+        width: 100%;
+        min-width: 320px;
+        background: #3e4046;
+    }
+}

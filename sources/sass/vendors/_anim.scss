@@ -1,0 +1,15 @@
+.play-fancy {
+  -webkit-animation: key-anim-fancy 300ms ease-out both;
+  animation: key-anim-fancy 300ms ease-out both;
+}
+
+
+@-webkit-keyframes key-anim-fancy {
+  0% { opacity: 0; -webkit-transform: translate3d(0,0,0) scale(.9); transform: translate3d(0,0,0)  scale(.9); }
+  100% { opacity: 1; -webkit-transform: translate3d(0,0,0)  scale(1); transform: translate3d(0,0,0)  scale(1); }
+}
+
+@keyframes key-anim-fancy {
+  0% { opacity: 0; -webkit-transform: translate3d(0,0,0) scale(.9); transform: translate3d(0,0,0)  scale(.9); }
+  100% { opacity: 1; -webkit-transform: translate3d(0,0,0)  scale(1); transform: translate3d(0,0,0)  scale(1); }
+}
