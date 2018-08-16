@@ -159,3 +159,26 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
+
+function edit_admin_menus() {
+
+    return false;
+    global $menu;
+
+    $menu[5][0] = 'Проекты';
+
+    remove_submenu_page('edit.php','edit-tags.php?taxonomy=category');
+    remove_submenu_page('edit.php','edit-tags.php?taxonomy=post_tag');
+
+    remove_menu_page('index.php');
+    remove_menu_page('edit-comments.php');
+    remove_menu_page('upload.php');
+    remove_menu_page('themes.php');
+    remove_menu_page('plugins.php');
+    remove_menu_page('users.php');
+    remove_menu_page('tools.php');
+    remove_menu_page('edit.php?post_type=acf-field-group');
+}
+
+
+add_action( 'admin_menu', 'edit_admin_menus' );
