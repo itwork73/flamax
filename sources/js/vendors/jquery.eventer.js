@@ -1,5 +1,5 @@
 // https://github.com/itwork73/eventer
-// version: 0.0.4
+// version: 0.0.7
 
 ;(function($){
 
@@ -46,6 +46,26 @@
 
     $.fn.getTarget = function(target) {
         return this.find('[data-target="'+target+'"]');
+    };
+
+
+    $.fn.getNodeList = function(target){
+        var $thisModule = this;
+
+        var nodeList = {};
+
+        $thisModule.find('[data-node]').each(function(i,targetNode){
+            var $targetNode = $(targetNode);
+            var targetName = $targetNode.data().node;
+
+            if (targetName === "" || targetName === "[object Object]") { console.log('$.getNodeList warning: wrong target type.'); return true; }
+
+            if (nodeList[targetName]) { return true; }
+
+            nodeList[targetName] = $thisModule.find('[data-node="'+targetName+'"]');
+        });
+
+        return nodeList;
     };
 
 

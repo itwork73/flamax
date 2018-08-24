@@ -93,10 +93,60 @@
     </script>
 
 
-    <div class="main-layout">
-        
-        <div class="main-layout-content">
+    <div class="main">
 
-            <div class="is-global-header">
-                header
+            <div class="is-global-header" data-is="global-header">
+                <a class="gh-button" href="#" data-node="toggleHeaderButton">
+                    <div class="gh-burger">
+                        <i class="tl"></i><i class="tr"></i>
+                        <i class="ml"></i><i class="mr"></i>
+                        <i class="bl"></i><i class="br"></i>
+                    </div>
+                </a>
+                <div class="gh-dock">
+                    <div class="gh-dock-content">
+
+
+                        <div class="gh-dock-nav">
+                            <a class="dn-link state-active" href="#">
+                                Главная
+                            </a>
+                            <a class="dn-link" href="#">
+                                Наши проекты
+                            </a>
+                            <a class="dn-link" href="#">
+                                Технология
+                            </a>
+                            <a class="dn-link" href="#">
+                                Документы
+                            </a>
+                            <a class="dn-link" href="#">
+                                Новости
+                            </a>
+                            <a class="dn-link" href="#">
+                                Контакты
+                            </a>
+                        </div>
+
+                        <div class="gn-dock-search">
+                            <div class="is-search-tools" data-is="search-tools">
+                                <form data-node="searchToolsForm" action="/h/page-index.php" method="get">
+                                    <div class="st-search-inner">
+                                        <a class="st-search-submit" href="#" data-gclick="submitClosestForm">
+                                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+                                                <path d="M1 10a9 9 0 0 1 18 0 9 9 0 0 1-18 0zm25 14l-8-8a10 10 0 1 0-18-6 10 10 0 0 0 16 8l8 8z"></path>
+                                            </svg>
+                                        </a>
+                                        <div class="st-search-input">
+                                            <input data-node="searchToolsInput" autocomplete="off" type="text" name="q" placeholder="Поиск по сайту">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
             </div>
+

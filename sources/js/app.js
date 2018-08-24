@@ -29,17 +29,19 @@ var globalApp = {
         });
     },
     'globalEventsInit':function(){
-        conf.nodeDoc.on('click','[data-click]',function(e){
+        conf.nodeDoc.on('click','[data-gclick]',function(e){
             e.preventDefault();
             var $this = $(this);
-            var thisAction = $this.attr('data-click');
+            var thisAction = $this.attr('data-gclick');
             var thisValue = $this.val() || $this.data().value;
             if (globalApp.globalEventsActions[thisAction]) { globalApp.globalEventsActions[thisAction]($this,thisValue); }
-            else { console.log('Event: `data-click`, Action: `'+thisAction+'` - not defined.'); }
+            else { console.log('Event: `data-gclick`, Action: `'+thisAction+'` - not defined.'); }
         });
     },
     'globalEventsActions':{
-
+        'submitClosestForm':function($thisNode,thisValue){
+            $thisNode.closest('form').submit();
+        }
     },
     'pageLoader':function(){
         conf.nodeBody.addClass('jsfx-ready');
@@ -47,8 +49,34 @@ var globalApp = {
 };
 
 var moduleApp = {
-    
+    'global-header':function($thisModule){
+
+        var nodes = $thisModule.getNodeList();
+
+        nodes.toggleHeaderButton.on('click',function(e){
+            e.preventDefault();
+            $thisModule.toggleClass('state-header-open');
+        });
+    },
+    'search-tools':function($thisModule){
+
+        var nodes = $thisModule.getNodeList();
+
+        nodes.searchToolsForm.on('submit',function(e){
+            if (nodes.searchToolsInput.val().length > 0) {
+                return true;
+            } else {
+                $thisModule.addClass('state-bounce');
+                setTimeout(function(){
+                    $thisModule.removeClass('state-bounce');
+                    nodes.searchToolsInput.select().focus();
+                }, 400);
+                return false;
+            }
+        });
+    }
 };
+
 
 $(document).ready(function(){
     globalApp.init();
