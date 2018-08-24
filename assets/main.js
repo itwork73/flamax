@@ -155,9 +155,9 @@ var globalApp = {
 var moduleApp = {
     'search-tools':function($thisModule){
 
-        var nodes = $thisModule.getNodeList();
+        var $nodes = $thisModule.getNodeList();
 
-        nodes.searchToolsForm.on('submit',function(e){
+        $nodes.searchToolsForm.on('submit',function(e){
             if (nodes.searchToolsInput.val().length > 0) {
                 return true;
             } else {
@@ -169,6 +169,7 @@ var moduleApp = {
                 return false;
             }
         });
+
     },
     'index-slider':function($thisModule){
         var swiperParams = {
@@ -180,7 +181,112 @@ var moduleApp = {
         };
 
         var thisSwiper = $thisModule.find('.swiper-container').swiper(swiperParams);
+    },
+    'tabs-nav':function($thisModule, inputConfig){
+
+        var defaultConfig = {
+            'speed':'300',
+            'initAttr':'data-tab-body',
+            'initAttrType':'.',
+            'onBeforeChange':false,
+            'onAfterChange':false,
+
+
+            // private config
+
+            'opacityDuration':'150',
+            'opacityDelay':'150',
+            'wrapperClass':'.is-tabs-wrapper',
+            'contentClass':'.is-tabs-tab',
+            'navLinkClass':'.is-tabs-link'
+        };
+
+        var tabsConfig = $.extend({}, defaultConfig, inputConfig);
+
+        var debouncer = false;
+        var playStringRaw = 'transition:height '+tabsConfig.speed+'ms 0s, opacity '+(parseInt(tabsConfig.speed)+parseInt(tabsConfig.opacityDuration))+'ms '+tabsConfig.opacityDuration+'ms;';
+        var playStringCSS = '-webkit-'+playStringRaw+'-moz-'+playStringRaw+'-ms-'+playStringRaw+'-o-'+playStringRaw+playStringRaw;
+        var containerBox = $thisModule.attr(tabsConfig.initAttr) || false;
+
+        var $navLinks = $thisModule.find(tabsConfig.navLinkClass);
+        var $containerBox = $(tabsConfig.initAttrType + containerBox);
+        var $wrapperBox = $containerBox.find(tabsConfig.wrapperClass);
+        var $contentBox = $containerBox.find(tabsConfig.contentClass);
+
+        var cH = $wrapperBox.outerHeight();
+        var lastIndex = -1;
+
+        var tabsCore = {
+            'addEvent':function(){
+                $navLinks.on('click', function(e){
+                    e.preventDefault();
+                    var $this = $(this);
+                    if (debouncer || $this.hasClass('active')) { return false; }
+                    debouncer = true;
+                    var thisIndex = $this.index();
+                    $navLinks.removeClass('active');
+                    $this.addClass('active');
+                    if (tabsConfig.onBeforeChange) {
+                        var cbReturn = tabsConfig.onBeforeChange({
+                            'oldIndex':lastIndex,
+                            'newIndex':thisIndex,
+                            'thisLink':$this,
+                            'thisContent':$contentBox.eq(thisIndex)
+                        });
+                        if (cbReturn===false) {
+                            debouncer = false;
+                            return false;
+                        }
+                    }
+                    $containerBox.attr('style','opacity:0;height:'+cH+'px;');
+                    tabsCore.changeTab(thisIndex);
+                });
+            },
+            'changeTab':function(thisIndex){
+                $contentBox.hide().eq(thisIndex).show();
+                cH = $wrapperBox.outerHeight();
+                $containerBox.attr('style','opacity:1;height:'+cH+'px;'+playStringCSS);
+                setTimeout(function(){
+                    $containerBox.attr('style','height:auto;');
+                    if (tabsConfig.onAfterChange) {
+                        var cbReturn = tabsConfig.onAfterChange({
+                            'oldIndex':lastIndex,
+                            'newIndex':thisIndex,
+                            'thisLink':$navLinks.eq(thisIndex),
+                            'thisContent':$contentBox.eq(thisIndex)
+                        });
+                        if (cbReturn===false) {
+                            debouncer = false;
+                            return false;
+                        }
+                    }
+                    lastIndex = thisIndex;
+                    debouncer = false;
+                    conf.nodeWindow.trigger('resize');
+
+
+                }, parseInt(tabsConfig.speed)+25);
+            }
+        };
+
+        // init
+        tabsCore.addEvent();
+        $navLinks.eq(0).addClass('active');
+    },
+    'page-contacts':function($thisModule){
+
+        var $nodes = $thisModule.getNodeList();
+
+        var tabsConfig = {
+            onAfterChange:function(t){
+                console.log(t.thisContent);
+            }
+        };
+
+        moduleApp['tabs-nav']($nodes.contactsTabs, tabsConfig);
+
     }
+
 };
 
 

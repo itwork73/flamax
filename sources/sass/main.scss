@@ -115,12 +115,12 @@ body {
         }
         &.ml {
           opacity: 0;
-          transform: translate3d(-12px,0,0);
+          transform: translate3d(-15px,0,0);
           transition: transform .3s, opacity .3s .1s;
         }
         &.mr {
           opacity: 0;
-          transform: translate3d(12px,0,0);
+          transform: translate3d(15px,0,0);
           transition: transform .3s, opacity .3s .1s;
         }
         &.bl {
@@ -164,7 +164,10 @@ body {
 $red: #db2424;
 
 h1 {
-
+  margin-bottom: 40px;
+  @include intro-black;
+  @include font(#444444,49px,49px);
+  text-transform: uppercase;
 }
 
 h2 {
@@ -227,6 +230,7 @@ h5 {
 
 
 
+
 // main
 
 .is-global-nav {
@@ -257,6 +261,7 @@ h5 {
     }
   }
   .gh-burger {
+    pointer-events: none;
     display: block;
     position: absolute;
     top: 50%;
@@ -401,7 +406,6 @@ h5 {
   will-change: opacity, visibility;
 }
 
-
 .is-logo {
   z-index: 100;
   display: block;
@@ -506,7 +510,6 @@ h5 {
 
   }
 }
-
 
 .is-index-slider {
   display: block;
@@ -669,6 +672,157 @@ h5 {
   }
 }
 
+.is-tabs-nav {
+  box-sizing: border-box;
+  position: relative;
+  margin: 0 0 30px 0;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.is-tabs-link {
+  position: relative;
+  display: block;
+  z-index: 10;
+  padding: 15px;
+  @include intro;
+  @include font(#a4a4a4,21px,21px);
+  transition: color .2s;
+  &:before {
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: -1;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: $red;
+    visibility: hidden;
+    transform: scale(0,1);
+    transition: transform .2s, visibility .2s;
+  }
+  &:hover {
+    color: #000;
+  }
+  &.active {
+    color: #000;
+    &:before {
+      transform: scale(1,1);
+      visibility: visible;
+    }
+  }
+}
+
+.is-tabs-container {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  .is-tabs-wrapper {
+    display: block;
+    position: relative;
+    &:after {
+      content: '';
+      display: block;
+      height: 1px;
+    }
+  }
+  .is-tabs-tab {
+    display: none;
+    &:first-child {
+      display: block;
+    }
+  }
+}
+
+.is-header-layout {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  margin: 0 0 60px 0;
+  .hl-left {
+    display: block;
+    flex-shrink: 0;
+  }
+  .hl-right {
+    display: block;
+  }
+  h1, .is-tabs-nav {
+    margin-bottom: 0;
+  }
+}
+
+.is-personal-list {
+  display: block;
+  @include is-grid(2,60);
+  .personal-item {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+  }
+  .pi-image {
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    position: relative;
+    display: block;
+    width: 180px;
+    height: 180px;
+    margin-right: 20px;
+    background: #ddd;
+  }
+  .pi-preview {
+    flex-grow: 1;
+    flex-shrink: 1;
+    display: block;
+  }
+  .pi-name {
+    margin-bottom: 5px;
+    @include intro-black;
+    @include font(#000,19px,19px);
+  }
+  .pi-role {
+    margin-bottom: 15px;
+    @include intro;
+    @include font(#898989,16px,24px);
+  }
+  .pi-details {
+    margin-bottom: 15px;
+    @include intro;
+    @include font(#000,16px,24px);
+  }
+  .pi-links {
+    margin: 0 -10px;
+    width: auto;
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+    a {
+      display: block;
+      margin: 0 10px 10px 10px;
+      @include intro;
+      @include font(#898989,16px,24px);
+      transition: color .2s;
+      &:hover {
+        color: #000;
+      }
+    }
+  }
+
+}
+
 // pages
 
 .page-default {
@@ -676,13 +830,14 @@ h5 {
   display: block;
   position: relative;
   width: 100%;
-  padding: 0 0 0 0;
+  padding: 120px 0 0 0;
 }
 
 .page-index {
   width: 100%;
   height: 100vh;
   min-height: 580px;
+  padding: 0 !important;
 }
 
 // sfx
@@ -703,3 +858,6 @@ h5 {
 
 // 320px version
 // @import "vendors/mobile320";
+
+
+
