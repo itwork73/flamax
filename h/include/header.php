@@ -163,7 +163,7 @@
 
 
 
-    <div class="main">
-
+    <div class="main-layout">
+        <div class="main-layout-content">
 
 
