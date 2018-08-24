@@ -39,6 +39,12 @@ var globalApp = {
         });
     },
     'globalEventsActions':{
+        'toggleNavButton':function(){
+            conf.nodeBody.toggleClass('body-state-nav-open');
+        },
+        'closeNav':function(){
+            conf.nodeBody.removeClass('body-state-nav-open');
+        },
         'submitClosestForm':function($thisNode,thisValue){
             $thisNode.closest('form').submit();
         }
@@ -49,15 +55,6 @@ var globalApp = {
 };
 
 var moduleApp = {
-    'global-header':function($thisModule){
-
-        var nodes = $thisModule.getNodeList();
-
-        nodes.toggleHeaderButton.on('click',function(e){
-            e.preventDefault();
-            $thisModule.toggleClass('state-header-open');
-        });
-    },
     'search-tools':function($thisModule){
 
         var nodes = $thisModule.getNodeList();

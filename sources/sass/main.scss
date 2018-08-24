@@ -97,6 +97,50 @@ body {
   background: #000;
 }
 
+.body-state-nav-open {
+  .is-global-nav-overlay {
+    cursor: pointer;
+    pointer-events: auto;
+    opacity: 1;
+    visibility: visible;
+  }
+  .is-global-nav {
+    .gh-burger {
+      i {
+        &.tl {
+          transform: rotate(45deg) translate3d(3px,2px,0);
+        }
+        &.tr {
+          transform: rotate(-45deg) translate3d(-3px,2px,0);
+        }
+        &.ml {
+          opacity: 0;
+          transform: translate3d(-12px,0,0);
+          transition: transform .3s, opacity .3s .1s;
+        }
+        &.mr {
+          opacity: 0;
+          transform: translate3d(12px,0,0);
+          transition: transform .3s, opacity .3s .1s;
+        }
+        &.bl {
+          width: 18px;
+          transform: rotate(-45deg) translate3d(3px,-2px,0);
+        }
+        &.br {
+          transform: rotate(45deg) translate3d(-3px,-2px,0);
+
+        }
+      }
+    }
+    .gh-dock {
+      transform: translate3d(0,0,0);
+      opacity: 1;
+      pointer-events: auto;
+    }
+  }
+}
+
 // layout
 
 .wrapper {
@@ -115,8 +159,9 @@ body {
   min-height: 100vh;
 }
 
-
 // generic
+
+$red: #db2424;
 
 h1 {
 
@@ -184,10 +229,10 @@ h5 {
 
 // main
 
-.is-global-header {
+.is-global-nav {
   display: block;
   position: fixed;
-  z-index: 100;
+  z-index: 200;
   top: 0;
   right: 0;
   width: 120px;
@@ -315,13 +360,13 @@ h5 {
         left: 0;
         width: 5px;
         height: 100%;
-        background: #db2424;
+        background: $red;
       }
       &:hover {
-        color: #db2424;
+        color: $red;
       }
       &.state-active {
-        color: #db2424;
+        color: $red;
         &:before {
           display: block;
         }
@@ -335,43 +380,37 @@ h5 {
     padding: 0 120px;
   }
 
+}
 
-  &.state-header-open {
-    .gh-burger {
-      i {
-        &.tl {
-          transform: rotate(45deg) translate3d(3px,2px,0);
-        }
-        &.tr {
-          transform: rotate(-45deg) translate3d(-3px,2px,0);
-        }
-        &.ml {
-          opacity: 0;
-          transform: translate3d(-12px,0,0);
-          transition: transform .3s, opacity .3s .1s;
-        }
-        &.mr {
-          opacity: 0;
-          transform: translate3d(12px,0,0);
-          transition: transform .3s, opacity .3s .1s;
-        }
-        &.bl {
-          width: 18px;
-          transform: rotate(-45deg) translate3d(3px,-2px,0);
-        }
-        &.br {
-          transform: rotate(45deg) translate3d(-3px,-2px,0);
+.is-global-nav-overlay {
+  user-select: none;
+  display: block;
+  position: fixed;
+  z-index: 190;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,.5);
 
-        }
-      }
-    }
-    .gh-dock {
-      transform: translate3d(0,0,0);
-      opacity: 1;
-      pointer-events: auto;
-    }
+  pointer-events: none;
+  opacity: 0;
+  visibility: hidden;
+
+  transition: opacity .3s, visibility .3s;
+  will-change: opacity, visibility;
+}
+
+
+.is-logo {
+  z-index: 100;
+  display: block;
+  position: absolute;
+  top: 40px;
+  left: 50px;
+  img {
+    display: block;
   }
-
 }
 
 .is-search-tools {
@@ -409,7 +448,7 @@ h5 {
     }
     &:hover {
       svg path {
-        fill: #db2424;
+        fill: $red;
       }
     }
   }
@@ -468,16 +507,6 @@ h5 {
   }
 }
 
-.is-logo {
-  z-index: 100;
-  display: block;
-  position: absolute;
-  top: 50px;
-  left: 50px;
-  img {
-    display: block;
-  }
-}
 
 .is-index-slider {
   display: block;
@@ -518,13 +547,52 @@ h5 {
       background: rgba(0,0,0,.4);
     }
   }
-  .ss-inner-content {
+  .ss-inner-layout {
     display: block;
     position: absolute;
-    bottom: 40%;
+    bottom: 47%;
     left: 0;
     width: 100%;
     z-index: 20;
+  }
+  .ss-inner-layout-content {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .ss-inner-preview {
+    flex-shrink: 0;
+    flex-grow: 0;
+    display: block;
+    max-width: 70%;
+    &.state-link {
+      &:hover {
+        .ss-title-text {
+          color: #ccc;
+        }
+        .ss-description {
+          color: #bbb;
+        }
+      }
+    }
+  }
+  .ss-inner-counter {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: center;
+  }
+  .ss-c-current {
+    @include intro-black;
+    @include font(#fff,71px,71px);
+  }
+  .ss-c-count {
+    margin-left: 5px;
+    @include intro-black;
+    @include font(#fff,33px,33px);
   }
   .ss-header {
     margin-bottom: 80px;
@@ -545,6 +613,7 @@ h5 {
     flex-grow: 0;
     @include intro;
     @include font(#ffffff,45px,51px);
+    transition: color .2s;
   }
   .ss-title-volume {
     flex-shrink: 0;
@@ -558,6 +627,7 @@ h5 {
   .ss-description {
     @include intro-book;
     @include font(#ffffff,19px,25px);
+    transition: color .2s;
   }
 
   // arrows
@@ -570,7 +640,7 @@ h5 {
 
     position: absolute;
     z-index: 10;
-    bottom: calc(40% - 100px);
+    bottom: calc(47% - 100px);
     left: 50%;
     width: 140px;
     margin-left: -570px;

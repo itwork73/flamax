@@ -11,26 +11,34 @@
                 <?foreach(array(1,2,3,4) as $key=>$value):?>
 
                     <div class="swiper-slide">
-
                         <div class="ss-inner">
                             <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp1.jpg');"></div>
-
-                            <div class="ss-inner-content">
-
+                            <div class="ss-inner-layout">
                                 <div class="wrapper">
-                                    <div class="ss-title">
-                                        <div class="ss-title-text">
-                                            Leroy Merlen
-                                        </div>
-                                        <div class="ss-title-volume">
-                                            2200м³
+                                    <div class="ss-inner-layout-content">
+                                        <a class="ss-inner-preview state-link" href="#">
+                                            <div class="ss-title">
+                                                <div class="ss-title-text">
+                                                    Leroy Merlen
+                                                </div>
+                                                <div class="ss-title-volume">
+                                                    2200 м³
+                                                </div>
+                                            </div>
+
+                                            <div class="ss-description">
+                                                Пожарный запас воды
+                                            </div>
+                                        </a>
+                                        <div class="ss-inner-counter">
+                                            <div class="ss-c-current">
+                                                <?=($key+1)?>
+                                            </div>
+                                            <div class="ss-c-count">
+                                                /4
+                                            </div>
                                         </div>
                                     </div>
-
-                                    <div class="ss-description">
-                                        Пожарный запас воды
-                                    </div>
-
                                 </div>
                             </div>
                         </div>
