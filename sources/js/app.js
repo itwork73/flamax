@@ -74,6 +74,17 @@ var moduleApp = {
                 return false;
             }
         });
+    },
+    'index-slider':function($thisModule){
+        var swiperParams = {
+            loop: true,
+            roundLengths: true,
+            onlyExternal: false,
+            prevButton: $thisModule.find('.ss-arrow-prev')[0],
+            nextButton: $thisModule.find('.ss-arrow-next')[0]
+        };
+
+        var thisSwiper = $thisModule.find('.swiper-container').swiper(swiperParams);
     }
 };
 

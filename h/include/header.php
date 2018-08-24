@@ -92,8 +92,11 @@
         })('body');
     </script>
 
-
     <div class="main">
+
+            <a class="is-logo" href="/h/">
+                <img src="/assets/img/logow.png" />
+            </a>
 
             <div class="is-global-header" data-is="global-header">
                 <a class="gh-button" href="#" data-node="toggleHeaderButton">
