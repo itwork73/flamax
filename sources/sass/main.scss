@@ -497,7 +497,9 @@ h5 {
     &:hover {
       color: red;
     }
-
+    &.state-active {
+      color: red;
+    }
   }
 
 }

@@ -23,7 +23,7 @@
 
                     <div class="gf-nav">
 
-                        <a class="gf-meta-c" href="#" rel="nofollow">
+                        <a class="gf-meta-c state-active" href="#" rel="nofollow">
                             Главная
                         </a>
                         <a class="gf-meta-c" href="#" rel="nofollow">
