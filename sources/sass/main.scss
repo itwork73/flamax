@@ -47,7 +47,7 @@ html {
 body {
   display: flex;
   position: relative;
-  min-width: 1260px;
+  min-width: 1220px;
   min-height: 580px;
   background: #fff;
   overflow-y: scroll;
@@ -375,22 +375,34 @@ h5 {
       text-transform: uppercase;
       transition: color .2s;
       &:before {
+        pointer-events: none;
         content: '';
-        display: none;
+        display: block;
         position: absolute;
         top: 0;
         left: 0;
         width: 5px;
         height: 100%;
-        background: $red;
+        background: #ddd;
+
+        opacity: 0;
+        transform: scale(0,1);
+        transition: transform .2s, opacity .2s;
+        will-change: transform, opacity;
       }
       &:hover {
         color: $red;
+        &:before {
+          opacity: 1;
+          transform: none;
+        }
       }
       &.state-active {
         color: $red;
         &:before {
-          display: block;
+          background: $red;
+          opacity: 1;
+          transform: none;
         }
       }
     }
@@ -730,6 +742,10 @@ h5 {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;
+
+    opacity: 0;
+    transform: translate3d(20px,0,0);
+    will-change: opacity, transform;
   }
   .ss-title-text {
     flex-shrink: 1;
@@ -750,7 +766,10 @@ h5 {
   .ss-description {
     @include intro-book;
     @include font(#ffffff,19px,25px);
-    transition: color .2s;
+
+    opacity: 0;
+    transform: translate3d(20px,0,0);
+    will-change: opacity, transform;
   }
 
   // arrows
@@ -789,6 +808,20 @@ h5 {
       background: rgba(0,0,0,1);
     }
 
+  }
+
+  .swiper-slide-active {
+    .ss-title {
+      opacity: 1;
+      transform: none;
+      transition: opacity .5s .5s, transform .5s .5s;
+    }
+    .ss-description {
+      opacity: 1;
+      transform: none;
+      transition: color .2s, opacity .5s .8s, transform .5s .8s;
+
+    }
   }
 }
 
@@ -918,7 +951,7 @@ h5 {
   .pi-details {
     margin-bottom: 15px;
     @include intro;
-    @include font(#000,16px,24px);
+    @include font(#444,16px,24px);
   }
   .pi-links {
     margin: 0 -10px;
@@ -933,14 +966,71 @@ h5 {
       display: block;
       margin: 0 10px 10px 10px;
       @include intro;
-      @include font(#898989,16px,24px);
+      @include font(#000,16px,24px);
       transition: color .2s;
       &:hover {
-        color: #000;
+        color: $red;
       }
     }
   }
 
+}
+
+.is-contacts-map {
+  display: block;
+  margin-bottom: 40px;
+  .cm-layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cm-preview {
+    width: 400px;
+  }
+  .cm-map {
+    width: 710px;
+    height: 500px;
+    background: #dadada;
+
+    // grayscale yandex map
+    [class*="ymaps-2"][class*="-ground-pane"] {
+      filter: grayscale(100%);
+    }
+  }
+  .cm-ymap {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    height: 100%;
+  }
+
+  .cm-meta-a {
+    margin-bottom: 10px;
+    @include intro-black;
+    @include font(#000,19px,25px);
+  }
+  .cm-meta-b {
+    margin-bottom: 30px;
+    @include intro;
+    @include font(#444,16px,24px);
+    a {
+      color: #000;
+      transition: color .2s;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+  .cm-meta-c {
+    display: inline-block;
+    vertical-align: top;
+    + .cm-meta-c {
+      margin-left: 30px;
+    }
+  }
 }
 
 // pages
@@ -973,6 +1063,33 @@ h5 {
 .jsfx-ready {
   .page-default {
     opacity: 1;
+  }
+}
+
+
+// small screen query
+
+@media (max-width: 1340px), (max-height: 600px) {
+  .is-global-nav {
+    width: 90px;
+    height: 90px;
+    .gh-dock {
+      width: 480px;
+    }
+    .gh-dock-nav {
+      margin: 0 0 40px 0;
+      .dn-link {
+        font-size: 27px;
+        line-height: 27px;
+      }
+    }
+  }
+  .is-logo {
+    top: 35px;
+    left: 40px;
+  }
+  .page-default {
+    padding-top: 100px;
   }
 }
 

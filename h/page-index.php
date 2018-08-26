@@ -3,7 +3,6 @@
 
 <div class="page-default page-index">
 
-
     <div class="is-index-slider" data-is="index-slider">
 
         <div class="swiper-container">
@@ -25,7 +24,6 @@
                                                     2200 м³
                                                 </div>
                                             </div>
-
                                             <div class="ss-description">
                                                 Пожарный запас воды
                                             </div>

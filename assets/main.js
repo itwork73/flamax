@@ -173,9 +173,11 @@ var moduleApp = {
     },
     'index-slider':function($thisModule){
         var swiperParams = {
+            speed: 500,
             loop: true,
+            autoplay: 5000,
+            onlyExternal: true,
             roundLengths: true,
-            onlyExternal: false,
             prevButton: $thisModule.find('.ss-arrow-prev')[0],
             nextButton: $thisModule.find('.ss-arrow-next')[0]
         };
@@ -279,7 +281,40 @@ var moduleApp = {
 
         var tabsConfig = {
             onAfterChange:function(t){
-                console.log(t.thisContent);
+
+
+                var $mapNode = t.thisContent.find('[data-node="cYmap"]');
+
+                if ($mapNode.length > 0 && !$mapNode.hasClass('state-ready') && window.ymaps && window.ymaps.Map) {
+
+                    var mapLat = $mapNode.data().lat || 55.751244;
+                    var mapLng = $mapNode.data().lng || 37.618423;
+                    var mapZoom = $mapNode.data().zoom || 16;
+
+                    var map = new ymaps.Map($mapNode[0], {
+                        center: [mapLat, mapLng],
+                        zoom: mapZoom,
+                        type: 'yandex#publicMap',
+                        behaviors: ['drag', 'dblClickZoom']
+                    });
+
+                    var marker = new ymaps.Placemark(map.getCenter(), {}, {
+                        iconLayout: 'default#image',
+                        iconImageHref: '/assets/img/pin.png',
+                        iconImageSize: [25,36],
+                        hideIconOnBalloonOpen: false
+                    });
+
+
+                    map.geoObjects.add(marker);
+
+
+                    $mapNode.addClass('state-ready');
+
+                }
+
+
+
             }
         };
 
