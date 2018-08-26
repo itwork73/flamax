@@ -304,7 +304,8 @@ var moduleApp = {
                     var marker = new ymaps.Placemark(map.getCenter(), {}, {
                         iconLayout: 'default#image',
                         iconImageHref: '/assets/img/pin.png',
-                        iconImageSize: [25,36],
+                        iconImageSize: [40,55],
+                        iconImageOffset: [-20, -55],
                         hideIconOnBalloonOpen: false
                     });
 
@@ -323,10 +324,41 @@ var moduleApp = {
 
         moduleApp['tabs-nav']($nodes.contactsTabs, tabsConfig);
 
+    },
+    'project-slider':function($thisModule){
+        var timeout = null;
+        var shift = parseInt((Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - 1140)/2);
+        if (shift < 40) { shift = 40; }
+
+        var swiperParams = {
+            speed: 500,
+            loop: false,
+            slidesPerView: 'auto',
+            slidesOffsetBefore: shift,
+            slidesOffsetAfter: 60,
+            spaceBetween: 60,
+            onlyExternal: false,
+            roundLengths: true,
+            prevButton: $thisModule.find('.ss-arrow-prev')[0],
+            nextButton: $thisModule.find('.ss-arrow-next')[0]
+        };
+
+        var thisSwiper = $thisModule.find('.swiper-container').swiper(swiperParams);
+
+        conf.nodeWindow.on('resize',function(){
+            clearTimeout(timeout);
+            timeout = setTimeout(function(){
+                var shift = parseInt((Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - 1140)/2);
+                if (shift < 40) { shift = 40; }
+
+                thisSwiper.params.slidesOffsetBefore = shift;
+                thisSwiper.update(true);
+            }, 50);
+
+        });
     }
 
 };
-
 
 $(document).ready(function(){
     globalApp.init();

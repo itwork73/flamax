@@ -1,6 +1,6 @@
 <div class="is-personal-list">
     <div class="is-grid">
-        <?foreach(array(1,2,3,4,5) as $key => $value):?>
+        <?foreach(array(1,2,3,4) as $key => $value):?>
 
             <div class="grid-item">
                 <div class="personal-item">

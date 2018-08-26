@@ -96,7 +96,14 @@ body {
 
 .body-state-index {
   background: #000;
-  overflow-y: auto;
+  overflow: hidden;
+  .main-layout-footer {
+    display: none;
+  }
+}
+
+.body-state-projects {
+  overflow: hidden;
   .main-layout-footer {
     display: none;
   }
@@ -187,7 +194,7 @@ body {
 $red: #db2424;
 
 h1 {
-  margin-bottom: 40px;
+  margin: 0 0 40px -3px;
   @include intro-black;
   @include font(#444444,49px,49px);
   text-transform: uppercase;
@@ -435,7 +442,7 @@ h5 {
   will-change: opacity, visibility;
 }
 
-.is-logo {
+.is-header-logo {
   z-index: 100;
   display: block;
   position: absolute;
@@ -443,6 +450,37 @@ h5 {
   left: 50px;
   img {
     display: block;
+  }
+}
+
+.is-header-phone {
+  z-index: 100;
+  display: block;
+  position: absolute;
+  top: 52px;
+  right: 240px;
+  a {
+    position: relative;
+    display: block;
+    @include intro-book;
+    @include font(#fff,17px,17px);
+    transition: color .2s;
+    svg {
+      display: block;
+      position: absolute;
+      top: 2px;
+      left: -25px;
+      path {
+        fill: #fff;
+        transition: fill .2s;
+      }
+    }
+    &:hover {
+      color: #ddd;
+      svg path {
+        fill: #ddd;
+      }
+    }
   }
 }
 
@@ -643,6 +681,37 @@ h5 {
   }
 }
 
+.is-arrows {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: space-between;
+
+  width: 140px;
+  .ss-arrow {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    display: block;
+    width: 60px;
+    height: 60px;
+    background: rgba(0,0,0,.8);
+    transition: background .2s;
+    svg {
+      pointer-events: none;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -7px 0 0 -11px;
+    }
+    &:hover {
+      background: rgba(0,0,0,1);
+    }
+  }
+}
+
 .is-index-slider {
   display: block;
   position: relative;
@@ -719,6 +788,9 @@ h5 {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: center;
+
+    opacity: 0;
+    will-change: opacity;
   }
   .ss-c-current {
     @include intro-black;
@@ -735,6 +807,7 @@ h5 {
     @include font(#ffffff,39px,43px);
     text-transform: uppercase;
   }
+
   .ss-title {
     margin-bottom: 20px;
     display: flex;
@@ -773,41 +846,12 @@ h5 {
   }
 
   // arrows
-  .ss-arrow-parent {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-between;
-
+  .is-arrows {
     position: absolute;
     z-index: 10;
     bottom: calc(47% - 100px);
     left: 50%;
-    width: 140px;
     margin-left: -570px;
-  }
-  .ss-arrow {
-    cursor: pointer;
-    user-select: none;
-    position: relative;
-    display: block;
-    width: 60px;
-    height: 60px;
-    background: rgba(0,0,0,.8);
-    transition: background .2s;
-    svg {
-      pointer-events: none;
-      display: block;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      margin: -7px 0 0 -11px;
-    }
-    &:hover {
-      background: rgba(0,0,0,1);
-    }
-
   }
 
   .swiper-slide-active {
@@ -820,6 +864,10 @@ h5 {
       opacity: 1;
       transform: none;
       transition: color .2s, opacity .5s .8s, transform .5s .8s;
+    }
+    .ss-inner-counter {
+      opacity: 1;
+      transition: opacity 1.3s .5s;
 
     }
   }
@@ -1033,6 +1081,92 @@ h5 {
   }
 }
 
+.is-project-slider {
+  position: relative;
+  width: 100%;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  justify-content: center;
+  .ps-header {
+    display: block;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    h1 {
+      margin-bottom: 0;
+    }
+  }
+  .ps-slider-parent {
+    position: relative;
+    display: block;
+    overflow: hidden;
+    width: 100%;
+    margin-top: 40px;
+  }
+
+  .swiper-container {
+    margin-bottom: 20px;
+  }
+  .swiper-wrapper {
+
+  }
+  .swiper-slide {
+    width: auto !important;
+  }
+
+  .ps-cell {
+    display: block;
+    width: 500px;
+    height: 50vh;
+    min-height: 290px;
+    max-height: 450px;
+    background: #dadada;
+    &:before {
+      pointer-events: none;
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0,0,0,.5);
+      transition: background .2s;
+    }
+    &:hover {
+      &:before {
+        background: rgba(0,0,0,.3);
+      }
+    }
+  }
+  .ps-cell-preview {
+    box-sizing: border-box;
+    display: block;
+    position: absolute;
+    z-index: 50;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px;
+  }
+  .ps-c-title {
+    margin-bottom: 10px;
+    @include intro;
+    @include font(#ffffff,45px,51px);
+  }
+  .ps-c-description {
+    @include intro-book;
+    @include font(#ffffff,19px,25px);
+  }
+}
+
 // pages
 
 .page-default {
@@ -1047,7 +1181,13 @@ h5 {
   width: 100%;
   height: 100vh;
   min-height: 580px;
-  padding: 0 !important;
+  padding-top: 0 !important;
+}
+
+.page-projects {
+  width: 100%;
+  height: 100vh;
+  min-height: 580px;
 }
 
 // sfx
@@ -1055,7 +1195,7 @@ h5 {
 .jsfx {
   .page-default {
     opacity: 0;
-    transition: opacity 1s;
+    transition: opacity .3s;
     will-change: opacity;
   }
 }
@@ -1063,6 +1203,7 @@ h5 {
 .jsfx-ready {
   .page-default {
     opacity: 1;
+    transition: opacity 1s;
   }
 }
 
@@ -1084,9 +1225,13 @@ h5 {
       }
     }
   }
-  .is-logo {
+  .is-header-logo {
     top: 35px;
     left: 40px;
+  }
+  .is-header-phone {
+    top: 37px;
+    right: 160px;
   }
   .page-default {
     padding-top: 100px;

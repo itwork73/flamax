@@ -83,7 +83,6 @@
 </div>
 
 
-<script type="text/javascript" src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 <script type="text/javascript" src="/assets/main.js?nocache=<?=rand()?>"></script>
 
 

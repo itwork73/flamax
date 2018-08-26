@@ -5,6 +5,7 @@
 
     <div class="wrapper is-style">
 
+        <script type="text/javascript" src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 
         <div class="is-page-contacts" data-is="page-contacts">
 
