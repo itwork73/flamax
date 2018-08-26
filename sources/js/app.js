@@ -57,16 +57,19 @@ var globalApp = {
 var moduleApp = {
     'search-tools':function($thisModule){
 
+
+
+
         var $nodes = $thisModule.getNodeList();
 
         $nodes.searchToolsForm.on('submit',function(e){
-            if (nodes.searchToolsInput.val().length > 0) {
+            if ($nodes.searchToolsInput.val().length > 0) {
                 return true;
             } else {
                 $thisModule.addClass('state-bounce');
                 setTimeout(function(){
                     $thisModule.removeClass('state-bounce');
-                    nodes.searchToolsInput.select().focus();
+                    $nodes.searchToolsInput.select().focus();
                 }, 400);
                 return false;
             }
