@@ -100,6 +100,22 @@ body {
   .main-layout-footer {
     display: none;
   }
+  .is-header-phone {
+    a {
+      color: #fff;
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+      &:hover {
+        color: #ccc;
+        svg path {
+          fill: #ccc;
+        }
+      }
+    }
+  }
 }
 
 .body-state-projects {
@@ -462,8 +478,8 @@ h5 {
   a {
     position: relative;
     display: block;
-    @include intro-book;
-    @include font(#fff,17px,17px);
+    @include intro;
+    @include font(#888,18px,18px);
     transition: color .2s;
     svg {
       display: block;
@@ -471,14 +487,14 @@ h5 {
       top: 2px;
       left: -25px;
       path {
-        fill: #fff;
+        fill: #888;
         transition: fill .2s;
       }
     }
     &:hover {
-      color: #ddd;
+      color: #000;
       svg path {
-        fill: #ddd;
+        fill: #000;
       }
     }
   }
@@ -1164,6 +1180,48 @@ h5 {
   .ps-c-description {
     @include intro-book;
     @include font(#ffffff,19px,25px);
+  }
+}
+
+.is-news-list {
+  display: block;
+  margin-bottom: 40px;
+  @include is-grid(2,40);
+  .grid-item {
+    margin-bottom: 60px;
+  }
+  .news-item {
+    display: block;
+    width: 100%;
+    &:hover {
+      .ni-header {
+        color: $red;
+      }
+    }
+  }
+  .ni-image {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: auto;
+    padding-bottom: 40%;
+    margin-bottom: 15px;
+    background: #dadada;
+  }
+  .ni-date {
+    margin-bottom: 10px;
+    @include intro;
+    @include font(#898989,14px,14px);
+  }
+  .ni-header {
+    margin-bottom: 15px;
+    @include intro-black;
+    @include font(#000,19px,25px);
+    transition: color .2s;
+  }
+  .ni-preview {
+    @include intro;
+    @include font(#444,16px,24px);
   }
 }
 

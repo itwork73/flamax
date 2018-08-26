@@ -1,4 +1,6 @@
+<? $headerState="index"; ?>
 <? $bodyState="body-state-index";  ?>
+
 <? include($_SERVER["DOCUMENT_ROOT"] . '/h/include/header.php'); ?>
 
 <div class="page-default page-index">

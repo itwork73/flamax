@@ -1,4 +1,6 @@
+<? $headerState=""; ?>
 <? $bodyState="body-state-projects";  ?>
+
 <? include($_SERVER["DOCUMENT_ROOT"] . '/h/include/header.php'); ?>
 
 <div class="page-default page-projects">
