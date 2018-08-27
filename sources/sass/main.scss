@@ -1612,8 +1612,6 @@ p {
   }
 }
 
-
-
 .is-news-date {
   margin: -10px 0 40px 0;
   @include intro;
@@ -1624,6 +1622,15 @@ p {
   position: relative;
   display: block;
   margin: 40px 0 40px 0;
+}
+
+.is-document-list {
+  .dl-item {
+
+  }
+  .dl-item-icon {
+
+  }
 }
 
 // pages

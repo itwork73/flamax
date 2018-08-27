@@ -140,10 +140,10 @@
                     <a class="dn-link" href="/h/page-projects.php">
                         Наши проекты
                     </a>
-                    <a class="dn-link" href="#">
+                    <a class="dn-link" href="/h/page-technology.php">
                         Технология
                     </a>
-                    <a class="dn-link" href="#">
+                    <a class="dn-link" href="/h/page-docs.php">
                         Документы
                     </a>
                     <a class="dn-link" href="/h/page-news.php">
