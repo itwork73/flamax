@@ -168,7 +168,6 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 function edit_admin_menus(){
 
-    return false;
     global $menu;
 
     $menu[5][0] = 'Проекты';
@@ -177,6 +176,7 @@ function edit_admin_menus(){
     remove_submenu_page('edit.php','edit-tags.php?taxonomy=post_tag');
 
     remove_menu_page('index.php');
+    remove_menu_page('edit.php');
     remove_menu_page('edit-comments.php');
     remove_menu_page('upload.php');
     remove_menu_page('themes.php');
