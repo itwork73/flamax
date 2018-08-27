@@ -17,7 +17,8 @@
                             <div class="ss-inner-layout">
                                 <div class="wrapper">
                                     <div class="ss-inner-layout-content">
-                                        <a class="ss-inner-preview state-link" href="#">
+                                        <a class="ss-inner-preview state-link" href="/h/page-project-details.php">
+
                                             <div class="ss-title">
                                                 <div class="ss-title-text">
                                                     Leroy Merlen
@@ -29,6 +30,7 @@
                                             <div class="ss-description">
                                                 Пожарный запас воды
                                             </div>
+                                            
                                         </a>
                                         <div class="ss-inner-counter">
                                             <div class="ss-c-current">

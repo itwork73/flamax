@@ -23,7 +23,7 @@
                     <?foreach(array(1,2,3,4,5,6,8,9) as $key=>$value):?>
 
                         <div class="swiper-slide">
-                            <a class="ps-cell" href="#">
+                            <a class="ps-cell" href="/h/page-project-details.php">
                                 <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp1.jpg')"></div>
                                 <div class="ps-cell-preview">
                                     <div class="ps-c-title">

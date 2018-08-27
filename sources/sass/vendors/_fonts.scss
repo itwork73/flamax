@@ -20,6 +20,13 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: 'bebas-book';
+  src: url('/assets/fonts/bebas-book.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 @mixin arial {
   font-family: 'Arial', sans-serif;
   font-weight: normal;
@@ -42,5 +49,10 @@
 
 @mixin intro-book {
   font-family: 'intro-book', 'Arial', sans-serif;
+  font-weight: normal;
+}
+
+@mixin bebas-book {
+  font-family: 'bebas-book', 'Arial', sans-serif;
   font-weight: normal;
 }

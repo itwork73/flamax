@@ -5,7 +5,7 @@
 
 <div class="page-default">
 
-    <div class="wrapper is-style">
+    <div class="wrapper">
 
         <script type="text/javascript" src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 

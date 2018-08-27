@@ -5,7 +5,7 @@
 
 <div class="page-default">
 
-    <div class="wrapper is-style">
+    <div class="wrapper">
 
         <h1>
             Новости
@@ -17,7 +17,7 @@
                 <?foreach(array(1,2,3,4,5,6) as $key => $value):?>
 
                     <div class="grid-item">
-                        <a class="news-item" href="#">
+                        <a class="news-item" href="/h/page-news-details.php">
                             <div class="ni-image">
                                 <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp1.jpg');"></div>
                             </div>

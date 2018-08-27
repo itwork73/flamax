@@ -145,6 +145,21 @@ var globalApp = {
         },
         'submitClosestForm':function($thisNode,thisValue){
             $thisNode.closest('form').submit();
+        },
+        'navTo':function($thisNode,thisValue){
+
+            var $scrollNode = $('html,body');
+            var $target = $('[data-nav-target="'+thisValue.target+'"]');
+
+            if ($target.length) {
+                var h = $target.offset().top;
+
+                // shift
+                if (!isNaN(thisValue.shift)) { h = h + Number(thisValue.shift); }
+
+                $scrollNode.animate({'scrollTop':h}, 800);
+            }
+
         }
     },
     'pageLoader':function(){
@@ -181,6 +196,7 @@ var moduleApp = {
             autoplay: 5000,
             onlyExternal: true,
             roundLengths: true,
+            preventClicks: false,
             prevButton: $thisModule.find('.ss-arrow-prev')[0],
             nextButton: $thisModule.find('.ss-arrow-next')[0]
         };
@@ -337,8 +353,9 @@ var moduleApp = {
             slidesOffsetBefore: shift,
             slidesOffsetAfter: 60,
             spaceBetween: 60,
-            onlyExternal: false,
+            onlyExternal: true,
             roundLengths: true,
+            preventClicks: false,
             prevButton: $thisModule.find('.ss-arrow-prev')[0],
             nextButton: $thisModule.find('.ss-arrow-next')[0]
         };
@@ -356,6 +373,23 @@ var moduleApp = {
             }, 50);
 
         });
+    },
+    'wide-slider':function($thisModule){
+        var swiperParams = {
+            speed: 500,
+            loop: true,
+            loopAdditionalSlides: 6,
+            autoplay: 5000,
+            onlyExternal: false,
+            roundLengths: true,
+            centeredSlides: true,
+            slidesPerView: 2.2,
+            spaceBetween: 30,
+            prevButton: $thisModule.find('.ws-arrow-prev')[0],
+            nextButton: $thisModule.find('.ws-arrow-next')[0]
+        };
+
+        var thisSwiper = $thisModule.find('.swiper-container').swiper(swiperParams);
     }
 
 };
