@@ -19,6 +19,7 @@ $outputArray = array(
     "DATE"=>get_field('date', $thisID),
     "CONTENT_UP"=>get_post_field('post_content', $thisID),
     "CONTENT_DOWN"=>get_field('content_down', $thisID),
+    "CONTENT_COUNTERS"=>get_field('content_counters', $thisID),
     "IMAGE_MAIN"=>get_field('image_main', $thisID),
     "IMAGE_GALLERY_ARRAY"=>get_field('image_gallery', $thisID)
 );
@@ -66,9 +67,11 @@ get_header();
                             <div class="ss-title-text">
                                 <?=$outputArray["TITLE"]?>
                             </div>
-                            <div class="ss-title-volume">
-                                <?=$outputArray["VOLUME"]?>
-                            </div>
+                            <?if($outputArray["VOLUME"]):?>
+                                <div class="ss-title-volume">
+                                    <?=$outputArray["VOLUME"]?>
+                                </div>
+                            <?endif?>
                         </div>
                         <div class="ss-description">
                             <?=$outputArray["PREVIEW"]?>
@@ -164,44 +167,7 @@ get_header();
 
                 <div class="pc-list">
 
-                    <div class="pc-item">
-                        <div class="pc-value">
-                            2016
-                        </div>
-                        <div class="pc-key">
-                            Год строительства
-                        </div>
-                    </div>
-
-                    <div class="pc-item">
-                        <div class="pc-value">
-                            02
-                        </div>
-                        <div class="pc-key">
-                            Резервуара –<br/>
-                            количество емкостей
-                        </div>
-                    </div>
-
-                    <div class="pc-item">
-                        <div class="pc-value">
-                            2200
-                        </div>
-                        <div class="pc-key">
-                            Кубометров –<br/>
-                            общий объем
-                        </div>
-                    </div>
-
-                    <div class="pc-item">
-                        <div class="pc-value">
-                            20
-                        </div>
-                        <div class="pc-key">
-                            Дней – сроки<br/>
-                            выполнения работ
-                        </div>
-                    </div>
+                    <?=$outputArray["CONTENT_COUNTERS"]?>
 
                 </div>
             </div>

@@ -11,7 +11,7 @@ $outputArray = array();
 $inputArray = get_pages(array(
     "child_of"=>B_DATA_ARRAY["BLOCKS"]["PROJECTS"],
     "sort_order" =>"ASC",
-    "sort_column" =>"post_title",
+    "sort_column" =>"menu_order",
     "post_type" =>"page",
     "post_status" =>"publish"
 ));

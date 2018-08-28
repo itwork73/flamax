@@ -168,6 +168,8 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 
 function edit_admin_menus(){
 
+    return false;
+
     global $menu;
 
     $menu[5][0] = 'Проекты';
