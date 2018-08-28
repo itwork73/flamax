@@ -32,7 +32,9 @@ $outputArray = array(
 // custom state
 $bCustomState = array(
     "body"=>"body-state-projects-list",
-    "header"=>"projectsList"
+    "header"=>"projectsList",
+    "seoTitle"=>get_field('seo_title', get_the_ID()),
+    "seoDescription"=>get_field('seo_description', get_the_ID()),
 );
 
 get_header();

@@ -7,9 +7,10 @@
 <head>
     <meta charset="utf-8" />
 
-    <title>Project title</title>
+    <title><?=$bCustomState["seoTitle"]?></title>
+    <meta name="robots" content="index, follow" />
     <meta name="keywords" content="" />
-    <meta name="description" content="" />
+    <meta name="description" content="<?=$bCustomState["seoDescription"]?>" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" id="viewport" content="width=1380">

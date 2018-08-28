@@ -41,7 +41,9 @@ foreach($inputArray as $key => $thisPage){
 // custom state
 $bCustomState = array(
     "body"=>"body-state-projects",
-    "header"=>""
+    "header"=>"",
+    "seoTitle"=>get_field('seo_title', get_the_ID()),
+    "seoDescription"=>get_field('seo_description', get_the_ID()),
 );
 
 get_header();
