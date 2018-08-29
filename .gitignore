@@ -3,8 +3,6 @@
 stats/
 errors/
 deploy.sh
-upload/
-uploads/
 stats/*
 bitrix/html_pages/
 bitrix/cache/
