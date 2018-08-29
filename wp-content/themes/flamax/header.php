@@ -167,7 +167,7 @@
 
             <div class="gn-dock-search">
                 <div class="is-search-tools" data-is="search-tools">
-                    <form data-node="searchToolsForm" action="/h/page-index.php" method="get">
+                    <form data-node="searchToolsForm" action="/" method="get">
                         <div class="st-search-inner">
                             <a class="st-search-submit" href="#" data-gclick="submitClosestForm">
                                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
@@ -175,7 +175,7 @@
                                 </svg>
                             </a>
                             <div class="st-search-input">
-                                <input data-node="searchToolsInput" autocomplete="off" type="text" name="q" placeholder="Поиск по сайту">
+                                <input data-node="searchToolsInput" autocomplete="off" type="text" name="s" placeholder="Поиск по сайту">
                             </div>
                         </div>
                     </form>

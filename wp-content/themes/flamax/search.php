@@ -7,49 +7,106 @@
  * @package Flamax
  */
 
+?>
+
+
+<?
+
+$outputArray = array();
+
+global $wp_query;
+$inputArray = $wp_query->posts;
+
+
+
+foreach($inputArray as $key => $thisPage){
+    $thisID = $thisPage->ID;
+
+    $outputArray[] = array(
+        "ID"=>$thisID,
+        "LINK"=>get_page_link($thisID),
+        "TITLE"=>get_post_field('post_title', $thisID),
+        "PREVIEW"=>strip_tags(get_post_field('post_content', $thisID))
+    );
+
+}
+
+//echo '<pre>';var_dump($outputArray);echo'</pre>';exit;
+
+
+?>
+
+
+<?
+// custom state
+$bCustomState = array(
+    "body"=>"",
+    "header"=>""
+);
+
 get_header();
 ?>
 
-	<section id="primary" class="content-area">
-		<main id="main" class="site-main">
 
-		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
-				<h1 class="page-title">
-					<?php
-					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'flamax' ), '<span>' . get_search_query() . '</span>' );
-					?>
-				</h1>
-			</header><!-- .page-header -->
+    <div class="page-default">
 
-			<?php
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+        <div class="wrapper">
 
-				/**
-				 * Run the loop for the search to output the results.
-				 * If you want to overload this in a child theme then include a file
-				 * called content-search.php and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', 'search' );
+            <div class="wrapper-a is-style-list is-style-image">
 
-			endwhile;
 
-			the_posts_navigation();
+                <h3>
+                    Результаты поиска
+                </h3>
 
-		else :
+                <div class="is-search-tools" data-is="search-tools">
+                    <form data-node="searchToolsForm" action="/" method="get">
+                        <div class="st-search-inner">
+                            <a class="st-search-submit" href="#" data-gclick="submitClosestForm">
+                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
+                                    <path d="M1 10a9 9 0 0 1 18 0 9 9 0 0 1-18 0zm25 14l-8-8a10 10 0 1 0-18-6 10 10 0 0 0 16 8l8 8z"></path>
+                                </svg>
+                            </a>
+                            <div class="st-search-input">
+                                <input data-node="searchToolsInput" value="<?=$_REQUEST["s"]?>" autocomplete="off" type="text" name="s" placeholder="Поиск по сайту">
+                            </div>
+                        </div>
+                    </form>
+                </div>
 
-			get_template_part( 'template-parts/content', 'none' );
 
-		endif;
-		?>
 
-		</main><!-- #main -->
-	</section><!-- #primary -->
+                <?if(count($outputArray) > 0):?>
 
-<?php
-get_sidebar();
+                    <div>
+                        Найдено <?=count($outputArray)?> страниц
+                    </div>
+
+                    <?foreach($outputArray as $key => $value):?>
+                        <?if($key>25){ break; }?>
+                        <div>
+                            <div>
+                                <a href="<?=$value["LINK"]?>">
+                                    <?=$value["TITLE"]?>
+                                </a>
+                            </div>
+                            <div>
+                                <?=$value["PREVIEW"]?>
+                            </div>
+                        </div>
+
+                    <?endforeach?>
+                <?else:?>
+                    <div>
+                        результатов не найдено
+                    </div>
+                <?endif?>
+
+            </div>
+        </div>
+    </div>
+
+<?
 get_footer();
+?>
