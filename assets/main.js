@@ -1460,7 +1460,7 @@ var moduleApp = {
         if (shift < 40) { shift = 40; }
 
         var swiperParams = {
-            speed: 500,
+            speed: 300,
             loop: false,
             slidesPerView: 'auto',
             slidesOffsetBefore: shift,

@@ -305,6 +305,31 @@ p {
   }
 }
 
+.is-file-download {
+  display: inline-block;
+  vertical-align: middle;
+  .fd-label {
+    margin-bottom: 5px;
+    @include intro;
+    @include font(#000,16px,16px);
+    transition: color .2s;
+  }
+  .fd-ext {
+    display: block;
+    @include intro-book;
+    @include font(#888,14px,14px);
+    transition: color .2s;
+  }
+  &:hover {
+    .fd-label {
+      color: $red;
+    }
+    .fd-ext {
+      color: #000;
+    }
+  }
+}
+
 // grid
 
 @mixin is-grid($cols:4,$gap:40,$debug:0) {
@@ -839,7 +864,7 @@ p {
   }
 }
 
-.is-style {
+.is-style-list {
   ul {
 
   }
@@ -1371,7 +1396,7 @@ p {
   position: relative;
   display: block;
   overflow: hidden;
-  margin-bottom: 60px;
+  margin: 60px 0;
   .swiper-container {
 
   }
@@ -1729,8 +1754,19 @@ p {
 
 .is-news-action {
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
   margin: 40px 0 40px 0;
+
+  .na-item {
+    display: block;
+    + .na-item {
+      margin-left: 40px;
+    }
+  }
 }
 
 .is-document-list {
