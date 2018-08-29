@@ -1540,6 +1540,31 @@ var moduleApp = {
             arrowButtonMarkup:'<b class="button"></b>'
         });
 
+    },
+    'technology-page':function($thisModule){
+        var $thisNodes = $thisModule.getNodeList();
+
+
+
+        $thisNodes.swiperMain.swiper({
+            speed: 500,
+            loop: false,
+            direction: 'vertical',
+            onlyExternal: true,
+            roundLengths: true,
+            preventClicks: false,
+            mousewheelControl: true
+        });
+
+        $thisNodes.swiperSub.swiper({
+            speed: 500,
+            loop: false,
+            direction: 'horizontal',
+            nested: true,
+            onlyExternal: false,
+            roundLengths: true,
+            preventClicks: false
+        });
     }
 
 };

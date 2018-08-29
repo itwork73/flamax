@@ -146,6 +146,30 @@ body {
   }
 }
 
+.body-state-technology {
+  overflow: hidden;
+  background: #4e5154;
+  .main-layout-footer {
+    display: none;
+  }
+  .is-header-phone {
+    a {
+      color: #fff;
+      svg {
+        path {
+          fill: #fff;
+        }
+      }
+      &:hover {
+        color: #ccc;
+        svg path {
+          fill: #ccc;
+        }
+      }
+    }
+  }
+}
+
 .body-state-nav-open {
   .is-global-nav-overlay {
     cursor: pointer;
@@ -1800,7 +1824,28 @@ p {
   }
 }
 
-
+.is-technology-page {
+  display: block;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  .swiper-container {
+    width: 100%;
+    height: 100%;
+  }
+  .sw-wrapper-h {
+    height: 100%;
+  }
+  .sw-wrapper-v {
+    width: 100%;
+  }
+  .swiper-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+}
 
 // pages
 
@@ -1824,6 +1869,13 @@ p {
   width: 100%;
   height: 100vh;
   min-height: 580px;
+}
+
+.page-technology {
+  width: 100%;
+  height: 100vh;
+  min-height: 580px;
+  padding-top: 0 !important;
 }
 
 .page-projects-list {

@@ -11,7 +11,8 @@ array_shift($bUriArray);
 $bDataArray = array(
     "BLOCKS"=>array(
         "PROJECTS"=>"48",    // проекты
-        "TECHNOLOGY"=>null,  // технология
+        "TECHNOLOGY"=>"97",  // технология
+        "PARTNERS"=>"243",   // технология список партнеров
         "DOCUMENTS"=>"100",  // документы
         "NEWS"=>"104",       // новости
         "PERSONAL"=>"130",   // персонал
