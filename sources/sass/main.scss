@@ -1249,6 +1249,7 @@ p {
 }
 
 .is-contacts-map {
+  position: relative;
   display: block;
   margin-bottom: 40px;
   .cm-layout {
@@ -1851,6 +1852,24 @@ p {
   }
 }
 
+.is-contacts-drag-image {
+  user-select: none;
+  cursor: grab;
+  cursor: -webkit-grab;
+  position: absolute;
+  display: block;
+  z-index: 100;
+  top: 50%;
+  right: -40px;
+  width: 280px;
+  height: 180px;
+  margin-top: -90px;
+  background: #222;
+  box-shadow: -5px 0 25px 0px rgba(0,0,0,.4);
+  img {
+    display: none;
+  }
+}
 
 
 

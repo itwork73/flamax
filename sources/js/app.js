@@ -196,51 +196,93 @@ var moduleApp = {
         tabsCore.addEvent();
         $navLinks.eq(0).addClass('active');
     },
-    'page-contacts':function($thisModule){
+    'contacts-map':function($thisModule){
 
-        var $nodes = $thisModule.getNodeList();
+        ymaps.ready(function(){
 
-        var tabsConfig = {
-            onAfterChange:function(t){
+            var $mapNode = $thisModule.find('[data-node="cYmap"]');
 
+            var mapLat = $mapNode.data().lat || 55.751244;
+            var mapLng = $mapNode.data().lng || 37.618423;
+            var mapZoom = $mapNode.data().zoom || 16;
 
-                var $mapNode = t.thisContent.find('[data-node="cYmap"]');
+            var map = new ymaps.Map($mapNode[0], {
+                center: [mapLat, mapLng],
+                zoom: mapZoom,
+                type: 'yandex#publicMap',
+                behaviors: ['drag', 'dblClickZoom']
+            });
 
-                if ($mapNode.length > 0 && !$mapNode.hasClass('state-ready') && window.ymaps && window.ymaps.Map) {
+            var marker = new ymaps.Placemark(map.getCenter(), {}, {
+                iconLayout: 'default#image',
+                iconImageHref: '/assets/img/pin.png',
+                iconImageSize: [40,55],
+                iconImageOffset: [-20, -55],
+                hideIconOnBalloonOpen: false
+            });
 
-                    var mapLat = $mapNode.data().lat || 55.751244;
-                    var mapLng = $mapNode.data().lng || 37.618423;
-                    var mapZoom = $mapNode.data().zoom || 16;
-
-                    var map = new ymaps.Map($mapNode[0], {
-                        center: [mapLat, mapLng],
-                        zoom: mapZoom,
-                        type: 'yandex#publicMap',
-                        behaviors: ['drag', 'dblClickZoom']
-                    });
-
-                    var marker = new ymaps.Placemark(map.getCenter(), {}, {
-                        iconLayout: 'default#image',
-                        iconImageHref: '/assets/img/pin.png',
-                        iconImageSize: [40,55],
-                        iconImageOffset: [-20, -55],
-                        hideIconOnBalloonOpen: false
-                    });
+            map.geoObjects.add(marker);
 
 
-                    map.geoObjects.add(marker);
-
-
-                    $mapNode.addClass('state-ready');
-
-                }
-
-
-
+            // shift pin to right
+            if ($thisModule.data().shift) {
+                var position = map.getGlobalPixelCenter();
+                map.setGlobalPixelCenter([ position[0] + 110, position[1] - 20 ]);
             }
+
+
+
+        });
+
+
+    },
+    'contacts-drag-image':function($thisModule){
+
+        var dragStatus = false;
+        var v = [0,0];
+        var c = [-1,-1];
+        var l = [-2,-2];
+
+
+        $thisModule.on('mousedown',function(){
+            dragStatus = true;
+            l[0] = c[0]; // last === current
+            l[1] = c[1];
+        });
+
+        conf.nodeDoc.on('mouseup',function(){
+            dragStatus = false;
+
+            var axelX = c[0] - l[0];
+            var axelY = c[1] - l[1];
+            console.log(c[0] - l[0], c[1] - l[1]);
+
+        });
+
+        conf.nodeDoc.on('mousemove',function(e){
+            c[0] = e.screenX;
+            c[1] = e.screenY;
+        });
+
+        var ticker = function(){
+            if (dragStatus) {
+                v[0] = c[0] - l[0];
+                v[1] = c[1] - l[1];
+                var style = 'transform:translate3d('+v[0]+'px,'+v[1]+'px,0px);';
+                $thisModule.attr('style',style);
+            }
+
+
+
+
+
+            window.requestAnimationFrame(ticker);
         };
 
-        moduleApp['tabs-nav']($nodes.contactsTabs, tabsConfig);
+
+
+
+        ticker();
 
     },
     'project-slider':function($thisModule){

@@ -16,7 +16,7 @@ $bDataArray = array(
         "DOCUMENTS"=>"100",  // документы
         "NEWS"=>"104",       // новости
         "PERSONAL"=>"130",   // персонал
-        "OFFICES"=>"132"     // филиалы
+        "OFFICES"=>"94"     // филиалы
     ),
     "URI_ARRAY"=>$bUriArray,
     "NAV_ARRAY"=>array(
