@@ -1356,6 +1356,11 @@ p {
     @include intro;
     @include font(#ffffff,45px,51px);
   }
+  .ps-c-news-title {
+    margin-bottom: 30px;
+    @include intro-book;
+    @include font(#ffffff,36px,40px);
+  }
   .ps-c-description {
     @include intro-book;
     @include font(#ffffff,19px,25px);
@@ -1847,6 +1852,11 @@ p {
       font-size: 35px;
       line-height: 40px;
     }
+    .ps-c-news-title {
+
+      font-size: 24px;
+      line-height: 28px;
+    }
     .ps-c-description {
       font-size: 15px;
       line-height: 19px;
@@ -1854,6 +1864,8 @@ p {
 
   }
 }
+
+
 
 // 320px version
 // @import "vendors/mobile320";

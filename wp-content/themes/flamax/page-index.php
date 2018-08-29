@@ -61,6 +61,8 @@ foreach($inputArray as $key => $thisPage){
                 <? $arrayCount = count($outputArray); ?>
                 <?foreach($outputArray as $key => $value):?>
 
+                    <?if($key>49){ break; }?>
+
                     <div class="swiper-slide">
                         <div class="ss-inner">
                             <div class="full-size img-cover" style="background-image:url('<?=$value["IMAGE_MAIN"]?>');"></div>
