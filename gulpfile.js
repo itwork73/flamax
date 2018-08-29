@@ -13,6 +13,7 @@ var jslibs = [
     sourcesPath + '/js/vendors/jquery-1.12.0.min.js',
     sourcesPath + '/js/vendors/swiper.jquery.min.js',
     sourcesPath + '/js/vendors/jquery.eventer.js',
+    sourcesPath + '/js/vendors/jquery.selectric.min.js',
     sourcesPath + '/js/app.js'
 ];
 

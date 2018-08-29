@@ -7,10 +7,10 @@
 <head>
     <meta charset="utf-8" />
 
-    <title><?=$bCustomState["seoTitle"]?></title>
+    <title><?the_field('seo_title', get_the_ID())?></title>
     <meta name="robots" content="index, follow" />
     <meta name="keywords" content="" />
-    <meta name="description" content="<?=$bCustomState["seoDescription"]?>" />
+    <meta name="description" content="<?the_field('seo_description', get_the_ID())?>" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="format-detection" content="telephone=no">
     <meta name="viewport" id="viewport" content="width=1380">

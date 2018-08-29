@@ -7,6 +7,18 @@
 <?
 // result modifier
 
+$filterOutput = array(
+    "TYPE"=>array(),
+    "OWNER"=>array(),
+    "YEAR"=>array()
+);
+
+$filterInput = array(
+    "TYPE"=>empty($_REQUEST["filterType"]) ? false : $_REQUEST["filterType"],
+    "OWNER"=>empty($_REQUEST["filterOwner"]) ? false : $_REQUEST["filterOwner"],
+    "YEAR"=>empty($_REQUEST["filterYear"]) ? false : $_REQUEST["filterYear"],
+);
+
 $outputArray = array();
 $inputArray = get_pages(array(
     "child_of"=>B_DATA_ARRAY["BLOCKS"]["PROJECTS"],
@@ -19,6 +31,22 @@ $inputArray = get_pages(array(
 foreach($inputArray as $key => $thisPage){
     $thisID = $thisPage->ID;
 
+    // filter
+    $filterType = trim(get_field('filter_type', $thisID));
+    if(!in_array($filterType, $filterOutput["TYPE"], false)){
+        array_push($filterOutput["TYPE"], $filterType);
+    }
+
+    $filterOwner = trim(get_field('filter_owner', $thisID));
+    if(!in_array($filterOwner, $filterOutput["OWNER"], false)){
+        array_push($filterOutput["OWNER"], $filterOwner);
+    }
+
+    $filterYear = trim(get_field('filter_year', $thisID));
+    if(!in_array($filterYear, $filterOutput["YEAR"], false)){
+        array_push($filterOutput["YEAR"], $filterYear);
+    }
+
     $outputArray[] = array(
         "ID"=>$thisID,
         "LINK"=>get_page_link($thisID),
@@ -29,9 +57,17 @@ foreach($inputArray as $key => $thisPage){
         "CONTENT_UP"=>get_post_field('post_content', $thisID),
         "CONTENT_DOWN"=>get_field('content_down', $thisID),
         "IMAGE_MAIN"=>get_field('image_main', $thisID),
-        "IMAGE_GALLERY_ARRAY"=>get_field('image_gallery', $thisID)
+        "IMAGE_GALLERY_ARRAY"=>get_field('image_gallery', $thisID),
+        "FILTER_TYPE"=>$filterType,
+        "FILTER_OWNER"=>$filterOwner,
+        "FILTER_YEAR"=>$filterYear
     );
+
 }
+
+sort($filterOutput["TYPE"]);
+sort($filterOutput["OWNER"]);
+rsort($filterOutput["YEAR"]);
 
 //echo '<pre>';var_dump($outputArray);echo'</pre>';
 
@@ -41,9 +77,7 @@ foreach($inputArray as $key => $thisPage){
 // custom state
 $bCustomState = array(
     "body"=>"body-state-projects",
-    "header"=>"",
-    "seoTitle"=>get_field('seo_title', get_the_ID()),
-    "seoDescription"=>get_field('seo_description', get_the_ID()),
+    "header"=>""
 );
 
 get_header();
@@ -59,19 +93,74 @@ get_header();
 
             <div class="ps-header">
                 <div class="wrapper">
-                    <h1>
-                        Проекты
-                    </h1>
+                    <div class="ps-h-layout">
+                        <div class="ps-h-left">
+                            <h1 class="no-mar">
+                                Проекты
+                            </h1>
+                        </div>
+                        <div class="ps-h-right">
+
+                            <div class="is-header-filter" data-is="header-filter-single">
+                                <form>
+                                    <div class="hf-inner">
+                                        <div class="is-form-field field-select" data-is="field-selectric">
+                                            <select name="filterType">
+                                                <option value="">Область применения</option>
+                                                <option value="">Все</option>
+                                                <?foreach($filterOutput["TYPE"] as $key => $value):?>
+                                                    <option value="<?=$value?>" <?if($filterInput["TYPE"] == $value):?> selected<?endif?>>
+                                                        <?=$value?>
+                                                    </option>
+                                                <?endforeach?>
+                                            </select>
+                                        </div>
+                                        <div class="is-form-field field-select" data-is="field-selectric">
+                                            <select name="filterOwner">
+                                                <option value="">Заказчик</option>
+                                                <option value="">Все</option>
+                                                <?foreach($filterOutput["OWNER"] as $key => $value):?>
+                                                    <option value="<?=$value?>" <?if($filterInput["OWNER"] == $value):?> selected<?endif?>>
+                                                        <?=$value?>
+                                                    </option>
+                                                <?endforeach?>
+                                            </select>
+                                        </div>
+                                        <div class="is-form-field field-select" data-is="field-selectric">
+                                            <select name="filterYear">
+                                                <option value="">Год выполнения</option>
+                                                <option value="">Все</option>
+                                                <?foreach($filterOutput["YEAR"] as $key => $value):?>
+                                                    <option value="<?=$value?>" <?if($filterInput["YEAR"] == $value):?> selected<?endif?>>
+                                                        <?=$value?>
+                                                    </option>
+                                                <?endforeach?>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
             </div>
 
             <div class="ps-slider-parent">
                 <div class="swiper-container">
                     <div class="swiper-wrapper">
+
+
                         <?foreach($outputArray as $key => $value):?>
+
+
+                            <? if($filterInput["TYPE"] && $filterInput["TYPE"] !== $value["FILTER_TYPE"]) { continue; } ?>
+                            <? if($filterInput["OWNER"] && $filterInput["OWNER"] !== $value["FILTER_OWNER"]) { continue; } ?>
+                            <? if($filterInput["YEAR"] && $filterInput["YEAR"] !== $value["FILTER_YEAR"]) { continue; } ?>
 
                             <div class="swiper-slide">
                                 <a class="ps-cell" href="<?=$value["LINK"]?>">
+                                    <img class="ps-cell-blank" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABbCAMAAACyENAeAAAAA1BMVEUAre77YTABAAAAAXRSTlMAQObYZgAAACBJREFUaN7twTEBAAAAwqD1T20ND6AAAAAAAAAAAIBzAyPnAAHHDz4bAAAAAElFTkSuQmCC" />
                                     <div class="full-size img-cover" style="background-image:url('<?=$value["IMAGE_MAIN"]?>')"></div>
                                     <div class="ps-cell-preview">
                                         <div class="ps-c-title">
@@ -80,6 +169,14 @@ get_header();
                                         <div class="ps-c-description">
                                             <?=$value["PREVIEW"]?>
                                         </div>
+
+                                        <? /*
+                                        <div style="color:#fff;">
+                                                type: <?=$value["FILTER_TYPE"]?><br/>
+                                                owner: <?=$value["FILTER_OWNER"]?><br/>
+                                                year: <?=$value["FILTER_YEAR"]?><br/>
+                                            </div>
+                                        */ ?>
                                     </div>
                                 </a>
                             </div>

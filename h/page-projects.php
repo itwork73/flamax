@@ -11,9 +11,16 @@
 
         <div class="ps-header">
             <div class="wrapper">
-                <h1>
-                    Проекты
-                </h1>
+                <div class="ps-h-layout">
+                    <div class="ps-h-left">
+                        <h1 class="no-mar">
+                            Проекты
+                        </h1>
+                    </div>
+                    <div class="ps-h-right">
+                        filter here
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -24,6 +31,7 @@
 
                         <div class="swiper-slide">
                             <a class="ps-cell" href="/h/page-project-details.php">
+                                <img class="ps-cell-blank" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGQAAABbCAMAAACyENAeAAAAA1BMVEUAre77YTABAAAAAXRSTlMAQObYZgAAACBJREFUaN7twTEBAAAAwqD1T20ND6AAAAAAAAAAAIBzAyPnAAHHDz4bAAAAAElFTkSuQmCC" />
                                 <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp1.jpg')"></div>
                                 <div class="ps-cell-preview">
                                     <div class="ps-c-title">
