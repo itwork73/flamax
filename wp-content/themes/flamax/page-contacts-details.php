@@ -122,21 +122,6 @@ get_header();
 
                 </div>
 
-
-                <?if($outputArray["THIS_OFFICE"]["IMAGE_GALLERY"]):?>
-
-                    <div class="is-contacts-drag-image" data-is="contacts-drag-image">
-
-                        <div class="full-size img-cover" style="background-image:url('<?=$outputArray["THIS_OFFICE"]["IMAGE_GALLERY"][0]["url"]?>')"></div>
-
-
-
-                        <?foreach($outputArray["THIS_OFFICE"]["IMAGE_GALLERY"] as $imgKey => $imgValue):?>
-                            <img src="<?=$imgValue["url"]?>" />
-                        <?endforeach?>
-                    </div>
-                <?endif?>
-
             </div>
 
         </div>
@@ -146,7 +131,19 @@ get_header();
 
 </div>
 
+<?if($outputArray["THIS_OFFICE"]["IMAGE_GALLERY"]):?>
 
+    <div class="is-contacts-drag-image" data-is="contacts-drag-image">
+
+        <div class="full-size img-cover" style="background-image:url('<?=$outputArray["THIS_OFFICE"]["IMAGE_GALLERY"][0]["url"]?>')"></div>
+
+
+
+        <?foreach($outputArray["THIS_OFFICE"]["IMAGE_GALLERY"] as $imgKey => $imgValue):?>
+            <img src="<?=$imgValue["url"]?>" />
+        <?endforeach?>
+    </div>
+<?endif?>
 
 
 

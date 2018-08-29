@@ -1858,16 +1858,26 @@ p {
   cursor: -webkit-grab;
   position: absolute;
   display: block;
-  z-index: 100;
+  z-index: 180;
   top: 50%;
-  right: -40px;
+  left: 50%;
   width: 280px;
   height: 180px;
-  margin-top: -90px;
+  margin: -90px 0 0 340px;
   background: #222;
   box-shadow: -5px 0 25px 0px rgba(0,0,0,.4);
+  will-change: transform, will-change;
+
+  opacity: 0;
+  pointer-events: none;
   img {
     display: none;
+  }
+
+  &.state-ready {
+    pointer-events: auto;
+    opacity: 1;
+    transition: opacity 1s;
   }
 }
 

@@ -230,6 +230,10 @@ var moduleApp = {
                 map.setGlobalPixelCenter([ position[0] + 110, position[1] - 20 ]);
             }
 
+            setTimeout(function(){
+                $('.is-contacts-drag-image').addClass('state-ready');
+            }, 1000);
+
 
 
         });
@@ -239,48 +243,72 @@ var moduleApp = {
     'contacts-drag-image':function($thisModule){
 
         var dragStatus = false;
-        var v = [0,0];
-        var c = [-1,-1];
-        var l = [-2,-2];
+
+        var v = [0,0]; // velocity
+        var c = [0,0]; // current
+        var cl = [0,0]; // current last
+        var l = [0,0]; // last
+        var s = [0,0]; // saver
+        var a = [0,0];
 
 
         $thisModule.on('mousedown',function(){
+
+
             dragStatus = true;
-            l[0] = c[0]; // last === current
-            l[1] = c[1];
+            l[0] = c[0] - s[0];
+            l[1] = c[1] - s[1];
         });
 
         conf.nodeDoc.on('mouseup',function(){
-            dragStatus = false;
 
-            var axelX = c[0] - l[0];
-            var axelY = c[1] - l[1];
-            console.log(c[0] - l[0], c[1] - l[1]);
+            if (dragStatus) {
+
+                s[0] = v[0] + a[0];
+                s[1] = v[1] + a[1];
+
+
+                var style = 'transition:transform .4s;transform:translate3d('+s[0]+'px,'+s[1]+'px,0px);';
+                $thisModule.attr('style',style);
+
+                if(a[0] == 0 && a[1] == 0) {
+                    alert('show gallery');
+                }
+
+                console.log(a);
+            }
+            dragStatus = false;
 
         });
 
         conf.nodeDoc.on('mousemove',function(e){
             c[0] = e.screenX;
             c[1] = e.screenY;
+
+            if (dragStatus) {
+                a[0] = (c[0] - cl[0]) * 8;
+                a[1] = (c[1] - cl[1]) * 6;
+            } else {
+                a = [0,0];
+            }
+
+
+            cl[0] = c[0];
+            cl[1] = c[1];
         });
 
         var ticker = function(){
             if (dragStatus) {
+
                 v[0] = c[0] - l[0];
                 v[1] = c[1] - l[1];
+
                 var style = 'transform:translate3d('+v[0]+'px,'+v[1]+'px,0px);';
                 $thisModule.attr('style',style);
             }
 
-
-
-
-
             window.requestAnimationFrame(ticker);
         };
-
-
-
 
         ticker();
 
