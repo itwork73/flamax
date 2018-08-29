@@ -1460,7 +1460,7 @@ var moduleApp = {
         var a = [0,0];
 
 
-        $thisModule.on('mousedown',function(){
+        $thisModule.on('mousedown touchstart',function(){
 
 
             dragStatus = true;
@@ -1468,7 +1468,7 @@ var moduleApp = {
             l[1] = c[1] - s[1];
         });
 
-        conf.nodeDoc.on('mouseup',function(){
+        conf.nodeDoc.on('mouseup touchend',function(){
 
             if (dragStatus) {
 
@@ -1489,7 +1489,7 @@ var moduleApp = {
 
         });
 
-        conf.nodeDoc.on('mousemove',function(e){
+        conf.nodeDoc.on('mousemove touchmove',function(e){
             c[0] = e.screenX;
             c[1] = e.screenY;
 
