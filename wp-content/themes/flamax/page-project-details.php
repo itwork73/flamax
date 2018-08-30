@@ -31,8 +31,7 @@ $outputArray = array(
 <?
 // custom state
 $bCustomState = array(
-    "body"=>"body-state-projects-list",
-    "header"=>"projectsList"
+    "body"=>"body-state-projects"
 );
 
 get_header();

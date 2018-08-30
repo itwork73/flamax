@@ -79,6 +79,8 @@ $selectric-font-size:       12px !default;                                      
   z-index: 9999;
   .selectric {
     background: #4c4c4c;
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 
     &:before {
       background: #fff;
@@ -91,8 +93,6 @@ $selectric-font-size:       12px !default;                                      
     background: rgba(0,0,0,.7);
 
   }
-
-
   .button {
     transform: rotate(180deg);
     background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI3IiB2aWV3Qm94PSIwIDAgMTIgNyI+ICAgIDxwYXRoIGZpbGw9IiNmZmZmZmYiIGQ9Ik0uMTIuNzlBLjQ3LjQ3IDAgMCAxIDAgLjQ2QzAgLjM0LjA0LjIzLjEyLjE0YS40LjQgMCAwIDEgLjYgMEw2IDUuODggMTEuMjguMTRhLjQuNCAwIDAgMSAuNiAwIC41LjUgMCAwIDEgMCAuNjVMNi4zIDYuODZhLjQuNCAwIDAgMS0uNiAwTC4xMi43OXoiLz48L3N2Zz4=);
@@ -169,7 +169,8 @@ $selectric-font-size:       12px !default;                                      
   background: transparent;
   border-radius: 0 0 4px 4px;
   z-index: -1;
-  box-shadow: 0 0 10px -6px;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
   transition: background .2s;
 
   .selectric-scroll {

@@ -252,7 +252,7 @@ var moduleApp = {
         var a = [0,0];
 
 
-        $thisModule.on('mousedown touchstart',function(){
+        $thisModule.on('mousedown',function(){
 
 
             dragStatus = true;
@@ -260,7 +260,7 @@ var moduleApp = {
             l[1] = c[1] - s[1];
         });
 
-        conf.nodeDoc.on('mouseup touchend',function(){
+        conf.nodeDoc.on('mouseup',function(){
 
             if (dragStatus) {
 
@@ -281,7 +281,7 @@ var moduleApp = {
 
         });
 
-        conf.nodeDoc.on('mousemove touchmove',function(e){
+        conf.nodeDoc.on('mousemove',function(e){
             c[0] = e.screenX;
             c[1] = e.screenY;
 
@@ -406,8 +406,6 @@ var moduleApp = {
     'technology-page':function($thisModule){
         var $thisNodes = $thisModule.getNodeList();
 
-
-
         $thisNodes.swiperMain.swiper({
             speed: 500,
             loop: false,
@@ -415,7 +413,14 @@ var moduleApp = {
             onlyExternal: true,
             roundLengths: true,
             preventClicks: false,
-            mousewheelControl: true
+            mousewheelControl: true,
+            onSlideChangeStart:function(sw){
+                if(sw.activeIndex>0) {
+                    conf.nodeBody.addClass('body-state-technology-second');
+                } else {
+                    conf.nodeBody.removeClass('body-state-technology-second');
+                }
+            }
         });
 
         $thisNodes.swiperSub.swiper({
@@ -426,6 +431,20 @@ var moduleApp = {
             onlyExternal: false,
             roundLengths: true,
             preventClicks: false
+        });
+    },
+    'video-player':function($thisModule){
+        var $poster = $thisModule.find('.hp-poster');
+        $poster.find('.hp-play').on('click',function(e){
+            e.preventDefault();
+            var $video = $thisModule.find('video').eq(0);
+            var video = $video[0];
+            if (appConfig.mobileVersion) {
+                location.href = $video.find('source').eq(0).attr('src');
+            } else {
+                video.play();
+                $poster.fadeOut(200)
+            }
         });
     }
 

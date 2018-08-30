@@ -27,8 +27,7 @@ $outputArray = array(
 <?
 // custom state
 $bCustomState = array(
-    "body"=>"",
-    "header"=>""
+    "body"=>""
 );
 
 get_header();

@@ -53,14 +53,11 @@ rsort($filterOutput["YEAR"]);
 <?
 // custom state
 $bCustomState = array(
-    "body"=>"body-state-projects",
-    "header"=>""
+    "body"=>"body-state-projects-list"
 );
 
 get_header();
 ?>
-
-
 
     <div class="page-default page-projects">
 

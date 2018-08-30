@@ -43,8 +43,7 @@ foreach($inputArray as $key => $thisPage){
 <?
     // custom state
     $bCustomState = array(
-        "body"=>"body-state-index",
-        "header"=>"index"
+        "body"=>"body-state-index"
     );
 
     get_header();
