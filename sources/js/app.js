@@ -327,7 +327,7 @@ var moduleApp = {
             slidesPerView: 'auto',
             slidesOffsetBefore: shift,
             slidesOffsetAfter: 60,
-            spaceBetween: 60,
+            spaceBetween: 40,
             onlyExternal: true,
             roundLengths: true,
             preventClicks: false,
