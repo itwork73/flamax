@@ -473,6 +473,8 @@ var moduleApp = {
                     prevButton: $thisNodes.swiperPartnersPrev[0],
                     nextButton: $thisNodes.swiperPartnersNext[0]
                 });
+
+                console.log(params.swipers);
             },
             'initYandexMap':function(){
 
@@ -553,7 +555,9 @@ var moduleApp = {
                 params.swipers[e.thisValue.target].slideNext();
             },
             'swipeTo':function(e){
+                console.log(e.thisValue.target);
                 params.swipers[e.thisValue.target].slideTo(e.thisValue.slide);
+                
             }
         };
 
