@@ -431,6 +431,8 @@ var moduleApp = {
                     roundLengths: true,
                     preventClicks: false,
                     mousewheelControl: true,
+                    pagination: $('.is-tech-pager')[0],
+                    paginationClickable: true,
                     onSlideChangeStart:function(sw){
                         if(sw.activeIndex>0) {
                             conf.nodeBody.addClass('body-state-technology-second');
