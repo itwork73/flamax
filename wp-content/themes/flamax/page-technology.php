@@ -17,6 +17,9 @@ get_header();
 
 <div class="page-default page-technology">
 
+
+<script type="text/javascript" src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
+
 <div class="is-technology-page" data-is="technology-page">
 
     <div class="swiper-container" data-node="swiperMain">
@@ -50,7 +53,10 @@ get_header();
                             </div>
                         </div>
                         <div class="l-right">
-                            <div class="l-video">
+                            <div class="l-video" data-click="swipeTo" data-value='<?=json_encode(array(
+                                "target"=>"swiperMain",
+                                "slide"=>"4"
+                            ))?>'>
                                 <i></i>
                                 Смотреть<br/>
                                 видео-презентацию
@@ -64,7 +70,7 @@ get_header();
             </div>
             <div class="swiper-slide">
 
-                <div class="swiper-container" data-node="swiperSub">
+                <div class="swiper-container" data-node="swiperProduction">
                     <div class="swiper-wrapper sw-wrapper-h">
                         <div class="swiper-slide">
                             <div class="wrapper">
@@ -81,12 +87,16 @@ get_header();
                                             Проектирование
                                         </div>
                                         <div class="is-arrows">
-                                            <div class="ss-arrow ss-arrow-prev">
+                                            <div class="ss-arrow ss-arrow-prev" data-click="swipePrev" data-value='<?=json_encode(array(
+                                                    "target"=>"swiperProduction"
+                                            ))?>'>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
                                                     <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
                                                 </svg>
                                             </div>
-                                            <div class="ss-arrow ss-arrow-next">
+                                            <div class="ss-arrow ss-arrow-next" data-click="swipeNext" data-value='<?=json_encode(array(
+                                                "target"=>"swiperProduction"
+                                            ))?>'>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
                                                     <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
                                                 </svg>
@@ -132,12 +142,16 @@ get_header();
                                             Изготовление
                                         </div>
                                         <div class="is-arrows">
-                                            <div class="ss-arrow ss-arrow-prev">
+                                            <div class="ss-arrow ss-arrow-prev" data-click="swipePrev" data-value='<?=json_encode(array(
+                                                "target"=>"swiperProduction"
+                                            ))?>'>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
                                                     <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
                                                 </svg>
                                             </div>
-                                            <div class="ss-arrow ss-arrow-next">
+                                            <div class="ss-arrow ss-arrow-next" data-click="swipeNext" data-value='<?=json_encode(array(
+                                                "target"=>"swiperProduction"
+                                            ))?>'>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
                                                     <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
                                                 </svg>
@@ -186,13 +200,18 @@ get_header();
                                         <div class="l-sub-header">
                                             Доставка
                                         </div>
+
                                         <div class="is-arrows">
-                                            <div class="ss-arrow ss-arrow-prev">
+                                            <div class="ss-arrow ss-arrow-prev" data-click="swipePrev" data-value='<?=json_encode(array(
+                                                "target"=>"swiperProduction"
+                                            ))?>'>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
                                                     <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
                                                 </svg>
                                             </div>
-                                            <div class="ss-arrow ss-arrow-next">
+                                            <div class="ss-arrow ss-arrow-next" data-click="swipeNext" data-value='<?=json_encode(array(
+                                                "target"=>"swiperProduction"
+                                            ))?>'>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
                                                     <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
                                                 </svg>
@@ -274,7 +293,7 @@ get_header();
 
             </div>
             <div class="swiper-slide" >
-                <div class="swiper-container" data-node="swiperSub">
+                <div class="swiper-container" data-node="swiperFlamax">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide">
                             <div class="wrapper">
@@ -289,13 +308,18 @@ get_header();
                                         <div class="l-preview">
                                             В области систем пожаротушения наша компания работает с 2008 года. За это время был накоплен высокий уровень компетенции в этой сфере: нами было реализовано 79 систем пожаротушения и установлено более 100 резервуаров на 57 объектах. Это, в свою очередь, гарантирует вам соответствие нашего технического решения всем установленным нормам пожарной безопасности.
                                         </div>
+
                                         <div class="is-arrows">
-                                            <div class="ss-arrow ss-arrow-prev">
+                                            <div class="ss-arrow ss-arrow-prev" data-click="swipePrev" data-value='<?=json_encode(array(
+                                                "target"=>"swiperFlamax"
+                                            ))?>'>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
                                                     <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
                                                 </svg>
                                             </div>
-                                            <div class="ss-arrow ss-arrow-next">
+                                            <div class="ss-arrow ss-arrow-next" data-click="swipeNext" data-value='<?=json_encode(array(
+                                                "target"=>"swiperFlamax"
+                                            ))?>'>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
                                                     <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
                                                 </svg>
@@ -324,12 +348,16 @@ get_header();
                                             Мы предоставляем полный спектр услуг и реализацию проекта «под ключ»: от разработки индивидуального проекта пожарного резервуара до его монтажа и проведения гидравлических испытаний. При необходимости проект может быть доукомплектован утепленной кровлей, внутренней  и /или внешней теплоизоляцией стенок и дна резервуара, нагревательными элементами или иными источниками тепла.
                                         </div>
                                         <div class="is-arrows">
-                                            <div class="ss-arrow ss-arrow-prev">
+                                            <div class="ss-arrow ss-arrow-prev" data-click="swipePrev" data-value='<?=json_encode(array(
+                                                "target"=>"swiperFlamax"
+                                            ))?>'>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
                                                     <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
                                                 </svg>
                                             </div>
-                                            <div class="ss-arrow ss-arrow-next">
+                                            <div class="ss-arrow ss-arrow-next" data-click="swipeNext" data-value='<?=json_encode(array(
+                                                "target"=>"swiperFlamax"
+                                            ))?>'>
                                                 <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
                                                     <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
                                                 </svg>
@@ -370,7 +398,7 @@ get_header();
 
                                 <a class="l-button" href="#" target="_blank">
                                     <svg xmlns="http://www.w3.org/2000/svg" style="margin-top:-10px;" width="51" height="62" viewBox="0 0 51 62">
-                                        <path fill="#585858" d="M34.7 9.9c2.2-2.62 3.67-6.27 3.27-9.9-3.15.13-6.97 2.08-9.23 4.7-2.02 2.32-3.8 6.03-3.32 9.59 3.51.27 7.1-1.77 9.29-4.39zm7.9 23.04c-.08-7.85 6.46-11.61 6.76-11.8-3.68-5.33-9.41-6.06-11.46-6.15-4.87-.48-9.51 2.85-11.99 2.85-2.47 0-6.29-2.77-10.33-2.7a15.35 15.35 0 0 0-12.96 7.77C-2.9 32.4 1.21 46.46 6.59 54.15c2.63 3.77 5.77 8 9.89 7.85 3.96-.16 5.46-2.54 10.26-2.54s6.14 2.54 10.34 2.46c4.27-.08 6.97-3.84 9.58-7.62 3.02-4.37 4.27-8.6 4.34-8.82-.1-.04-8.32-3.16-8.4-12.54z"></path>
+                                        <path d="M34.7 9.9c2.2-2.62 3.67-6.27 3.27-9.9-3.15.13-6.97 2.08-9.23 4.7-2.02 2.32-3.8 6.03-3.32 9.59 3.51.27 7.1-1.77 9.29-4.39zm7.9 23.04c-.08-7.85 6.46-11.61 6.76-11.8-3.68-5.33-9.41-6.06-11.46-6.15-4.87-.48-9.51 2.85-11.99 2.85-2.47 0-6.29-2.77-10.33-2.7a15.35 15.35 0 0 0-12.96 7.77C-2.9 32.4 1.21 46.46 6.59 54.15c2.63 3.77 5.77 8 9.89 7.85 3.96-.16 5.46-2.54 10.26-2.54s6.14 2.54 10.34 2.46c4.27-.08 6.97-3.84 9.58-7.62 3.02-4.37 4.27-8.6 4.34-8.82-.1-.04-8.32-3.16-8.4-12.54z"></path>
                                     </svg>
                                     <span>
                                         Apple iPad
@@ -380,7 +408,7 @@ get_header();
                                 <a class="l-button" href="#" target="_blank">
 
                                     <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 88 88">
-                                        <path fill="#585858" d="m0 12.402 35.687-4.8602.0156 34.423-35.67.20313zm35.67 33.529.0277 34.453-35.67-4.9041-.002-29.78zm4.3261-39.025 47.318-6.906v41.527l-47.318.37565zm47.329 39.349-.0111 41.34-47.318-6.6784-.0663-34.739z"></path>
+                                        <path d="m0 12.402 35.687-4.8602.0156 34.423-35.67.20313zm35.67 33.529.0277 34.453-35.67-4.9041-.002-29.78zm4.3261-39.025 47.318-6.906v41.527l-47.318.37565zm47.329 39.349-.0111 41.34-47.318-6.6784-.0663-34.739z"></path>
                                     </svg>
                                     <span>
                                         Windows PC
@@ -395,20 +423,72 @@ get_header();
                 </div>
             </div>
             <div class="swiper-slide">
-                <div>
-                    Наши клиенты
+
+                <div class="wrapper">
+                    <div class="is-tech-layout-f">
+
+                        <div class="l-middle">
+                            <div class="l-row-top">
+
+                                <div class="l-col-preview">
+                                    <div class="l-header">
+                                        Наши клиенты
+                                    </div>
+                                    <div class="l-action">
+                                        <a class="is-button-a" href="/projects/">
+                                            Открыть все проекты
+                                        </a>
+                                    </div>
+                                </div>
+
+                                <div class="l-col-map">
+                                    <div class="ymap" data-node="ymap"></div>
+                                </div>
+
+                            </div>
+                            <div class="l-row-bottom">
+
+                                <div class="is-partners-slider">
+                                    <div class="swiper-container" data-node="swiperPartners">
+                                        <div class="swiper-wrapper">
+                                            <?foreach(array(1,2,3,4,5,6,7,8,9,10,11,12,14,15) as $key => $value):?>
+
+                                                <div class="swiper-slide">
+                                                    <div class="ps-partner-cell" data-node="partnerItem" data-click="showPartnerOnMap" data-value='<?=json_encode(array(
+                                                            "id"=>"marker" . rand(10000,20000),
+                                                            "lat"=>"55.7" . rand(50000,70000),
+                                                            "lng"=>"37.6" . rand(10000,30000),
+                                                            "image"=>"/assets/img/temp/temp19.png",
+                                                            "title"=>"Пятерочка",
+                                                            "preview"=>"Проектирование, производство, поставка, монтаж и испытания пожарных резервуаров 2х1140 м³."
+                                                    ))?>'>
+                                                        <img src="/assets/img/temp/temp19.png" />
+                                                    </div>
+                                                </div>
+
+                                            <?endforeach?>
+                                        </div>
+                                    </div>
+
+                                    <a class="ws-arrow ws-arrow-prev" href="#" data-node="swiperPartnersPrev">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
+                                            <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
+                                        </svg>
+                                    </a>
+
+                                    <a class="ws-arrow ws-arrow-next" href="#" data-node="swiperPartnersNext">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
+                                            <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
+                                        </svg>
+                                    </a>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
-                <a class="is-button-a" href="/projects/">
-                    Открыть все проекты
-                </a>
-
-
-
-                <img src="/assets/img/temp/temp19.png" />
-                <img src="/assets/img/temp/temp20.png" />
-                <img src="/assets/img/temp/temp21.png" />
-                <img src="/assets/img/temp/temp22.png" />
-                <img src="/assets/img/temp/temp23.png" />
             </div>
         </div>
     </div>

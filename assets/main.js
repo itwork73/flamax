@@ -1612,34 +1612,160 @@ var moduleApp = {
 
     },
     'technology-page':function($thisModule){
+
         var $thisNodes = $thisModule.getNodeList();
 
-        $thisNodes.swiperMain.swiper({
-            speed: 500,
-            loop: false,
-            direction: 'vertical',
-            onlyExternal: true,
-            roundLengths: true,
-            preventClicks: false,
-            mousewheelControl: true,
-            onSlideChangeStart:function(sw){
-                if(sw.activeIndex>0) {
-                    conf.nodeBody.addClass('body-state-technology-second');
-                } else {
-                    conf.nodeBody.removeClass('body-state-technology-second');
-                }
-            }
-        });
+        var params = {
+            swipers:{},
+            ymapReady: false,
+            markers: {}
+        };
 
-        $thisNodes.swiperSub.swiper({
-            speed: 500,
-            loop: false,
-            direction: 'horizontal',
-            nested: true,
-            onlyExternal: false,
-            roundLengths: true,
-            preventClicks: false
-        });
+        var customEvents = {
+
+        };
+
+        var methods = {
+            'init':function(){
+                this.initSwipers();
+                this.initYandexMap();
+            },
+            'initSwipers':function(){
+                params.swipers.swiperMain = $thisNodes.swiperMain.swiper({
+                    speed: 500,
+                    loop: false,
+                    direction: 'vertical',
+                    onlyExternal: true,
+                    roundLengths: true,
+                    preventClicks: false,
+                    mousewheelControl: true,
+                    onSlideChangeStart:function(sw){
+                        if(sw.activeIndex>0) {
+                            conf.nodeBody.addClass('body-state-technology-second');
+                        } else {
+                            conf.nodeBody.removeClass('body-state-technology-second');
+                        }
+                    }
+                });
+
+                params.swipers.swiperProduction = $thisNodes.swiperProduction.swiper({
+                    speed: 500,
+                    loop: false,
+                    direction: 'horizontal',
+                    nested: true,
+                    onlyExternal: false,
+                    roundLengths: true,
+                    preventClicks: false
+                });
+
+                params.swipers.swiperFlamax = $thisNodes.swiperFlamax.swiper({
+                    speed: 500,
+                    loop: false,
+                    direction: 'horizontal',
+                    nested: true,
+                    onlyExternal: false,
+                    roundLengths: true,
+                    preventClicks: false
+                });
+
+                params.swipers.swiperPartners = $thisNodes.swiperPartners.swiper({
+                    speed: 400,
+                    loop: true,
+                    nested: true,
+                    slidesPerView: 4,
+                    onlyExternal: true,
+                    roundLengths: true,
+                    preventClicks: false,
+                    prevButton: $thisNodes.swiperPartnersPrev[0],
+                    nextButton: $thisNodes.swiperPartnersNext[0]
+                });
+            },
+            'initYandexMap':function(){
+
+                ymaps.ready(function(){
+
+                    var $mapNode = $thisNodes.ymap;
+
+                    var mapLat = $mapNode.data().lat || 55.751244;
+                    var mapLng = $mapNode.data().lng || 37.618423;
+                    var mapZoom = $mapNode.data().zoom || 16;
+
+                    var map = new ymaps.Map($mapNode[0], {
+                        center: [mapLat, mapLng],
+                        zoom: mapZoom,
+                        type: 'yandex#publicMap',
+                        behaviors: ['drag', 'dblClickZoom']
+                    });
+
+
+                    $.each($thisNodes.partnerItem,function(i,thisPartner){
+                        var thisData = $(thisPartner).data().value || {};
+                        var thisPosition = [Number(thisData.lat), Number(thisData.lng)];
+
+                        var t = '<div class="ymap-inner-partners"><div class="y-ip-image"><img src="'+thisData.image+'" /></div>';
+                        t += '<div class="ymap-inner-partners"><div class="y-ip-header">'+thisData.title+'</div>';
+                        t += '<div class="y-ip-preview">'+thisData.preview+'</div></div>';
+
+                        var marker = new ymaps.Placemark(thisPosition, {
+                            balloonContent: t
+                        }, {
+                            iconLayout: 'default#image',
+                            iconImageHref: '/assets/img/pin2.png',
+                            iconImageSize: [20,20],
+                            iconImageOffset: [-10, -10],
+                            hideIconOnBalloonOpen: false,
+                            balloonPanelMaxMapArea: 0
+                        });
+
+                        map.geoObjects.add(marker);
+                        params.markers[thisData.id] = marker;
+                    });
+
+                    map.setBounds(map.geoObjects.getBounds());
+
+                    map.events.add('balloonopen', function(e){
+                        var target = e.get('target');
+                        if (target.geometry && typeof target.getGeoObjects == 'undefined') {
+                            target.options.set({
+                                iconImageHref: "/assets/img/pin3.png"
+                            });
+                        }
+                    });
+                    map.events.add('balloonclose', function(e){
+                        var target = e.get('target');
+                        if (target.geometry && typeof target.getGeoObjects == 'undefined') {
+                            target.options.set({
+                                iconImageHref: "/assets/img/pin2.png"
+                            });
+                        }
+                    });
+
+
+
+                    params.ymapReady = true;
+
+                });
+
+
+            },
+            'showPartnerOnMap':function(e){
+                if (!params.ymapReady) { return false; }
+                params.markers[e.thisValue.id].balloon.open();
+            },
+            'swipePrev':function(e){
+                params.swipers[e.thisValue.target].slidePrev();
+            },
+            'swipeNext':function(e){
+                params.swipers[e.thisValue.target].slideNext();
+            },
+            'swipeTo':function(e){
+                params.swipers[e.thisValue.target].slideTo(e.thisValue.slide);
+            }
+        };
+
+        $thisModule.eventer(methods,customEvents);
+
+
     },
     'video-player':function($thisModule){
         var $poster = $thisModule.find('.hp-poster');

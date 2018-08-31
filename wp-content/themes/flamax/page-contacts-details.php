@@ -107,7 +107,15 @@ get_header();
             <div class="is-contacts-map" data-is="contacts-map" <?if($outputArray["THIS_OFFICE"]["IMAGE_GALLERY"]):?> data-shift="1"<?endif?>>
                 <div class="cm-layout">
                     <div class="cm-preview">
-                        <?=$outputArray["THIS_OFFICE"]["PREVIEW"]?>
+                        <div class="cm-preview-content">
+                            <?=$outputArray["THIS_OFFICE"]["PREVIEW"]?>
+                        </div>
+                        <div class="cm-action">
+                            <a class="is-button-a" data-gclick="showOrderModal" href="#">
+                                Оставить заявку
+                            </a>
+                        </div>
+
                     </div>
                     <div class="cm-map">
                         <?
