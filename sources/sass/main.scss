@@ -1688,7 +1688,7 @@ p {
 }
 
 .is-project-similar {
-  display: block;
+  display: none;
   position: relative;
   margin-bottom: 60px;
   .pr-similar-list {
@@ -2660,8 +2660,6 @@ p {
   }
 }
 
-
-
 @media (min-height: 680px) {
   .is-tech-layout-e {
     .l-video-parent {
@@ -2749,7 +2747,11 @@ p {
 
 }
 
-
+@media (max-width: 1250px) {
+  .is-tech-pager {
+    display: none;
+  }
+}
 
 // pages
 
@@ -2803,7 +2805,6 @@ p {
     transition: opacity 1s;
   }
 }
-
 
 // small screen query
 
