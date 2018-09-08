@@ -1850,6 +1850,9 @@ p {
   .ps-c-description {
     @include intro-book;
     @include font(#ffffff,19px,25px);
+    br {
+      display: none;
+    }
   }
 }
 
@@ -2090,6 +2093,10 @@ p {
   .ps-c-description {
     @include intro-book;
     @include font(#ffffff,19px,25px);
+
+    br {
+      display: none;
+    }
   }
 
 
