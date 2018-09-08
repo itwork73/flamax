@@ -62,6 +62,15 @@ var globalApp = {
                 $scrollNode.animate({'scrollTop':h}, 800);
             }
 
+        },
+        'showOrderModal':function($thisNode,thisValue){
+            var t = $('#fb-contacts-form').html();
+            $.fancyModal.open({
+                content: t,
+                afterShow:function($thisModal){
+                    globalApp.executeModules($thisModal);
+                }
+            });
         }
     },
     'pageLoader':function(){
@@ -578,6 +587,274 @@ var moduleApp = {
                 $poster.fadeOut(200)
             }
         });
+    },
+    'form-validation':function($thisModule,thisCallback){
+
+        thisCallback = thisCallback || false;
+
+        var params = {
+            'fields':{
+                'attr':'validation',
+                'parentClass':'is-form-field',
+                'parentErrorState':'state-error',
+                'errorNode':'ff-error-parent',
+                'formFocusClass':'state-focus',
+                'formHasValueClass':'state-has-value',
+                'fromInitedClass':'state-inited',
+                'fieldInitidClass':'_field-inited',
+                'initialNodes':$(null),
+                'passwordFields':{
+                    'primaryNode':$(null),
+                    'secondaryNode':$(null)
+                },
+                'maskedBlank':'–'
+            },
+            'form':{
+                'moduleParent':$thisModule,
+                'parent':$thisModule.find('form'),
+                'submitLinkClass':'js-form-submit',
+                'validFormClass':'form-state-valid',
+                'invalidFormClass':'form-state-invalid',
+                'progressFormClass':'form-state-progress'
+            },
+            'inner':{
+                'submitCallback':thisCallback,
+                'realTimeCheck':false,
+                'defaultFieldData':{
+                    'mask':'none',
+                    'require':true,
+                    'visible':true,
+                    'error':'',
+                    'cleaveMask':false
+                }
+            }
+        };
+
+        var methods = {
+            'init':function(){
+                methods.initFields();
+                methods.initEvents();
+                methods.initFieldsMarkup();
+                methods.initFormStatus();
+                methods.initialFieldFocus();
+            },
+            'initFields':function(){
+                params.fields.initialNodes = params.form.parent.find('[data-'+params.fields.attr+']');
+            },
+            'initEvents':function(){
+                params.form.parent.on('submit', methods.eventFormSubmit);
+                params.form.parent.find('.'+params.form.submitLinkClass).on('click', methods.eventSubmitLinkClick);
+                $thisModule.on('keypress input change','[data-'+params.fields.attr+']',methods.eventChangeFields);
+                $thisModule.on('keydown','[data-'+params.fields.attr+']',methods.eventFormSubmitEnter);
+                $thisModule.on('focus','[data-'+params.fields.attr+']',methods.eventFocusEnter);
+                $thisModule.on('blur','[data-'+params.fields.attr+']',methods.eventFocusLeave);
+            },
+            'initFieldsMarkup':function(){
+                params.form.parent.find('[data-'+params.fields.attr+']:not(.'+params.fields.fieldInitidClass+')').each(function(i,thisField){
+                    var $thisField = $(thisField);
+                    var thisFieldDataRaw = $thisField.data()[params.fields.attr];
+                    var thisFieldData = $.extend({}, params.inner.defaultFieldData, thisFieldDataRaw);
+
+                    // error message
+                    if(thisFieldData.error) { $thisField.closest('.'+params.fields.parentClass).append('<div class="'+params.fields.errorNode+'">'+thisFieldData.error+'</div>'); }
+
+                    // password fields
+                    if(thisFieldData.mask == "passwordPrimary") { params.fields.passwordFields.primaryNode = $thisField; }
+                    if(thisFieldData.mask == "passwordSecondary") { params.fields.passwordFields.secondaryNode = $thisField; }
+
+                    // masked input
+                    if(thisFieldData.cleaveMask) {
+                        new Cleave($thisField[0], thisFieldData.cleaveMask);
+                    }
+
+                    $thisField.addClass(params.fields.fieldInitidClass);
+                    $thisField.closest('.'+params.fields.parentClass).addClass(params.fields.fromInitedClass);
+
+
+                });
+            },
+            'initFormStatus':function(){
+                if(methods.checkingFieldsAll(params.fields.initialNodes,true)) {
+                    params.form.moduleParent.addClass(params.form.validFormClass);
+                    params.form.moduleParent.removeClass(params.form.invalidFormClass);
+                } else {
+                    params.form.moduleParent.removeClass(params.form.validFormClass);
+                    params.form.moduleParent.addClass(params.form.invalidFormClass);
+                }
+            },
+            'eventFormSubmitEnter':function(e){
+                if (e.keyCode == 13) { methods.eventFormSubmit(); return false; }
+                return true;
+            },
+            'eventFormSubmit':function(){
+                methods.initFields();
+                methods.initFieldsMarkup();
+                methods.initFormStatus();
+
+
+                // if form in progress
+                if (params.form.moduleParent.hasClass(params.form.progressFormClass)) { return false; }
+
+                // enable real time checking
+                params.inner.realTimeCheck = true;
+
+                // return state - is a error state
+                // if `FALSE` - fields has error and submit is prevent
+                // if `TRUE` - no error and form going submit
+                var returnState = methods.checkingFieldsAll(params.fields.initialNodes);
+
+                // if fields valid then add progress state to form
+
+
+                if (returnState == true) {
+                    params.form.moduleParent.addClass(params.form.progressFormClass);
+                }
+
+                // if submit callback
+                if (returnState && params.inner.submitCallback) {
+                    params.inner.submitCallback(params.form.parent,params.form.moduleParent);
+                    return false;
+                }
+
+                return returnState;
+            },
+            'eventSubmitLinkClick':function(e){
+                e.preventDefault();
+
+
+                params.form.parent.submit();
+            },
+            'eventChangeFields':function(){
+                var $thisField = $(this);
+                var thisFieldDataRaw = $.extend({}, $thisField.data()[params.fields.attr], {
+                    thisField:$thisField,
+                    thisValue:$.trim($thisField.val())
+                });
+
+                // checking this field
+                if(params.inner.realTimeCheck) { methods.checkingField($thisField); }
+
+                // hidden checking all field for submit status
+                methods.initFormStatus();
+
+                // double fields logic, trigger secondary on primary
+                if (thisFieldDataRaw.mask == "passwordPrimary") { params.fields.passwordFields.secondaryNode.trigger('change'); }
+            },
+            'checkingField':function($thisField,hiddenChecking){
+                // hiddenChecking is check fields but don't change style
+
+                var fieldStatus = true;
+
+                var thisFieldDataRaw = $.extend({}, $thisField.data()[params.fields.attr], {
+                    thisField:$thisField,
+                    thisValue:$.trim($thisField.val())
+                });
+
+                var thisFieldData = $.extend({}, params.inner.defaultFieldData, thisFieldDataRaw);
+
+                // checking empty value
+
+                if ($thisField.val().length === 0) {
+                    $thisField.closest('.'+params.fields.parentClass).removeClass(params.fields.formHasValueClass);
+                } else {
+                    $thisField.closest('.'+params.fields.parentClass).addClass(params.fields.formHasValueClass);
+                }
+
+                // checking for mask
+                if (methods.checkingMasks[thisFieldData.mask]) {
+                    if (methods.checkingMasks[thisFieldData.mask](thisFieldData) || methods.checkingMasks['visibleAndRequire'](thisFieldData)) {
+                        // remove error class
+                        if (!hiddenChecking) { $thisField.closest('.'+params.fields.parentClass).removeClass(params.fields.parentErrorState); }
+                    } else {
+                        // added error class
+                        if (!hiddenChecking) { $thisField.closest('.'+params.fields.parentClass).addClass(params.fields.parentErrorState); }
+
+                        // added error status
+                        fieldStatus = false;
+                    }
+                }
+
+                return fieldStatus;
+            },
+            'checkingFieldsAll': function($fields,hiddenChecking){
+                var checkingParams = {
+                    'status':true,
+                    'focusFlag':true,
+                    'scrollNode':$('body,html'),
+                    'scrollSpeed':300,
+                    'scrollDelay':100,
+                    'scrollOffsetShift': 150
+                };
+                $fields.each(function(i,thisField){
+                    var $thisField = $(thisField);
+                    var thisFieldStatus = methods.checkingField($thisField,hiddenChecking);
+                    if (!thisFieldStatus) {
+                        checkingParams.status = false;
+
+                        // scroll to error field and focus
+                        if (checkingParams.focusFlag && !hiddenChecking && !$thisField.is(':checkbox')) {
+                            checkingParams.focusFlag = false;
+                            var t = ($thisField.offset().top - checkingParams.scrollOffsetShift);
+                            checkingParams.scrollNode.animate({scrollTop:t}, checkingParams.scrollSpeed, function(){
+                                $thisField.focus();
+                            });
+                        }
+                    }
+                });
+                return checkingParams.status;
+            },
+            'checkingMasks':{
+                'text':function(data){
+                    return (data.thisValue.length > 0);
+                },
+                'email':function(data){
+                    return (/^([A-Za-z0-9_\-\.])+\@([A-Za-z0-9_\-\.])+\.([A-Za-z]{2,4})$/.test(data.thisValue));
+                },
+                'phoneRussia':function(data){
+                    // `+7_902_002_20_22`
+                    return (data.thisValue.length === 16);
+                },
+                'select':function(data){
+                    return !(data.thisValue == 0);
+                },
+                'checkedGroup':function(data){
+                    return data.thisField.closest('.field-group').find('input:checked').length;
+                },
+                'visibleAndRequire':function(data){
+                    // invisible field
+                    if (data.visible && !data.thisField.closest('.'+params.fields.parentClass).is(':visible')) { return true; }
+
+                    // not require field
+                    if (!data.require && data.thisValue.length === 0) { return true; }
+
+                    // return default
+                    return false;
+                },
+                'passwordPrimary':function(data){
+                    return (data.thisValue.length > 5);
+                },
+                'passwordSecondary':function(data){
+                    return (data.thisValue.length > 5 && (params.fields.passwordFields.primaryNode.val() === params.fields.passwordFields.secondaryNode.val()));
+                },
+                'textInn':function(data){
+                    return (data.thisValue.length === 10);
+                },
+                'textKpp':function(data){
+                    return (data.thisValue.length === 9);
+                }
+            },
+            'eventFocusEnter':function(){
+                $(this).closest('.'+params.fields.parentClass).addClass(params.fields.formFocusClass);
+            },
+            'eventFocusLeave':function(){
+                $(this).closest('.'+params.fields.parentClass).removeClass(params.fields.formFocusClass)
+            },
+            'initialFieldFocus':function(){
+                setTimeout(function(){ $thisModule.find('.state-initial-focus').focus(); }, 500);
+            }
+        };
+
+        methods.init();
     }
 
 };
@@ -585,7 +862,5 @@ var moduleApp = {
 $(document).ready(function(){
     globalApp.init();
 });
-
-
 
 

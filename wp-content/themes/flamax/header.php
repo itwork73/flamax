@@ -186,6 +186,15 @@
                 </div>
             </div>
 
+            <div class="gn-dock-lang">
+                <div class="l-item state-active">
+                    Ru
+                </div>
+                <a class="l-item state-link" href="/">
+                    En
+                </a>
+            </div>
+
 
         </div>
     </div>

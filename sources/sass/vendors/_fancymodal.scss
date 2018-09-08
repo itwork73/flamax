@@ -13,7 +13,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,.6);
+  background: linear-gradient(to bottom, rgba(20,20,20,.4) 0%, rgba(20,20,20,.7) 100%);
 
   opacity: 0;
   visibility: hidden;
@@ -82,5 +82,11 @@
       transform: none;
       transition: opacity .4s, transform .4s;
     }
+  }
+}
+
+.state-show-fancy-small {
+  .fmo-parent {
+    overflow: visible !important;
   }
 }

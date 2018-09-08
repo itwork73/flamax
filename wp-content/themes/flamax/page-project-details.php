@@ -211,7 +211,7 @@ get_header();
 
 
                 <div class="pr-simial-action">
-                    <a class="is-button-a" href="/h/page-projects.php">
+                    <a class="is-button-a" href="/projects/">
                         Все проекты
                     </a>
                 </div>

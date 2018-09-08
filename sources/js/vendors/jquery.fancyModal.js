@@ -17,7 +17,8 @@
     var params = {
         initialStatus: false,
         openStatus:false,
-        playTimeout:null
+        playTimeout:null,
+        afterCloseExec:false
     };
 
     var methods = {
@@ -78,12 +79,20 @@
 
         node.fancyInner.find('.fb-modal-default').prepend('<a class="fmo-cross" href="#"></a>');
 
+        // afterShow
         if (typeof data.afterShow === "function") { data.afterShow(node.fancyInner); }
-        
+
+        // afterClose
+        if (typeof data.afterClose === "function") { params.afterCloseExec = data.afterClose; } else { params.afterCloseExec = false; }
+
         node.html.addClass('state-show-fancy-modal');
 
         setTimeout(function(){
             node.html.addClass('state-show-fancy-play');
+
+            var mh = node.fancyInner.outerHeight();
+            if (mh<400) { node.html.addClass('state-show-fancy-small'); }
+            
             params.openStatus = true;
         }, 10);
 
@@ -93,8 +102,10 @@
         node.html.removeClass('state-show-fancy-play');
 
         setTimeout(function(){
-            node.html.removeClass('state-show-fancy-modal');
+            node.html.removeClass('state-show-fancy-modal state-show-fancy-small');
             params.openStatus = false;
+
+            if (params.afterCloseExec) { params.afterCloseExec(node.fancyInner); }
         }, 250);
     };
 

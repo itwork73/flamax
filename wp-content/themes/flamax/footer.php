@@ -71,7 +71,207 @@
 
 <div class="hidden-content">
 
+    <div id="fb-contacts-form">
+        <div class="fb-modal-default fb-modal-contact-form">
 
+            <div class="mf-header">
+                Заказать расчет
+            </div>
+
+            <div class="is-form-validation form-state-invalid" data-is="form-validation">
+                <form action="/h/">
+
+                    <div class="is-columns">
+                        <div class="col">
+
+                            <div class="is-form-field field-select">
+                                <label>
+                                    <select>
+                                        <option value="0" selected>Продукт для хранения</option>
+                                        <option value="1">Категория один</option>
+                                        <option value="2">Категория два</option>
+                                        <option value="3">Категория три</option>
+                                        <option value="4">Категория четыре</option>
+                                        <option value="5">Категория пять</option>
+                                        <option value="6">Категория шесть</option>
+                                    </select>
+                                    <span class="is-select-arrow"></span>
+                                </label>
+                            </div>
+                            <div class="is-form-field field-select">
+                                <label>
+                                    <select>
+                                        <option value="0" selected>Количество резервузаров</option>
+                                        <option value="1">Категория один</option>
+                                        <option value="2">Категория два</option>
+                                        <option value="3">Категория три</option>
+                                        <option value="4">Категория четыре</option>
+                                        <option value="5">Категория пять</option>
+                                        <option value="6">Категория шесть</option>
+                                    </select>
+                                    <span class="is-select-arrow"></span>
+                                </label>
+                            </div>
+                            <div class="is-form-field field-select">
+                                <label>
+                                    <select>
+                                        <option value="0" selected>Требуемый полезный объем</option>
+                                        <option value="1">Категория один</option>
+                                        <option value="2">Категория два</option>
+                                        <option value="3">Категория три</option>
+                                        <option value="4">Категория четыре</option>
+                                        <option value="5">Категория пять</option>
+                                        <option value="6">Категория шесть</option>
+                                    </select>
+                                    <span class="is-select-arrow"></span>
+                                </label>
+                            </div>
+                            <div class="is-form-field field-text">
+                                <label>
+                                    <input name="field[region]" placeholder="Регион утсановки резервуара" type="text" />
+                                </label>
+                            </div>
+
+                            <div class="is-columns gap-10">
+                                <div class="col">
+                                    <div class="is-form-field field-text">
+                                        <label>
+                                            <input name="field[name]" placeholder="Длина, м" type="text" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="is-form-field field-text">
+                                        <label>
+                                            <input name="field[name]" placeholder="Ширина, м" type="text" />
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+                                    <div class="is-form-field field-text">
+                                        <label>
+                                            <input name="field[name]" placeholder="Высота, м" type="text" />
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="is-columns gap-10">
+                                <div class="col">
+
+                                    <div class="is-form-field field-select">
+                                        <label>
+                                            <select>
+                                                <option value="0" selected>Месяц</option>
+                                                <option value="1">Категория один</option>
+                                                <option value="2">Категория два</option>
+                                                <option value="3">Категория три</option>
+                                                <option value="4">Категория четыре</option>
+                                                <option value="5">Категория пять</option>
+                                                <option value="6">Категория шесть</option>
+                                            </select>
+                                            <span class="is-select-arrow"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col">
+
+                                    <div class="is-form-field field-select">
+                                        <label>
+                                            <select>
+                                                <option value="0" selected>Год</option>
+                                                <option value="1">Категория один</option>
+                                                <option value="2">Категория два</option>
+                                                <option value="3">Категория три</option>
+                                                <option value="4">Категория четыре</option>
+                                                <option value="5">Категория пять</option>
+                                                <option value="6">Категория шесть</option>
+                                            </select>
+                                            <span class="is-select-arrow"></span>
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="is-hr-float" style="height:20px;"></div>
+
+                            <div class="is-form-field field-group" data-validation='<?=json_encode(["mask"=>"checkedGroup"])?>'>
+
+
+
+                                <div class="is-form-field field-checkbox no-mar">
+                                    <label>
+                                        <input name="field[rules]" type="checkbox" /><i></i>
+                                        <span class="checkbox-label">
+                                            Вы согласны с <a class="is-link" href="#">правилами обработки данных.</a>
+                                        </span>
+                                    </label>
+                                </div>
+                            </div>
+
+
+                        </div>
+                        <div class="col">
+
+                            <div class="is-form-field field-text">
+                                <label>
+                                    <input name="field[name]" placeholder="Имя *" type="text" data-validation='<?=json_encode([
+                                        "mask"=>"text",
+                                        "require"=>true,
+                                        "visible"=>true,
+                                        "error"=>"Обязательное поле"
+                                    ])?>' />
+                                </label>
+                            </div>
+                            <div class="is-form-field field-text">
+                                <label>
+                                    <input name="field[phone]" placeholder="Телефон *" type="text" data-validation='<?=json_encode([
+                                        "mask"=>"phoneRussia",
+                                        "require"=>true,
+                                        "visible"=>true,
+                                        "error"=>"Введите телефон",
+                                        "cleaveMask"=>[ "phone"=>true ]
+                                    ])?>' />
+                                </label>
+                            </div>
+                            <div class="is-form-field field-text">
+                                <label>
+                                    <input name="field[phone]" placeholder="Название компании" type="text" />
+                                </label>
+                            </div>
+                            <div class="is-form-field field-text">
+                                <label>
+                                    <input name="field[email]" placeholder="E-mail *" type="text" data-validation='<?=json_encode([
+                                        "mask"=>"email",
+                                        "require"=>true,
+                                        "visible"=>true,
+                                        "error"=>"Введите корректный Email"
+                                    ])?>' />
+                                </label>
+                            </div>
+
+                            <div class="is-form-field field-text">
+                                <label>
+                                    <textarea placeholder="Комментарии"></textarea>
+                                </label>
+                            </div>
+                            <div>
+                                <a class="is-button-a state-wide js-form-submit" href="#">
+                                    Отправить
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+
+
+
+                </form>
+            </div>
+
+
+
+        </div>
+    </div>
 </div>
 
 

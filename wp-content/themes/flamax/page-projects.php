@@ -103,7 +103,7 @@ get_header();
                             <div class="is-header-filter" data-is="header-filter-single">
                                 <form>
                                     <div class="hf-inner">
-                                        <div class="is-form-field field-select" data-is="field-selectric">
+                                        <div class="is-select-filter" data-is="field-selectric">
                                             <select name="filterType">
                                                 <option value="">Область применения</option>
                                                 <option value="">Все</option>
@@ -114,7 +114,7 @@ get_header();
                                                 <?endforeach?>
                                             </select>
                                         </div>
-                                        <div class="is-form-field field-select" data-is="field-selectric">
+                                        <div class="is-select-filter" data-is="field-selectric">
                                             <select name="filterOwner">
                                                 <option value="">Заказчик</option>
                                                 <option value="">Все</option>
@@ -125,7 +125,7 @@ get_header();
                                                 <?endforeach?>
                                             </select>
                                         </div>
-                                        <div class="is-form-field field-select" data-is="field-selectric">
+                                        <div class="is-select-filter" data-is="field-selectric">
                                             <select name="filterYear">
                                                 <option value="">Год выполнения</option>
                                                 <option value="">Все</option>
