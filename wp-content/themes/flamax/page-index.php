@@ -116,6 +116,12 @@ foreach($inputArray as $key => $thisPage){
 
     </div>
 
+    <div class="is-renovartio-logo">
+        <a href="http://renovartio.com/" target="_blank" rel="nofollow">
+            Разработано в Renovartio
+        </a>
+    </div>
+
 </div>
 
 

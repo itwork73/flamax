@@ -47,6 +47,7 @@
 }
 
 html {
+  overflow-y: scroll;
   @include intro-book;
   @include font(#000,16px,16px);
 }
@@ -141,6 +142,9 @@ body {
       opacity: 1;
       pointer-events: auto;
     }
+  }
+  .main-layout {
+    transform: translateX(-40px);
   }
 }
 
@@ -318,6 +322,9 @@ body {
   flex-wrap: nowrap;
   align-items: flex-start;
   justify-content: flex-start;
+  will-change: transform;
+  transition: transform .3s;
+  transform-origin: 50% 50%;
 }
 
 .main-layout-content {
@@ -405,6 +412,29 @@ p {
   transition: background .2s;
   &:hover {
     background: #444;
+  }
+
+  &.state-wide {
+    display: block;
+    padding-left: 0;
+    padding-right: 0;
+    text-align: center;
+  }
+}
+
+.is-button-b {
+  display: inline-block;
+  vertical-align: middle;
+
+  padding: 25px 60px;
+  @include intro-book;
+  @include font(#fff,16px,16px);
+  background: #222;
+  border-radius: 4px;
+  box-shadow: 0 0 0 1px rgba(255,255,255,.4);
+  transition: background .2s;
+  &:hover {
+    background: #333;
   }
 
   &.state-wide {
@@ -757,10 +787,11 @@ p {
   position: absolute;
   z-index: 50;
   top: 50%;
-  right: 15px;
-  width: 20px;
-  height: 20px;
-  margin: -10px 0 0 0;
+  right: 5px;
+  width: 40px;
+  height: 40px;
+  margin: -20px 0 0 0;
+  background-color: #fff;
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMiIgaGVpZ2h0PSI3IiB2aWV3Qm94PSIwIDAgMTIgNyI+ICAgIDxwYXRoIGZpbGw9IiMwMDAwMDAiIGQ9Ik0uMTIuNzlBLjQ3LjQ3IDAgMCAxIDAgLjQ2QzAgLjM0LjA0LjIzLjEyLjE0YS40LjQgMCAwIDEgLjYgMEw2IDUuODggMTEuMjguMTRhLjQuNCAwIDAgMSAuNiAwIC41LjUgMCAwIDEgMCAuNjVMNi4zIDYuODZhLjQuNCAwIDAgMS0uNiAwTC4xMi43OXoiLz48L3N2Zz4=);;
@@ -881,7 +912,7 @@ p {
   .gh-dock-nav {
     display: block;
     width: 100%;
-    margin: 0 0 80px 0;
+    margin: 0 0 60px 0;
     .dn-link {
       box-sizing: border-box;
       position: relative;
@@ -1597,10 +1628,10 @@ p {
       display: block;
       margin: 0 10px 10px 10px;
       @include intro;
-      @include font(#000,16px,24px);
+      @include font(#898989,16px,24px);
       transition: color .2s;
       &:hover {
-        color: $red;
+        color: #000;
       }
     }
   }
@@ -1825,6 +1856,10 @@ p {
   }
 
   .ws-cell {
+    cursor: pointer;
+    user-select: none;
+    display: block;
+    position: relative;
     padding-bottom: 65%;
     width: 100%;
 
@@ -2942,6 +2977,99 @@ p {
   }
 }
 
+.is-search-counter {
+  margin: 20px 0 20px 0;
+  @include intro;
+  @include font(#333,18px,25px);
+}
+
+.is-search-item-row {
+  display: block;
+  margin: 0 0 30px 0;
+  .ssi-link {
+    display: block;
+    margin: 0 0 10px 0;
+    a {
+      display: inline-block;
+      @include intro;
+      @include font($red,18px,25px);
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+  .ssi-result {
+    @include intro-book;
+    @include font(#333,16px,22px);
+  }
+}
+
+.is-page-404 {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: center;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  &:before {
+    pointer-events: none;
+    content: '';
+    display: block;
+    position: absolute;
+    z-index: 10;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,.6);
+  }
+  .hb-content {
+    display: block;
+    position: relative;
+    z-index: 30;
+    width: 100%;
+    text-align: center;
+  }
+  .hb-c-meta-a {
+    @include bebas-book;
+    @include font(#fff,140px,140px);
+    letter-spacing: 5px;
+  }
+  .hb-c-meta-b {
+    margin-bottom: 40px;
+    @include intro-book;
+    @include font(#fff,25px,31px);
+  }
+  .hb-c-meta-c {
+    margin-bottom: 40px;
+    @include intro-book;
+    @include font(#fff,18px,31px);
+  }
+  .hb-c-meta-d {
+
+  }
+}
+
+.is-renovartio-logo {
+  display: block;
+  position: absolute;
+  z-index: 90;
+  bottom: 60px;
+  left: 50px;
+  a {
+    display: inline-block;
+    @include intro;
+    @include font(rgba(255,255,255,.6),13px,13px);
+    transition: color .2s;
+    &:hover {
+      color: rgba(255,255,255,1);
+    }
+  }
+}
+
 @media (min-height: 680px) {
   .is-tech-layout-e {
     .l-video-parent {
@@ -3123,6 +3251,124 @@ p {
   }
 }
 
+.fb-modal-gallery {
+  width: 90vw;
+  height: 85vh;
+  min-height: 450px;
+  padding: 0;
+  background: #000;
+  border-radius: 0;
+  .fmo-cross {
+    width: 90px;
+    height: 90px;
+    background-color: transparent !important;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAElBMVEUAAAD///////////////////8+Uq06AAAABXRSTlMAA1uh/LMgW5EAAABZSURBVHja7ZMxDgAhCAQR9P9fvis2sZpMec1ZKDAbFQK1pgtXz6o5u5HvM+9GiqAczGMgvybzOMyv6wG/0j/laWlhtLThrAhnRbgI/Anm/ffHZ/2hw6vj/wATGAPprxVMIwAAAABJRU5ErkJggg==);
+    background-position: 50% 50%;
+    background-size: 32px 32px;
+    &:hover {
+      background-color: transparent !important;
+    }
+  }
+  .swiper-container {
+    display: block;
+    width: 100%;
+    height: 100%;
+  }
+  .swiper-wrapper {
+    height: 100%;
+  }
+  .swiper-slide {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+  }
+
+
+  // arrows
+  .fmg-arrow {
+    cursor: pointer;
+    user-select: none;
+    display: block;
+    position: absolute;
+    z-index: 20;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    &:before {
+      pointer-events: none;
+      content: '';
+      display: block;
+      position: absolute;
+      top: 0;
+      width: 100px;
+      height: 100%;
+      opacity: 0;
+      transition: opacity .3s;
+      will-change: opacity;
+    }
+    svg {
+      pointer-events: none;
+      display: block;
+      position: absolute;
+      width: 30px;
+      height: 52px;
+      top: 50%;
+      margin: -13px 0 0 0;
+      opacity: 0;
+      transition: transform .3s, opacity .3s;
+      will-change: transform, opacity;
+      path {
+        fill: none;
+        stroke: #fff;
+        stroke-width: 1px;
+      }
+    }
+    &:hover {
+      svg {
+        opacity: 1;
+      }
+      &:before {
+        opacity: 1;
+      }
+    }
+
+  }
+  .fmg-arrow-prev {
+    left: 0;
+    svg {
+      left: 30px;
+      transform: scale(-1,1) translateX(20px);
+    }
+    &:before {
+      left: 0;
+      background: linear-gradient(to right, rgba(0,0,0,.3) 0%,rgba(0,0,0,0) 100%);
+    }
+    &:hover {
+      svg {
+        transform: scale(-1,1) translateX(0);
+      }
+    }
+  }
+  .fmg-arrow-next {
+    right: 0;
+    svg {
+      right: 30px;
+      transform: translateX(20px);
+    }
+    &:before {
+      right: 0;
+      background: linear-gradient(to left, rgba(0,0,0,.3) 0%,rgba(0,0,0,0) 100%);
+    }
+    &:hover {
+      svg {
+        transform: translateX(0);
+      }
+    }
+  }
+;
+}
+
 // sfx
 
 .jsfx {
@@ -3169,6 +3415,9 @@ p {
     top: 35px;
     left: 40px;
   }
+  .is-renovartio-logo {
+    left: 40px;
+  }
   .is-header-phone {
     top: 37px;
     right: 160px;
@@ -3199,5 +3448,22 @@ p {
   }
 }
 
+// shame
+
+.state-ie-user {
+
+  // select fake arrow hidden
+  .is-select-arrow {
+    display: none;
+  }
+  .is-form-field.field-select select {
+    padding-right: 15px;
+  }
+
+
+
+}
+
 // 320px version
 // @import "vendors/mobile320";
+

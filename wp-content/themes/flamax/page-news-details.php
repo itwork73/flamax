@@ -20,6 +20,17 @@ $outputArray = array(
     "NEWS_FILE"=>get_field('file_main', $thisID),
 );
 
+
+$tempImageArr = [];
+
+if ($outputArray["IMAGE_GALLERY_ARRAY"]) {
+    foreach ($outputArray["IMAGE_GALLERY_ARRAY"] as $key => $value) {
+        $tempImageArr[] = $value["url"];
+    }
+}
+
+$outputArray["IMAGE_GALLERY_URL"] = $tempImageArr;
+
 //echo '<pre>';var_dump($outputArray);echo'</pre>';
 
 ?>
@@ -51,17 +62,16 @@ get_header();
 
     </div>
 
-    <?if(count($outputArray["IMAGE_GALLERY_ARRAY"])>0):?>
-
-        <div class="is-wide-slider" data-is="wide-slider">
+    <?if(count($outputArray["IMAGE_GALLERY_URL"])>0):?>
+        <div class="is-wide-slider" data-is="wide-slider" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
 
-                    <?foreach($outputArray["IMAGE_GALLERY_ARRAY"] as $key => $value):?>
+                    <?foreach($outputArray["IMAGE_GALLERY_URL"] as $key => $value):?>
 
                         <div class="swiper-slide">
-                            <div class="ws-cell">
-                                <div class="full-size img-cover" style="background-image:url('<?=$value["url"]?>');"></div>
+                            <div class="ws-cell" data-gclick="showGalleryModal" data-value="<?=$key?>">
+                                <div class="full-size img-cover" style="background-image:url('<?=$value?>');"></div>
                             </div>
                         </div>
 
@@ -82,7 +92,6 @@ get_header();
                 </svg>
             </a>
         </div>
-
     <?endif?>
 
 

@@ -1477,6 +1477,14 @@ var globalApp = {
                     globalApp.executeModules($thisModal);
                 }
             });
+        },
+        'showGalleryModal':function($thisNode,thisValue){
+
+            $parent = $thisNode.closest('[data-images]');
+            if ($parent.length) {
+                globalApp.showImageGallery($parent.data().images, thisValue);
+            }
+
         }
     },
     'pageLoader':function(){
@@ -1494,6 +1502,47 @@ var globalApp = {
             });
         }
     },
+    'showImageGallery':function(imageArray, imageIndex){
+        imageIndex = imageIndex || 0;
+
+        t = '<div class="fb-modal-default fb-modal-gallery">';
+
+        if (imageArray.length>1) {
+            t += '<div class="fmg-arrow fmg-arrow-prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 26"><path d="M1 25l12-12L1 1"></path></svg></div>';
+            t += '<div class="fmg-arrow fmg-arrow-next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 26"><path d="M1 25l12-12L1 1"></path></svg></div>';
+        }
+
+        t += '<div class="swiper-container"><div class="swiper-wrapper">';
+
+        $.each(imageArray,function(i,thisImage){
+            t+= '<div class="swiper-slide"><div class="full-size img-cover" style="background-image:url(\''+thisImage+'\')"></div></div>';
+        });
+
+        t += '</div></div></div>';
+
+        $.fancyModal.open({
+            content:t,
+            afterShow:function($thisFancy){
+
+                // image count
+                if (imageArray.length<2) { return false; }
+
+                // this modal parent
+                var $gallerySwiperNode = $thisFancy.find('.swiper-container');
+
+                var swiperParams = {
+                    initialSlide: imageIndex,
+                    loop: true,
+                    roundLength: true,
+                    nextButton: $thisFancy.find('.fmg-arrow-next')[0],
+                    prevButton: $thisFancy.find('.fmg-arrow-prev')[0]
+                };
+
+                $gallerySwiperNode.swiper(swiperParams);
+            }
+        });
+
+    }
 };
 
 var moduleApp = {
@@ -1694,15 +1743,16 @@ var moduleApp = {
                 s[0] = v[0] + a[0];
                 s[1] = v[1] + a[1];
 
+                if(a[0] == 0 && a[1] == 0) {
+                    dragStatus = false;
+                    globalApp.showImageGallery($thisModule.data().images);
+                    return false;
+                }
 
                 var style = 'transition:transform .4s;transform:translate3d('+s[0]+'px,'+s[1]+'px,0px);';
                 $thisModule.attr('style',style);
 
-                if(a[0] == 0 && a[1] == 0) {
-                    alert('show gallery');
-                }
 
-                console.log(a);
             }
             dragStatus = false;
 
@@ -1799,7 +1849,7 @@ var moduleApp = {
             loop: true,
             loopAdditionalSlides: 6,
             autoplay: 5000,
-            onlyExternal: false,
+            onlyExternal: true,
             roundLengths: true,
             centeredSlides: true,
             slidesPerView: 2.2,

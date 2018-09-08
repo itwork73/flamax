@@ -51,6 +51,15 @@ $outputArray["THIS_OFFICE"] = array(
     "IMAGE_GALLERY"=>get_field('office_images', $thisID)
 );
 
+$tempImageArr = [];
+
+if ($outputArray["THIS_OFFICE"]["IMAGE_GALLERY"]) {
+    foreach($outputArray["THIS_OFFICE"]["IMAGE_GALLERY"] as $key => $value){
+        $tempImageArr[] = $value["url"];
+    }
+}
+
+$outputArray["THIS_OFFICE"]["IMAGE_GALLERY_URL"] = $tempImageArr;
 
 //echo '<pre>';var_dump($outputArray["THIS_OFFICE"]);echo'</pre>';exit();
 
@@ -104,7 +113,7 @@ get_header();
 
             <script type="text/javascript" src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 
-            <div class="is-contacts-map" data-is="contacts-map" <?if($outputArray["THIS_OFFICE"]["IMAGE_GALLERY"]):?> data-shift="1"<?endif?>>
+            <div class="is-contacts-map" data-is="contacts-map" <?if($outputArray["THIS_OFFICE"]["IMAGE_GALLERY_URL"]):?> data-shift="1"<?endif?>>
                 <div class="cm-layout">
                     <div class="cm-preview">
                         <div class="cm-preview-content">
@@ -139,17 +148,10 @@ get_header();
 
 </div>
 
-<?if($outputArray["THIS_OFFICE"]["IMAGE_GALLERY"]):?>
+<?if($outputArray["THIS_OFFICE"]["IMAGE_GALLERY_URL"]):?>
 
-    <div class="is-contacts-drag-image" data-is="contacts-drag-image">
-
-        <div class="full-size img-cover" style="background-image:url('<?=$outputArray["THIS_OFFICE"]["IMAGE_GALLERY"][0]["url"]?>')"></div>
-
-
-
-        <?foreach($outputArray["THIS_OFFICE"]["IMAGE_GALLERY"] as $imgKey => $imgValue):?>
-            <img src="<?=$imgValue["url"]?>" />
-        <?endforeach?>
+    <div class="is-contacts-drag-image" data-is="contacts-drag-image" data-images='<?=json_encode($outputArray["THIS_OFFICE"]["IMAGE_GALLERY_URL"])?>'>
+        <div class="full-size img-cover" style="background-image:url('<?=$outputArray["THIS_OFFICE"]["IMAGE_GALLERY_URL"][0]?>')"></div>
     </div>
 <?endif?>
 

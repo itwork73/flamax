@@ -22,12 +22,16 @@ $inputArray = $wp_query->posts;
 foreach($inputArray as $key => $thisPage){
     $thisID = $thisPage->ID;
 
+
+
     $outputArray[] = array(
         "ID"=>$thisID,
         "LINK"=>get_page_link($thisID),
         "TITLE"=>get_post_field('post_title', $thisID),
         "PREVIEW"=>strip_tags(get_post_field('post_content', $thisID))
     );
+
+
 
 }
 
@@ -79,27 +83,30 @@ get_header();
 
                 <?if(count($outputArray) > 0):?>
 
-                    <div>
-                        Найдено <?=count($outputArray)?> страниц
+                    <div class="is-search-counter">
+                        Найдено страниц: <?=count($outputArray)?>
                     </div>
 
                     <?foreach($outputArray as $key => $value):?>
                         <?if($key>25){ break; }?>
-                        <div>
-                            <div>
+
+
+                        <div class="is-search-item-row">
+                            <div class="ssi-link">
                                 <a href="<?=$value["LINK"]?>">
                                     <?=$value["TITLE"]?>
                                 </a>
                             </div>
-                            <div>
+                            <div class="ssi-result">
                                 <?=$value["PREVIEW"]?>
                             </div>
                         </div>
 
                     <?endforeach?>
+
                 <?else:?>
-                    <div>
-                        результатов не найдено
+                    <div class="is-search-counter">
+                        Результатов не найдено.
                     </div>
                 <?endif?>
 
