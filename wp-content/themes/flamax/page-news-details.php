@@ -25,7 +25,7 @@ $tempImageArr = [];
 
 if ($outputArray["IMAGE_GALLERY_ARRAY"]) {
     foreach ($outputArray["IMAGE_GALLERY_ARRAY"] as $key => $value) {
-        $tempImageArr[] = $value["url"];
+        $tempImageArr[] = $value["sizes"]["large"];
     }
 }
 
@@ -47,17 +47,19 @@ get_header();
 <div class="page-default">
 
     <div class="wrapper">
+        <div class="wrapper-a">
+            <h3>
+                <?=$outputArray["TITLE"]?>
+            </h3>
 
-        <h3>
-            <?=$outputArray["TITLE"]?>
-        </h3>
+            <div class="is-news-date">
+                <?=$outputArray["DATE"]?>
+            </div>
 
-        <div class="is-news-date">
-            <?=$outputArray["DATE"]?>
-        </div>
+            <div class="is-style-list is-style-image">
 
-        <div class="is-style-list is-style-image">
-            <?=$outputArray["CONTENT_UP"]?>
+                <?=$outputArray["CONTENT_UP"]?>
+            </div>
         </div>
 
     </div>
@@ -96,29 +98,35 @@ get_header();
 
 
     <div class="wrapper">
-        <div class="is-style-list is-style-image">
-            <?=$outputArray["CONTENT_DOWN"]?>
-        </div>
+        <div class="wrapper-a">
 
-        <div class="is-news-action">
-            <a class="is-button-a na-item" href="/news/">
-                Все новости
-            </a>
-            <?if($outputArray["NEWS_FILE"]):?>
-                <a class="is-file-download na-item" href="<?=$outputArray["NEWS_FILE"]["url"]?>" download>
-                    <div class="fd-label">
-                        Скачать новость
-                    </div>
-                    <div class="fd-ext">
-                        <?=mb_strtoupper($outputArray["NEWS_FILE"]["subtype"])?>, <?=round(($outputArray["NEWS_FILE"]["filesize"]/1000000), 2)?> Мб
-                    </div>
+            <div class="is-style-list is-style-image">
+                <?=$outputArray["CONTENT_DOWN"]?>
+            </div>
 
-                    <span>
+            <div class="is-news-action">
+                <a class="is-button-a na-item" href="/news/">
+                    Все новости
+                </a>
+                <?if($outputArray["NEWS_FILE"]):?>
+                    <a class="is-file-download na-item" href="<?=$outputArray["NEWS_FILE"]["url"]?>" download>
+                        <div class="fd-label">
+                            Скачать новость
+                        </div>
+                        <div class="fd-ext">
+                            <?=mb_strtoupper($outputArray["NEWS_FILE"]["subtype"])?>, <?=round(($outputArray["NEWS_FILE"]["filesize"]/1000000), 2)?> Мб
+                        </div>
+
+                        <span>
 
                     </span>
-                </a>
-            <?endif?>
+                    </a>
+                <?endif?>
+            </div>
+
         </div>
+
+
     </div>
 
 </div>

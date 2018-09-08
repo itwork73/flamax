@@ -1569,7 +1569,7 @@ var moduleApp = {
     },
     'index-slider':function($thisModule){
         var swiperParams = {
-            speed: 500,
+            speed: 700,
             loop: true,
             autoplay: 5000,
             onlyExternal: true,
@@ -2323,6 +2323,28 @@ var moduleApp = {
         };
 
         methods.init();
+    },
+    'project-similar':function($thisModule,thisCallback){
+
+        var swiperCount = $thisModule.find('.swiper-slide').length;
+
+        if (swiperCount<3) { return false; }
+
+        $thisModule.removeClass('state-initial');
+
+        var swiperParams = {
+            speed: 300,
+            loop: false,
+            slidesPerView: 2,
+            spaceBetween: 40,
+            onlyExternal: true,
+            roundLengths: true,
+            preventClicks: false,
+            nextButton: $thisModule.find('.ws-arrow-next')[0],
+            prevButton: $thisModule.find('.ws-arrow-prev')[0]
+        };
+
+        var thisSwiper = $thisModule.find('.swiper-container').swiper(swiperParams);
     }
 
 };

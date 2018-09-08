@@ -32,6 +32,9 @@
   }
 }
 
+
+$red: #db2424;
+
 *::selection {
   background: #373435;
   color: #fff;
@@ -41,13 +44,8 @@
   background: #373435;
   color: #fff;
 }
-*::-moz-selection {
-  background: #373435;
-  color: #fff;
-}
 
 html {
-  overflow-y: scroll;
   @include intro-book;
   @include font(#000,16px,16px);
 }
@@ -172,11 +170,11 @@ body {
       }
     }
   }
-  .is-header-logo.logo-state-white {
-    display: block;
-  }
-  .is-header-logo.logo-state-red {
-    display: none;
+  .is-header-logo {
+    color: #fff;
+    svg path {
+      fill: #fff;
+    }
   }
   .page-default {
     width: 100%;
@@ -206,11 +204,11 @@ body {
   .page-default {
     padding-top: 0 !important;
   }
-  .is-header-logo.logo-state-white {
-    display: block;
-  }
-  .is-header-logo.logo-state-red {
-    display: none;
+  .is-header-logo {
+    color: #fff;
+    svg path {
+      fill: #fff;
+    }
   }
 }
 
@@ -255,25 +253,26 @@ body {
     min-height: 580px;
     padding-top: 0 !important;
   }
-  .is-header-logo.logo-state-white {
-    display: block;
-    opacity: 1;
-    transition: opacity .2s;
-  }
-  .is-header-logo.logo-state-red {
-    display: block;
-    opacity: 0;
-    transition: opacity .2s;
+
+  .is-header-logo {
+    color: #fff;
+    transition: color .3s;
+    svg path {
+      fill: #fff;
+      transition: fill .3s;
+    }
   }
 }
 
 .body-state-technology-second {
 
-  .is-header-logo.logo-state-white {
-    opacity: 0;
-  }
-  .is-header-logo.logo-state-red {
-    opacity: 1;
+  .is-header-logo {
+    color: $red;
+    transition: color .3s .2s;
+    svg path {
+      fill: $red;
+      transition: fill .3s .2s;
+    }
   }
   .is-header-phone {
     a {
@@ -305,7 +304,7 @@ body {
 .wrapper-a {
   box-sizing: border-box;
   position: relative;
-  width: 840px;
+  width: 940px;
   margin: 0 auto;
 
 }
@@ -342,8 +341,6 @@ body {
 
 // generic
 
-$red: #db2424;
-
 h1 {
   margin: 0 0 40px -3px;
   @include intro-black;
@@ -378,9 +375,9 @@ h5 {
 }
 
 p {
-  margin: 0 0 20px 0;
+  margin: 0 0 25px 0;
   @include intro-book;
-  @include font(#000,18px,25px);
+  @include font(#000,18px,30px);
   a {
     color: #000;
     text-decoration: underline;
@@ -388,6 +385,12 @@ p {
     &:hover {
       color: $red;
     }
+  }
+}
+
+.is-p-state-bold {
+  p {
+    @include intro;
   }
 }
 
@@ -1029,18 +1032,27 @@ p {
 
 .is-header-logo {
   z-index: 100;
-  display: none;
+  display: block;
   position: absolute;
   top: 40px;
   left: 50px;
-  img {
+  @include intro-black;
+  @include font($red,14px,14px);
+  text-transform: uppercase;
+  svg {
     display: block;
+    width: 175px;
+    height: 26px;
   }
-  &.logo-state-white {
-    display: none;
-  }
-  &.logo-state-red {
+  span {
+    box-sizing: border-box;
     display: block;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    height: 100%;
+    padding-left: 20px;
+    white-space: nowrap;
   }
 }
 
@@ -1362,13 +1374,13 @@ p {
       left: 0;
       width: 100%;
       height: 100%;
-      background: rgba(0,0,0,.4);
+      background: rgba(0,0,0,.55);
     }
   }
   .ss-inner-layout {
     display: block;
     position: absolute;
-    bottom: 47%;
+    bottom: 33%;
     left: 0;
     width: 100%;
     z-index: 20;
@@ -1377,7 +1389,7 @@ p {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: space-between;
   }
   .ss-inner-preview {
@@ -1400,7 +1412,7 @@ p {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
 
     opacity: 0;
@@ -1411,9 +1423,10 @@ p {
     @include font(#fff,71px,71px);
   }
   .ss-c-count {
-    margin-left: 5px;
+    margin: 7px 0 0 5px;
     @include intro-black;
     @include font(#fff,33px,33px);
+    letter-spacing: 5px;
   }
   .ss-header {
     margin-bottom: 80px;
@@ -1463,7 +1476,7 @@ p {
   .is-arrows {
     position: absolute;
     z-index: 10;
-    bottom: calc(47% - 100px);
+    bottom: calc(33% - 100px);
     left: 50%;
     margin-left: -570px;
   }
@@ -1472,16 +1485,16 @@ p {
     .ss-title {
       opacity: 1;
       transform: none;
-      transition: opacity .5s .5s, transform .5s .5s;
+      transition: opacity .7s .7s, transform .7s .7s;
     }
     .ss-description {
       opacity: 1;
       transform: none;
-      transition: color .2s, opacity .5s .8s, transform .5s .8s;
+      transition: color .7s, opacity .7s 1s, transform .7s 1s;
     }
     .ss-inner-counter {
       opacity: 1;
-      transition: opacity 1.3s .5s;
+      transition: opacity 1.3s .7s;
 
     }
   }
@@ -1990,7 +2003,7 @@ p {
   .pc-item {
     display: block;
     + .pc-item {
-      margin-left: 100px;
+      margin-left: 80px;
     }
   }
   .pc-value {
@@ -2007,18 +2020,34 @@ p {
 .is-project-similar {
   display: block;
   position: relative;
-  margin-bottom: 60px;
-  .pr-similar-list {
-    @include is-grid(2,60);
+  .swiper-container {
+
   }
-  .pr-similar-cell {
-    box-sizing: border-box;
+  .swiper-wrapper {
+
+  }
+  .swiper-slide {
+
+  }
+
+  .project-similar-inner {
+    display: block;
+    position: relative;
+  }
+
+  .ps-cell {
     position: relative;
     display: block;
-    width: 100%;
-    height: auto;
-    padding-bottom: 75%;
     background: #dadada;
+    .ps-cell-blank {
+      user-select: none;
+      pointer-events: none;
+      position: relative;
+      display: block;
+      z-index: 1;
+      width: 100%;
+      height: auto;
+    }
     &:before {
       pointer-events: none;
       content: '';
@@ -2053,10 +2082,66 @@ p {
     @include intro;
     @include font(#ffffff,45px,51px);
   }
+  .ps-c-news-title {
+    margin-bottom: 30px;
+    @include intro-book;
+    @include font(#ffffff,36px,40px);
+  }
   .ps-c-description {
     @include intro-book;
     @include font(#ffffff,19px,25px);
   }
+
+
+  // arrow
+  .ws-arrow {
+    cursor: pointer;
+    user-select: none;
+    display: block;
+    position: absolute;
+    z-index: 50;
+    top: 50%;
+    margin-top: -30px;
+    width: 60px;
+    height: 60px;
+    background: rgba(0,0,0,.8);
+    transition: background .2s;
+    svg {
+      pointer-events: none;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: -7px 0 0 -11px;
+    }
+    &:hover {
+      background: rgba(0,0,0,1);
+    }
+
+    &.ws-arrow-prev {
+      left: -90px;
+    }
+    &.ws-arrow-next {
+      right: -90px;
+    }
+  }
+
+  &.state-initial {
+    .swiper-wrapper {
+
+    }
+    .swiper-slide {
+      width: calc(50% - 20px);
+      + .swiper-slide {
+        margin-left: 40px;
+      }
+    }
+  }
+
+}
+
+.is-similar-action {
+  margin: 60px 0 40px 0;
 }
 
 .is-project-lead-overlay {
@@ -3424,6 +3509,17 @@ p {
   }
   .page-default {
     padding-top: 100px;
+  }
+
+  // index slider
+  .is-index-slider {
+    .ss-inner-layout {
+      bottom: 38%;
+    }
+
+    .is-arrows {
+      bottom: calc(38% - 100px);
+    }
   }
 
   // project slider

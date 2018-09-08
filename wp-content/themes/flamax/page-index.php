@@ -36,6 +36,10 @@ foreach($inputArray as $key => $thisPage){
     );
 }
 
+
+
+
+
 //echo '<pre>';var_dump($outputArray);echo'</pre>';
 
 ?>
@@ -85,7 +89,7 @@ foreach($inputArray as $key => $thisPage){
                                         </a>
                                         <div class="ss-inner-counter">
                                             <div class="ss-c-current">
-                                                <?=($key+1)?>
+                                                <?if($key<9):?>0<?endif?><?=($key+1)?>
                                             </div>
                                             <div class="ss-c-count">
                                                 /<?=$arrayCount?>
