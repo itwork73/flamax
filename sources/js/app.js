@@ -10,6 +10,7 @@ var globalApp = {
         globalApp.globalEventsInit();
         globalApp.executeModules();
         globalApp.pageLoader();
+        globalApp.startupMessage();
     },
     'executeModules':function($parent){
         $parent = $parent || conf.nodeBody;
@@ -75,7 +76,19 @@ var globalApp = {
     },
     'pageLoader':function(){
         conf.nodeBody.addClass('jsfx-ready');
-    }
+    },
+    'startupMessage':function(){
+        if (appConfig.startupMessage.title && appConfig.startupMessage.message) {
+            var template = '<div class="fb-modal-default">';
+            template += '<div class="md-header">'+appConfig.startupMessage.title+'</div>';
+            template += '<div class="md-body">'+appConfig.startupMessage.message+'</div>';
+            template += '</div>';
+
+            $.fancyModal.open({
+                content: template
+            });
+        }
+    },
 };
 
 var moduleApp = {

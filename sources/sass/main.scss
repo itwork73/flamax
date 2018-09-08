@@ -3095,6 +3095,19 @@ p {
     background-size: 100% 100%;
     opacity: .5;
   }
+  .md-header {
+    display: block;
+    margin: 0 0 30px 0;
+    @include intro;
+    @include font(#000,29px,29px);
+    text-transform: uppercase;
+    text-align: center;
+  }
+  .md-body {
+    @include intro-book;
+    @include font(#333,21px,25px);
+    text-align: center;
+  }
 }
 
 .fb-modal-contact-form {

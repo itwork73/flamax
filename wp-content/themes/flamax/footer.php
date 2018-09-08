@@ -79,7 +79,18 @@
             </div>
 
             <div class="is-form-validation form-state-invalid" data-is="form-validation">
-                <form action="/h/">
+
+
+                <?if($_REQUEST["wp_sent"] == "contacts"):?>
+                    <script>
+                        appConfig.startupMessage.title = "Спасибо";
+                        appConfig.startupMessage.message = "Мы свяжемся с Вами вближайшее время."
+                    </script>
+                <?endif?>
+
+                <form method="post" action="">
+
+                    <input type="hidden" name="wp_sent" value="contacts" />
 
                     <div class="is-columns">
                         <div class="col">
@@ -225,7 +236,7 @@
                             <div class="is-form-field field-text">
                                 <label>
                                     <input name="field[phone]" placeholder="Телефон *" type="text" data-validation='<?=json_encode([
-                                        "mask"=>"phoneRussia",
+                                        "mask"=>"text",
                                         "require"=>true,
                                         "visible"=>true,
                                         "error"=>"Введите телефон",
@@ -275,7 +286,11 @@
 </div>
 
 
+
 <script type="text/javascript" src="/assets/main.js?nocache=<?=rand()?>"></script>
+
+
+
 
 
 </body>
