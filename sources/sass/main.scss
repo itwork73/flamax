@@ -290,6 +290,29 @@ body {
       }
     }
   }
+  .is-tech-pager {
+    .swiper-pagination-bullet {
+      &:before {
+        background: #dfdfdf;
+      }
+      &:hover {
+        &:before {
+          background: #888;
+        }
+      }
+      .spb-label {
+        span {
+          @include intro-black;
+          color: #353535;
+        }
+      }
+    }
+    .swiper-pagination-bullet-active {
+      &:before {
+        background: #353535;
+      }
+    }
+  }
 }
 
 // layout
@@ -2924,6 +2947,14 @@ p {
     [class*="ymaps-2"][class*="-ground-pane"] {
       filter: grayscale(100%);
     }
+
+    .ymaps-2-1-68-balloon__content {
+      margin: 0 !important;
+    }
+    .ymaps-2-1-68-balloon__close-button {
+      display: none;
+    }
+
     .ymap {
       display: block;
       position: relative;
@@ -2968,14 +2999,50 @@ p {
       height: 100%;
       margin-left: -2px;
       border-radius: 2px;
-      background: #dfdfdf;
+      background: #ddd;
       transition: background .2s;
     }
     &:hover {
       &:before {
-        background: #888;
+        background: #fff;
       }
 
+      .spb-label {
+        span {
+          opacity: 1;
+          transform: none;
+        }
+
+      }
+
+    }
+    .spb-label {
+      position: absolute;
+      top: 0;
+      right: 100%;
+      height: 100%;
+      width: 120px;
+
+      display: flex;
+      flex-direction: column;
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      justify-content: center;
+      span {
+        pointer-events: none;
+        opacity: 0;
+        transform: translateX(-10px);
+        transition: opacity .3s, transform .3s;
+        will-change: transform, opacity;
+
+        display: block;
+        width: 150px;
+        margin-left: -30px;
+        text-align: right;
+        @include intro;
+        @include font(#fff,13px,15px);
+        text-transform: uppercase;
+      }
     }
     + .swiper-pagination-bullet {
       margin-top: 10px;
@@ -2983,9 +3050,17 @@ p {
   }
   .swiper-pagination-bullet-active {
     &:before {
-      background: #353535;
+      background: #fff;
+    }
+    .spb-label {
+      span {
+        opacity: 1;
+        transform: none;
+      }
+
     }
   }
+
 }
 
 .is-partners-slider {

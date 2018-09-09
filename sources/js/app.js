@@ -482,7 +482,8 @@ var moduleApp = {
         var params = {
             swipers:{},
             ymapReady: false,
-            markers: {}
+            markers: {},
+            markerLast: false
         };
 
         var customEvents = {
@@ -505,6 +506,10 @@ var moduleApp = {
                     mousewheelControl: true,
                     pagination: $('.is-tech-pager')[0],
                     paginationClickable: true,
+                    paginationBulletRender: function (sw, index) {
+                        var thisTitle = sw.slides[index].dataset.title || "";
+                        return '<div class="swiper-pagination-bullet"><div class="spb-label"><span>' + thisTitle + '</span></div></div>';
+                    },
                     onSlideChangeStart:function(sw){
                         if(sw.activeIndex>0) {
                             conf.nodeBody.addClass('body-state-technology-second');
@@ -545,8 +550,7 @@ var moduleApp = {
                     prevButton: $thisNodes.swiperPartnersPrev[0],
                     nextButton: $thisNodes.swiperPartnersNext[0]
                 });
-
-                console.log(params.swipers);
+                
             },
             'initYandexMap':function(){
 
@@ -591,22 +595,36 @@ var moduleApp = {
 
                     map.setBounds(map.geoObjects.getBounds());
 
-                    map.events.add('balloonopen', function(e){
-                        var target = e.get('target');
-                        if (target.geometry && typeof target.getGeoObjects == 'undefined') {
-                            target.options.set({
-                                iconImageHref: "/assets/img/pin3.png"
-                            });
-                        }
-                    });
-                    map.events.add('balloonclose', function(e){
-                        var target = e.get('target');
-                        if (target.geometry && typeof target.getGeoObjects == 'undefined') {
-                            target.options.set({
+
+
+
+                    map.geoObjects.events.add('click', function (e) {
+                        if (params.markerLast) {
+                            params.markerLast.options.set({
                                 iconImageHref: "/assets/img/pin2.png"
                             });
                         }
+
+                        var markerThis = e.get('target');
+                        params.markerLast = markerThis;
+                        markerThis.options.set({
+                            iconImageHref: "/assets/img/pin3.png"
+                        });
+
                     });
+
+                    map.events.add('balloonclose', function(e){
+
+                        if (params.markerLast) {
+                            params.markerLast.options.set({
+                                iconImageHref: "/assets/img/pin2.png"
+                            });
+
+                            params.markerLast = false;
+                        };
+                    });
+
+
 
 
 
@@ -618,7 +636,21 @@ var moduleApp = {
             },
             'showPartnerOnMap':function(e){
                 if (!params.ymapReady) { return false; }
-                params.markers[e.thisValue.id].balloon.open();
+
+
+                if (params.markerLast) {
+                    params.markerLast.options.set({
+                        iconImageHref: "/assets/img/pin2.png"
+                    });
+                };
+
+                var markerThis = params.markers[e.thisValue.id];
+                params.markerLast = markerThis;
+                markerThis.options.set({
+                    iconImageHref: "/assets/img/pin3.png"
+                });
+
+                markerThis.balloon.open();
             },
             'swipePrev':function(e){
                 params.swipers[e.thisValue.target].slidePrev();
