@@ -550,7 +550,7 @@ var moduleApp = {
                     prevButton: $thisNodes.swiperPartnersPrev[0],
                     nextButton: $thisNodes.swiperPartnersNext[0]
                 });
-                
+
             },
             'initYandexMap':function(){
 

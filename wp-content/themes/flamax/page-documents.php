@@ -13,7 +13,6 @@
 </div>
 
 
-
 <?
     get_footer();
 ?>

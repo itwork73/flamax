@@ -51,18 +51,17 @@ define("B_DATA_ARRAY", $bDataArray);
 
 function edit_admin_menus(){
 
-    return false;
+    return true;
 
     global $menu;
 
-    $menu[5][0] = 'Проекты';
+    $menu[25][0] = 'Обратаня связь';
 
     remove_submenu_page('edit.php','edit-tags.php?taxonomy=category');
     remove_submenu_page('edit.php','edit-tags.php?taxonomy=post_tag');
 
     remove_menu_page('index.php');
     remove_menu_page('edit.php');
-    remove_menu_page('edit-comments.php');
     remove_menu_page('upload.php');
     remove_menu_page('themes.php');
     remove_menu_page('plugins.php');
@@ -71,7 +70,19 @@ function edit_admin_menus(){
     remove_menu_page('edit.php?post_type=acf-field-group');
     return true;
 }
+
+
+
+function edit_admin_custom() {
+    return true;
+    echo '<style>';
+    echo '#wp-admin-bar-updates {display:none !important;}'; // hide updates
+    echo '#adminmenu .wp-submenu.wp-submenu-wrap {display:none !important;}'; // hide sub menu
+    echo '</style>';
+}
+
 add_action('admin_menu','edit_admin_menus');
+add_action('admin_head', 'edit_admin_custom');
 
 
 // показывает ID всех страниц для набора в массив

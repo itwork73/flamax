@@ -81,7 +81,7 @@
             <div class="is-form-validation form-state-invalid" data-is="form-validation">
 
 
-                <?if($_REQUEST["wp_sent"] == "contacts"):?>
+                <?if($_REQUEST["wp_sent_status"] == "contacts"):?>
                     <script>
                         appConfig.startupMessage.title = "Спасибо";
                         appConfig.startupMessage.message = "Мы свяжемся с Вами вближайшее время."
@@ -90,7 +90,7 @@
 
                 <form method="post" action="">
 
-                    <input type="hidden" name="wp_sent" value="contacts" />
+                    <input type="hidden" name="wp_sent_status" value="contacts" />
 
                     <div class="is-columns">
                         <div class="col">
