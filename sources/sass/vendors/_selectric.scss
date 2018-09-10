@@ -20,11 +20,19 @@ $selectric-font-size:       12px !default;                                      
 }
 
 .selectric {
+
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  justify-content: flex-start;
+
   box-sizing: border-box;
   background: transparent;
   position: relative;
   overflow: hidden;
-  padding: 0 15px;
+  padding: 0 45px 0 15px;
+  height: 48px;
   border-radius: 4px 4px 0 0;
   transition: background .2s;
   &:before {
@@ -39,16 +47,14 @@ $selectric-font-size:       12px !default;                                      
   }
   .label {
     display: block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-    margin: 0 30px 0 0;
+    white-space: normal;
+    overflow: visible;
+    text-overflow: unset;
+    margin: 0;
     @include intro;
-    @include font(#000,16px,48px);
-    height: 48px;
+    @include font(#000,15px,15px);
     user-select: none;
   }
-
   .button {
     display: block;
     position: absolute;
