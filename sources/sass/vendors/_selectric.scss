@@ -191,13 +191,13 @@ $selectric-font-size:       12px !default;                                      
 
   li {
     display: block;
-    padding: 12px 15px;
+    padding: 8px 15px;
     color: #666;
     cursor: pointer;
 
 
     @include intro-book;
-    @include font(#eee,14px,14px);
+    @include font(#eee,14px,18px);
     &:first-child {
       display: none;
     }
