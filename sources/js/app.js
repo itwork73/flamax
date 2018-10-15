@@ -80,6 +80,15 @@ var globalApp = {
                 globalApp.showImageGallery($parent.data().images, thisValue);
             }
 
+        },
+        'showYoutubeModal':function($thisNode,thisValue){
+            var t = '<div class="fb-modal-default fb-modal-video-youtube">';
+            t += '<div class="mv-frame-parent"><iframe src="https://www.youtube.com/embed/'+thisValue+'?autoplay=true&rel=false" frameborder="0" allowfullscreen></iframe></div>';
+            t += '</div>';
+
+            $.fancyModal.open({
+                content: t
+            });
         }
     },
     'pageLoader':function(){
@@ -110,7 +119,7 @@ var globalApp = {
         t += '<div class="swiper-container"><div class="swiper-wrapper">';
 
         $.each(imageArray,function(i,thisImage){
-            t+= '<div class="swiper-slide"><div class="full-size img-cover" style="background-image:url(\''+thisImage+'\')"></div></div>';
+            t+= '<div class="swiper-slide"><div class="full-size img-cover" style="background-image:url('+thisImage+');"></div></div>';
         });
 
         t += '</div></div></div>';
@@ -520,21 +529,23 @@ var moduleApp = {
                 });
 
                 params.swipers.swiperProduction = $thisNodes.swiperProduction.swiper({
-                    speed: 500,
-                    loop: false,
+                    speed: 600,
+                    loop: true,
+                    effect: 'fade',
                     direction: 'horizontal',
                     nested: true,
-                    onlyExternal: false,
+                    onlyExternal: true,
                     roundLengths: true,
                     preventClicks: false
                 });
 
                 params.swipers.swiperFlamax = $thisNodes.swiperFlamax.swiper({
-                    speed: 500,
-                    loop: false,
+                    speed: 600,
+                    loop: true,
+                    effect: 'fade',
                     direction: 'horizontal',
                     nested: true,
-                    onlyExternal: false,
+                    onlyExternal: true,
                     roundLengths: true,
                     preventClicks: false
                 });
@@ -621,7 +632,7 @@ var moduleApp = {
                             });
 
                             params.markerLast = false;
-                        };
+                        }
                     });
 
 
@@ -642,7 +653,7 @@ var moduleApp = {
                     params.markerLast.options.set({
                         iconImageHref: "/assets/img/pin2.png"
                     });
-                };
+                }
 
                 var markerThis = params.markers[e.thisValue.id];
                 params.markerLast = markerThis;
@@ -659,9 +670,8 @@ var moduleApp = {
                 params.swipers[e.thisValue.target].slideNext();
             },
             'swipeTo':function(e){
-                console.log(e.thisValue.target);
                 params.swipers[e.thisValue.target].slideTo(e.thisValue.slide);
-                
+
             }
         };
 

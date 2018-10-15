@@ -31,7 +31,7 @@
         },
         setScrollMargin:function(){
             node.html.addClass('state-show-fancy-test');
-            var sw = (window.innerWidth - document.documentElement.clientWidth);
+            var sw = 0; // (window.innerWidth - document.documentElement.clientWidth);
             node.html.removeClass('state-show-fancy-test');
             var t = '<style>.state-show-fancy-modal{margin-right:'+sw+'px;}</style>';
             node.html.find('head').append(t);
@@ -106,6 +106,7 @@
             params.openStatus = false;
 
             if (params.afterCloseExec) { params.afterCloseExec(node.fancyInner); }
+            node.fancyInner.html("");
         }, 250);
     };
 

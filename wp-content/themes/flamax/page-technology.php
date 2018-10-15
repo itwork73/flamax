@@ -8,11 +8,13 @@
 // result modifier
 
 
+$thisID = get_the_ID();
 
 $outputArray = array(
     "CONTENT"=>array(
-        "CONTENT_PREVIEW"=>get_post_field('post_content', get_the_ID())
+        "CONTENT_PREVIEW"=>get_post_field('post_content', $thisID),
     ),
+    "IMAGE_GALLERY"=>get_field('tech_images', $thisID),
     "PARTNERS"=>array()
 );
 
@@ -37,7 +39,17 @@ foreach($inputArray as $key => $thisPage) {
     );
 }
 
-//echo '<pre>';var_dump($outputArray);echo'</pre>';
+$tempImageArr = [];
+
+if ($outputArray["IMAGE_GALLERY"]) {
+    foreach($outputArray["IMAGE_GALLERY"] as $key => $value){
+        $tempImageArr[] = $value["sizes"]["large"];
+    }
+}
+
+$outputArray["IMAGE_GALLERY_URL"] = $tempImageArr;
+
+//echo '<pre>';var_dump($tempImageArr);echo'</pre>';die();
 
 ?>
 
@@ -57,7 +69,7 @@ get_header();
 
     <script type="text/javascript" src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 
-    <div class="is-technology-page" data-is="technology-page">
+    <div class="is-technology-page" data-is="technology-page" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
 
         <div class="swiper-container" data-node="swiperMain">
             <div class="swiper-wrapper sw-wrapper-w">
@@ -93,7 +105,7 @@ get_header();
                                 </div>
                             </div>
                             <div class="l-right">
-                                <div class="l-video" data-click="swipeTo" data-value='{"target":"swiperMain","slide":"4"}'>
+                                <div class="l-video" data-gclick="showYoutubeModal" data-value="DGQwd1_dpuc">
                                     <i></i>
                                     Смотреть<br/>
                                     видео-презентацию
@@ -105,6 +117,7 @@ get_header();
                     </div>
 
                 </div>
+
                 <div class="swiper-slide" data-title="Производство<br/> и монтаж">
 
                     <div class="swiper-container" data-node="swiperProduction">
@@ -138,10 +151,10 @@ get_header();
                                         </div>
                                         <div class="l-right">
                                             <div class="l-col-image">
-                                                <div class="l-image">
+                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                     <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp8.jpg');"></div>
                                                 </div>
-                                                <div class="l-image">
+                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
                                                     <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp9.jpg');"></div>
                                                 </div>
                                             </div>
@@ -189,10 +202,10 @@ get_header();
                                         </div>
                                         <div class="l-right">
                                             <div class="l-col-image">
-                                                <div class="l-image">
+                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="2">
                                                     <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp10.jpg');"></div>
                                                 </div>
-                                                <div class="l-image">
+                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="3">
                                                     <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp11.jpg');"></div>
                                                 </div>
                                             </div>
@@ -244,11 +257,11 @@ get_header();
                                             </div>
                                         </div>
                                         <div class="l-right">
-                                            <div class="l-col-image">
-                                                <div class="l-image">
+                                            <div class="l-col-image l-image-link">
+                                                <div class="l-image" data-gclick="showGalleryModal" data-value="0">
                                                     <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp14.jpg');"></div>
                                                 </div>
-                                                <div class="l-image">
+                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
                                                     <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp12.jpg');"></div>
                                                 </div>
                                             </div>
@@ -267,6 +280,7 @@ get_header();
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide ss-gray" data-title="Варианты<br/> планировки">
                     <div class="wrapper">
                         <div class="is-tech-layout-c">
@@ -283,7 +297,7 @@ get_header();
                             <div class="l-right">
 
                                 <div class="l-item">
-                                    <div class="l-item-image">
+                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="2">
                                         <img src="/assets/img/temp/temp15.jpg" />
                                     </div>
                                     <div class="l-item-details">
@@ -292,7 +306,7 @@ get_header();
                                 </div>
 
                                 <div class="l-item">
-                                    <div class="l-item-image">
+                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="3">
                                         <img src="/assets/img/temp/temp16.jpg" />
                                     </div>
                                     <div class="l-item-details">
@@ -301,7 +315,7 @@ get_header();
                                 </div>
 
                                 <div class="l-item">
-                                    <div class="l-item-image">
+                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="0">
                                         <img src="/assets/img/temp/temp17.jpg" />
                                     </div>
                                     <div class="l-item-details">
@@ -314,6 +328,7 @@ get_header();
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide" data-title="Почему Flamax">
                     <div class="swiper-container" data-node="swiperFlamax">
                         <div class="swiper-wrapper">
@@ -345,7 +360,7 @@ get_header();
                                             </div>
                                         </div>
                                         <div class="l-right">
-                                            <div class="l-image">
+                                            <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                 <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp4.jpg');"></div>
                                             </div>
                                         </div>
@@ -379,7 +394,7 @@ get_header();
                                             </div>
                                         </div>
                                         <div class="l-right">
-                                            <div class="l-image">
+                                            <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
                                                 <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp18.jpg');"></div>
                                             </div>
                                         </div>
@@ -389,6 +404,7 @@ get_header();
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide" data-title="Видео-презентация">
                     <div class="wrapper">
                         <div class="is-tech-layout-e">
@@ -436,6 +452,7 @@ get_header();
                         </div>
                     </div>
                 </div>
+
                 <div class="swiper-slide" data-title="Наши клиенты">
 
                     <div class="wrapper">

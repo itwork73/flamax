@@ -1239,7 +1239,7 @@ n.cssHooks[b]=Ua(l.pixelPosition,function(a,c){return c?(c=Sa(a,b),Oa.test(c)?n(
         },
         setScrollMargin:function(){
             node.html.addClass('state-show-fancy-test');
-            var sw = (window.innerWidth - document.documentElement.clientWidth);
+            var sw = 0; // (window.innerWidth - document.documentElement.clientWidth);
             node.html.removeClass('state-show-fancy-test');
             var t = '<style>.state-show-fancy-modal{margin-right:'+sw+'px;}</style>';
             node.html.find('head').append(t);
@@ -1314,6 +1314,7 @@ n.cssHooks[b]=Ua(l.pixelPosition,function(a,c){return c?(c=Sa(a,b),Oa.test(c)?n(
             params.openStatus = false;
 
             if (params.afterCloseExec) { params.afterCloseExec(node.fancyInner); }
+            node.fancyInner.html("");
         }, 250);
     };
 
@@ -1485,6 +1486,15 @@ var globalApp = {
                 globalApp.showImageGallery($parent.data().images, thisValue);
             }
 
+        },
+        'showYoutubeModal':function($thisNode,thisValue){
+            var t = '<div class="fb-modal-default fb-modal-video-youtube">';
+            t += '<div class="mv-frame-parent"><iframe src="https://www.youtube.com/embed/'+thisValue+'?autoplay=true&rel=false" frameborder="0" allowfullscreen></iframe></div>';
+            t += '</div>';
+
+            $.fancyModal.open({
+                content: t
+            });
         }
     },
     'pageLoader':function(){
@@ -1515,7 +1525,7 @@ var globalApp = {
         t += '<div class="swiper-container"><div class="swiper-wrapper">';
 
         $.each(imageArray,function(i,thisImage){
-            t+= '<div class="swiper-slide"><div class="full-size img-cover" style="background-image:url(\''+thisImage+'\')"></div></div>';
+            t+= '<div class="swiper-slide"><div class="full-size img-cover" style="background-image:url('+thisImage+');"></div></div>';
         });
 
         t += '</div></div></div>';
@@ -1925,21 +1935,23 @@ var moduleApp = {
                 });
 
                 params.swipers.swiperProduction = $thisNodes.swiperProduction.swiper({
-                    speed: 500,
-                    loop: false,
+                    speed: 600,
+                    loop: true,
+                    effect: 'fade',
                     direction: 'horizontal',
                     nested: true,
-                    onlyExternal: false,
+                    onlyExternal: true,
                     roundLengths: true,
                     preventClicks: false
                 });
 
                 params.swipers.swiperFlamax = $thisNodes.swiperFlamax.swiper({
-                    speed: 500,
-                    loop: false,
+                    speed: 600,
+                    loop: true,
+                    effect: 'fade',
                     direction: 'horizontal',
                     nested: true,
-                    onlyExternal: false,
+                    onlyExternal: true,
                     roundLengths: true,
                     preventClicks: false
                 });
@@ -1955,7 +1967,7 @@ var moduleApp = {
                     prevButton: $thisNodes.swiperPartnersPrev[0],
                     nextButton: $thisNodes.swiperPartnersNext[0]
                 });
-                
+
             },
             'initYandexMap':function(){
 
@@ -2026,7 +2038,7 @@ var moduleApp = {
                             });
 
                             params.markerLast = false;
-                        };
+                        }
                     });
 
 
@@ -2047,7 +2059,7 @@ var moduleApp = {
                     params.markerLast.options.set({
                         iconImageHref: "/assets/img/pin2.png"
                     });
-                };
+                }
 
                 var markerThis = params.markers[e.thisValue.id];
                 params.markerLast = markerThis;
@@ -2064,9 +2076,8 @@ var moduleApp = {
                 params.swipers[e.thisValue.target].slideNext();
             },
             'swipeTo':function(e){
-                console.log(e.thisValue.target);
                 params.swipers[e.thisValue.target].slideTo(e.thisValue.slide);
-                
+
             }
         };
 

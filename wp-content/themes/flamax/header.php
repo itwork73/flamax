@@ -137,6 +137,12 @@
                 <?endforeach?>
             </div>
 
+            <div class="gn-dock-order">
+                <a class="is-button-c" data-gclick="showOrderModal" href="#">
+                    Оставить заявку
+                </a>
+            </div>
+
             <div class="gn-dock-search">
                 <div class="is-search-tools" data-is="search-tools">
                     <form data-node="searchToolsForm" action="/" method="get">
