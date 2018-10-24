@@ -179,6 +179,7 @@ var moduleApp = {
             onlyExternal: true,
             roundLengths: true,
             preventClicks: false,
+            simulateTouch: false,
             prevButton: $thisModule.find('.ss-arrow-prev')[0],
             nextButton: $thisModule.find('.ss-arrow-next')[0]
         };
@@ -513,6 +514,7 @@ var moduleApp = {
                     roundLengths: true,
                     preventClicks: false,
                     mousewheelControl: true,
+                    simulateTouch: false,
                     pagination: $('.is-tech-pager')[0],
                     paginationClickable: true,
                     paginationBulletRender: function (sw, index) {
@@ -533,10 +535,10 @@ var moduleApp = {
                     loop: true,
                     effect: 'fade',
                     direction: 'horizontal',
-                    nested: true,
                     onlyExternal: true,
                     roundLengths: true,
-                    preventClicks: false
+                    preventClicks: false,
+                    simulateTouch: false
                 });
 
                 params.swipers.swiperFlamax = $thisNodes.swiperFlamax.swiper({
@@ -544,20 +546,20 @@ var moduleApp = {
                     loop: true,
                     effect: 'fade',
                     direction: 'horizontal',
-                    nested: true,
                     onlyExternal: true,
                     roundLengths: true,
-                    preventClicks: false
+                    preventClicks: false,
+                    simulateTouch: false
                 });
 
                 params.swipers.swiperPartners = $thisNodes.swiperPartners.swiper({
                     speed: 400,
                     loop: true,
-                    nested: true,
                     slidesPerView: 4,
                     onlyExternal: true,
                     roundLengths: true,
                     preventClicks: false,
+                    simulateTouch: false,
                     prevButton: $thisNodes.swiperPartnersPrev[0],
                     nextButton: $thisNodes.swiperPartnersNext[0]
                 });
