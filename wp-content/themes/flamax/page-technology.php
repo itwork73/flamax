@@ -74,7 +74,8 @@ get_header();
         <div class="swiper-container ss-container" data-node="swiperMain">
             <div class="swiper-wrapper sw-wrapper-w">
 
-                <?$outputArray["CONTENT"]["CONTENT_PREVIEW"]?>
+                <?=$outputArray["CONTENT"]["CONTENT_PREVIEW"]?>
+
 
                 <div class="swiper-slide ss-slide" data-title="Наши клиенты">
 
@@ -150,8 +151,6 @@ get_header();
                         </div>
                     </div>
                 </div>
-
-                
             </div>
         </div>
 
