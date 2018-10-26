@@ -2501,39 +2501,35 @@ p {
   height: 100%;
   min-height: 580px;
   overflow: hidden;
-  .swiper-container {
+  .ss-container {
     width: 100%;
     height: 100%;
   }
-  .sw-wrapper-h {
-    height: 100%;
-  }
-  .sw-wrapper-v {
+  .ss-wrapper {
     width: 100%;
   }
-  .swiper-slide {
-    position: relative;
-    width: 100%;
-    height: 100%;
+  .ss-slide {
     background: #fff;
-    &.ss-black {
-      background: #000;
-      &:before {
-        pointer-events: none;
-        content: '';
-        display: block;
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: rgba(17,25,33,.6);
-      }
+    width: 100%;
+    height: 100%;
+  }
+  .ss-slide-black {
+    background: #000;
+    &:before {
+      pointer-events: none;
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: 10;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(17,25,33,.6);
     }
-    &.ss-gray {
-      background: #f0f0f0;
-    }
+  }
+  .ss-slide-gray {
+    background: #f0f0f0;
   }
 
   .wrapper {
@@ -2679,12 +2675,16 @@ p {
     flex-shrink: 0;
     flex-grow: 0;
     width: 400px;
-    margin-right: 40px;
   }
   .l-right {
-    flex-grow: 1;
-    flex-shrink: 1;
-
+    position: relative;
+    display: block;
+    width: 700px;
+    .swiper-container, .swiper-slide {
+      width: 100%;
+    }
+  }
+  .l-right-inner {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
@@ -2696,6 +2696,9 @@ p {
     @include intro-black;
     @include font(#444,37px,43px);
     text-transform: uppercase;
+  }
+  .l-preview-parent {
+    display: block;
   }
   .l-counter {
     margin: 0 0 10px 0;
@@ -2837,15 +2840,24 @@ p {
     margin-right: 120px;
   }
   .l-right {
-    flex-grow: 1;
-    flex-shrink: 1;
-    width: 100%;
+    position: relative;
+    display: block;
+    width: 700px;
+    .swiper-container, .swiper-slide {
+      width: 100%;
+    }
+  }
+  .l-right-inner {
+    display: block;
   }
   .l-header {
     margin: 0 0 40px -3px;
     @include intro-black;
     @include font(#444,37px,43px);
     text-transform: uppercase;
+  }
+  .l-preview-parent {
+    display: block;
   }
   .l-counter {
     margin: 0 0 20px 0;

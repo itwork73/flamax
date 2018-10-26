@@ -1939,23 +1939,31 @@ var moduleApp = {
                 params.swipers.swiperProduction = $thisNodes.swiperProduction.swiper({
                     speed: 600,
                     loop: true,
-                    effect: 'fade',
                     direction: 'horizontal',
                     onlyExternal: true,
                     roundLengths: true,
                     preventClicks: false,
-                    simulateTouch: false
+                    simulateTouch: false,
+                    spaceBetween: 100,
+                    onSlideChangeStart:function(sw){
+                        var t = $thisNodes.swiperProduction.find('.swiper-slide-active .js-preview').html();
+                        $thisNodes.swiperProductionPreview.html(t);
+                    }
                 });
 
                 params.swipers.swiperFlamax = $thisNodes.swiperFlamax.swiper({
                     speed: 600,
                     loop: true,
-                    effect: 'fade',
                     direction: 'horizontal',
                     onlyExternal: true,
                     roundLengths: true,
                     preventClicks: false,
-                    simulateTouch: false
+                    simulateTouch: false,
+                    spaceBetween: 100,
+                    onSlideChangeStart:function(sw){
+                        var t = $thisNodes.swiperFlamax.find('.swiper-slide-active .js-preview').html();
+                        $thisNodes.swiperFlamaxPreview.html(t);
+                    }
                 });
 
                 params.swipers.swiperPartners = $thisNodes.swiperPartners.swiper({

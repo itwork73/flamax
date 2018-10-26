@@ -71,12 +71,12 @@ get_header();
 
     <div class="is-technology-page" data-is="technology-page" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
 
-        <div class="swiper-container" data-node="swiperMain">
+        <div class="swiper-container ss-container" data-node="swiperMain">
             <div class="swiper-wrapper sw-wrapper-w">
 
                 <? /*=$outputArray["CONTENT"]["CONTENT_PREVIEW"] */ ?>
 
-                <div class="swiper-slide ss-black" data-title="Пожарные резервуары">
+                <div class="swiper-slide ss-slide ss-slide-black" data-title="Пожарные резервуары">
                     <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp7.jpg')"></div>
 
                     <div class="wrapper">
@@ -118,159 +118,121 @@ get_header();
 
                 </div>
 
-                <div class="swiper-slide" data-title="Производство<br/> и монтаж">
-
-                    <div class="swiper-container" data-node="swiperProduction">
-                        <div class="swiper-wrapper sw-wrapper-h">
-                            <div class="swiper-slide">
-                                <div class="wrapper">
-                                    <div class="is-tech-layout-b">
-                                        <div class="l-left">
-                                            <div class="l-header">
-                                                производство<br/>
-                                                и монтаж
-                                            </div>
-                                            <div class="l-counter">
-                                                01
-                                            </div>
-                                            <div class="l-sub-header">
-                                                Проектирование
-                                            </div>
-                                            <div class="is-arrows">
-                                                <div class="ss-arrow ss-arrow-prev" data-click="swipePrev" data-value='{"target":"swiperProduction"}'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
-                                                        <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
-                                                    </svg>
-                                                </div>
-                                                <div class="ss-arrow ss-arrow-next" data-click="swipeNext" data-value='{"target":"swiperProduction"}'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
-                                                        <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="l-right">
-                                            <div class="l-col-image">
-                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp8.jpg');"></div>
-                                                </div>
-                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp9.jpg');"></div>
-                                                </div>
-                                            </div>
-                                            <div class="l-col-text">
-                                                <div class="l-text">
-                                                    Комплексный подход к проектированию пожарных резервуаров дает возможность сэкономить заказчику деньги и время. Стальной резервуар необходимого объема подбирается из перечня готовых проектов с учетом индивидуальных требований в течении 1-3 дней. Проектирование производится в строгом соответствии с нормативной документацией, допусками и сертификацией.
-                                                </div>
-                                                <div class="l-text">
-                                                    При проектировании решаются вопросы с расчетом расходов, выбором площадки размещения, составом оборудования. Производится поддержка и корректировка проектной документации при согласовании в органах государственной экспертизы и местных контролирующих организациях.
-                                                </div>
-                                                <div class="l-text">
-                                                    Мы всегда готовы к сотрудничеству с проектными организациями и оказываем всестороннюю поддержку с самого начала разработки проекта до момента завершения экспертизы проектной документации.
-                                                </div>
-                                            </div>
-                                        </div>
+                <div class="swiper-slide ss-slide" data-title="Производство<br/>и монтаж">
+                    <div class="wrapper">
+                        <div class="is-tech-layout-b">
+                            <div class="l-left">
+                                <div class="l-header">
+                                    производство<br/>
+                                    и монтаж
+                                </div>
+                                <div class="l-preview-parent" data-node="swiperProductionPreview"></div>
+                                <div class="is-arrows">
+                                    <div class="ss-arrow ss-arrow-prev" data-click="swipePrev" data-value='{"target":"swiperProduction"}'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
+                                            <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="ss-arrow ss-arrow-next" data-click="swipeNext" data-value='{"target":"swiperProduction"}'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
+                                            <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="wrapper">
-                                    <div class="is-tech-layout-b">
-                                        <div class="l-left">
-                                            <div class="l-header">
-                                                производство<br/>
-                                                и монтаж
-                                            </div>
-                                            <div class="l-counter">
-                                                02
-                                            </div>
-                                            <div class="l-sub-header">
-                                                Изготовление
-                                            </div>
-                                            <div class="is-arrows">
-                                                <div class="ss-arrow ss-arrow-prev" data-click="swipePrev" data-value='{"target":"swiperProduction"}'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
-                                                        <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
-                                                    </svg>
+                            <div class="l-right">
+                                <div class="swiper-container" data-node="swiperProduction">
+                                    <div class="swiper-wrapper sw-wrapper-h">
+                                        <div class="swiper-slide">
+                                            <div class="hidden-content js-preview">
+                                                <div class="l-counter" data-node="swiperProductionCounter">
+                                                    01
                                                 </div>
-                                                <div class="ss-arrow ss-arrow-next" data-click="swipeNext" data-value='{"target":"swiperProduction"}'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
-                                                        <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
-                                                    </svg>
+                                                <div class="l-sub-header" data-node="swiperProductionHeader">
+                                                    Проектирование
                                                 </div>
                                             </div>
-                                        </div>
-                                        <div class="l-right">
-                                            <div class="l-col-image">
-                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="2">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp10.jpg');"></div>
+                                            <div class="l-right-inner">
+                                                <div class="l-col-image">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
+                                                        <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp8.jpg');"></div>
+                                                    </div>
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
+                                                        <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp9.jpg');"></div>
+                                                    </div>
                                                 </div>
-                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="3">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp11.jpg');"></div>
-                                                </div>
-                                            </div>
-                                            <div class="l-col-text">
-                                                <div class="l-text">
-                                                    Корпус сборного пожарного резервуара выполняется из стальных листов стандартного прокатного размера 2500x1250 мм.
-                                                </div>
-                                                <div class="l-text">
-                                                    Стальные листы для корпуса производятся в Европе на высокотехнологичном оборудовании и проходят двойной контроль качества.
-                                                </div>
-                                                <div class="l-text">
-                                                    Толщина стальных листов и количество болтовых соединений подбираются в зависимости от ветровых, снеговых и сейсмических нагрузок на пожарный резервуар при дальнейшей эксплуатации.
-                                                </div>
-                                                <div class="l-text">
-                                                    Базу бака формирует высокопрочная армированная ПВХ-мембрана, изготовленная на заводе как цельное изделие под индивидуальные размеры конкретного резервуара. Использо- вание ПВХ-мебраны обеспечивает идеальную герметичность и отсутствие контакта воды с металлическим корпусом.
+                                                <div class="l-col-text">
+                                                    <div class="l-text">
+                                                        Комплексныи&#774; подход к&nbsp;проектированию пожарных резервуаров дает возможность сэкономить заказчику деньги и&nbsp;время. Стальнои&#774; резервуар необходимого объема подбирается из&nbsp;перечня готовых проектов с&nbsp;учетом индивидуальных требовании&#774; в&nbsp;течении 1&ndash;3 днеи&#774;. Проектирование производится в&nbsp;строгом соответствии с&nbsp;нормативнои&#774; документациеи&#774;, допусками и&nbsp;сертификациеи&#774;.
+                                                    </div>
+                                                    <div class="l-text">
+                                                        При проектировании решаются вопросы с&nbsp;расчетом расходов, выбором площадки размещения, составом оборудования. Производится поддержка и&nbsp;корректировка проектнои&#774; документации при согласовании в&nbsp;органах государственнои&#774; экспертизы и&nbsp;местных контролирующих организациях.
+                                                    </div>
+                                                    <div class="l-text">
+                                                        Мы&nbsp;всегда готовы к&nbsp;сотрудничеству с&nbsp;проектными организациями и&nbsp;оказываем всестороннюю поддержку с&nbsp;самого начала разработки проекта до&nbsp;момента завершения экспертизы проектнои&#774; документации.
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="swiper-slide">
-
-                                <div class="wrapper">
-                                    <div class="is-tech-layout-b">
-                                        <div class="l-left">
-                                            <div class="l-header">
-                                                производство<br/>
-                                                и монтаж
-                                            </div>
-                                            <div class="l-counter">
-                                                03
-                                            </div>
-                                            <div class="l-sub-header">
-                                                Доставка
-                                            </div>
-
-                                            <div class="is-arrows">
-                                                <div class="ss-arrow ss-arrow-prev" data-click="swipePrev" data-value='{"target":"swiperProduction"}'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
-                                                        <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
-                                                    </svg>
+                                        <div class="swiper-slide">
+                                            <div class="hidden-content js-preview">
+                                                <div class="l-counter" data-node="swiperProductionCounter">
+                                                    02
                                                 </div>
-                                                <div class="ss-arrow ss-arrow-next" data-click="swipeNext" data-value='{"target":"swiperProduction"}'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
-                                                        <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
-                                                    </svg>
+                                                <div class="l-sub-header" data-node="swiperProductionHeader">
+                                                    Изготовление
+                                                </div>
+                                            </div>
+                                            <div class="l-right-inner">
+                                                <div class="l-col-image">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="2">
+                                                        <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp10.jpg');"></div>
+                                                    </div>
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="3">
+                                                        <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp11.jpg');"></div>
+                                                    </div>
+                                                </div>
+                                                <div class="l-col-text">
+                                                    <div class="l-text">
+                                                        Корпус сборного пожарного резервуара выполняется из стальных листов стандартного прокатного размера 2500x1250 мм.
+                                                    </div>
+                                                    <div class="l-text">
+                                                        Стальные листы для корпуса производятся в Европе на высокотехнологичном оборудовании и проходят двойной контроль качества.
+                                                    </div>
+                                                    <div class="l-text">
+                                                        Толщина стальных листов и количество болтовых соединений подбираются в зависимости от ветровых, снеговых и сейсмических нагрузок на пожарный резервуар при дальнейшей эксплуатации.
+                                                    </div>
+                                                    <div class="l-text">
+                                                        Базу бака формирует высокопрочная армированная ПВХ-мембрана, изготовленная на заводе как цельное изделие под индивидуальные размеры конкретного резервуара. Использо- вание ПВХ-мебраны обеспечивает идеальную герметичность и отсутствие контакта воды с металлическим корпусом.
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="l-right">
-                                            <div class="l-col-image l-image-link">
-                                                <div class="l-image" data-gclick="showGalleryModal" data-value="0">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp14.jpg');"></div>
+                                        <div class="swiper-slide">
+                                            <div class="hidden-content js-preview">
+                                                <div class="l-counter" data-node="swiperProductionCounter">
+                                                    03
                                                 </div>
-                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp12.jpg');"></div>
+                                                <div class="l-sub-header" data-node="swiperProductionHeader">
+                                                    Доставка
                                                 </div>
                                             </div>
-                                            <div class="l-col-text col-state-a">
-                                                <div class="l-text">
-                                                    Быстрая и экономичная доставка сборных резервуаров для пожарного запаса воды на место установки осуществляется  за счет компактной упаковки комплектующих. К примеру, для транспортировки двух резервуаров общим объемом 1000 м3 достаточно всего одной стандартной еврофуры.
+                                            <div class="l-right-inner">
+                                                <div class="l-col-image l-image-link">
+                                                    <div class="l-image" data-gclick="showGalleryModal" data-value="0">
+                                                        <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp14.jpg');"></div>
+                                                    </div>
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
+                                                        <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp12.jpg');"></div>
+                                                    </div>
                                                 </div>
-                                                <div class="l-text">
-                                                    Доставка сборных стальных резервуаров FLAMAX с легкостью осуществляется в труднодоступные регионы.
+                                                <div class="l-col-text col-state-a">
+                                                    <div class="l-text">
+                                                        Быстрая и экономичная доставка сборных резервуаров для пожарного запаса воды на место установки осуществляется  за счет компактной упаковки комплектующих. К примеру, для транспортировки двух резервуаров общим объемом 1000 м3 достаточно всего одной стандартной еврофуры.
+                                                    </div>
+                                                    <div class="l-text">
+                                                        Доставка сборных стальных резервуаров FLAMAX с легкостью осуществляется в труднодоступные регионы.
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -281,7 +243,7 @@ get_header();
                     </div>
                 </div>
 
-                <div class="swiper-slide ss-gray" data-title="Варианты<br/> планировки">
+                <div class="swiper-slide ss-slide ss-slide-gray" data-title="Варианты<br/> планировки">
                     <div class="wrapper">
                         <div class="is-tech-layout-c">
                             <div class="l-left">
@@ -329,73 +291,61 @@ get_header();
                     </div>
                 </div>
 
-                <div class="swiper-slide" data-title="Почему Flamax">
-                    <div class="swiper-container" data-node="swiperFlamax">
-                        <div class="swiper-wrapper">
-                            <div class="swiper-slide">
-                                <div class="wrapper">
-                                    <div class="is-tech-layout-d">
-                                        <div class="l-left">
-                                            <div class="l-header">
-                                                Почему Flamax
-                                            </div>
-                                            <div class="l-counter">
-                                                01
-                                            </div>
-                                            <div class="l-preview">
-                                                В области систем пожаротушения наша компания работает с 2008 года. За это время был накоплен высокий уровень компетенции в этой сфере: нами было реализовано 79 систем пожаротушения и установлено более 100 резервуаров на 57 объектах. Это, в свою очередь, гарантирует вам соответствие нашего технического решения всем установленным нормам пожарной безопасности.
-                                            </div>
+                <div class="swiper-slide ss-slide" data-title="Почему Flamax">
 
-                                            <div class="is-arrows">
-                                                <div class="ss-arrow ss-arrow-prev" data-click="swipePrev" data-value='{"target":"swiperFlamax"}'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
-                                                        <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
-                                                    </svg>
-                                                </div>
-                                                <div class="ss-arrow ss-arrow-next" data-click="swipeNext" data-value='{"target":"swiperFlamax"}'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
-                                                        <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
-                                                    </svg>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="l-right">
-                                            <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
-                                                <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp4.jpg');"></div>
-                                            </div>
-                                        </div>
+                    <div class="wrapper">
+                        <div class="is-tech-layout-d">
+                            <div class="l-left">
+                                <div class="l-header">
+                                    Почему Flamax
+                                </div>
+                                <div class="l-preview-parent" data-node="swiperFlamaxPreview"></div>
+
+                                <div class="is-arrows">
+                                    <div class="ss-arrow ss-arrow-prev" data-click="swipePrev" data-value='{"target":"swiperFlamax"}'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
+                                            <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
+                                        </svg>
+                                    </div>
+                                    <div class="ss-arrow ss-arrow-next" data-click="swipeNext" data-value='{"target":"swiperFlamax"}'>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
+                                            <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
+                                        </svg>
                                     </div>
                                 </div>
                             </div>
-                            <div class="swiper-slide">
-                                <div class="wrapper">
-                                    <div class="is-tech-layout-d">
-                                        <div class="l-left">
-                                            <div class="l-header">
-                                                Почему Flamax
-                                            </div>
-                                            <div class="l-counter">
-                                                02
-                                            </div>
-                                            <div class="l-preview">
-                                                Мы предоставляем полный спектр услуг и реализацию проекта «под ключ»: от разработки индивидуального проекта пожарного резервуара до его монтажа и проведения гидравлических испытаний. При необходимости проект может быть доукомплектован утепленной кровлей, внутренней  и /или внешней теплоизоляцией стенок и дна резервуара, нагревательными элементами или иными источниками тепла.
-                                            </div>
-                                            <div class="is-arrows">
-                                                <div class="ss-arrow ss-arrow-prev" data-click="swipePrev" data-value='{"target":"swiperFlamax"}'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
-                                                        <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
-                                                    </svg>
+                            <div class="l-right">
+
+                                <div class="swiper-container" data-node="swiperFlamax">
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide">
+                                            <div class="l-right-inner">
+                                                <div class="hidden-content js-preview">
+                                                    <div class="l-counter">
+                                                        01
+                                                    </div>
+                                                    <div class="l-preview">
+                                                        В области систем пожаротушения наша компания работает с 2008 года. За это время был накоплен высокий уровень компетенции в этой сфере: нами было реализовано 79 систем пожаротушения и установлено более 100 резервуаров на 57 объектах. Это, в свою очередь, гарантирует вам соответствие нашего технического решения всем установленным нормам пожарной безопасности.
+                                                    </div>
                                                 </div>
-                                                <div class="ss-arrow ss-arrow-next" data-click="swipeNext" data-value='{"target":"swiperFlamax"}'>
-                                                    <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
-                                                        <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
-                                                    </svg>
+                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
+                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp4.jpg');"></div>
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="l-right">
-                                            <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
-                                                <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp18.jpg');"></div>
+                                        <div class="swiper-slide">
+                                            <div class="l-right-inner">
+                                                <div class="hidden-content js-preview">
+                                                    <div class="l-counter">
+                                                        02
+                                                    </div>
+                                                    <div class="l-preview">
+                                                        Мы предоставляем полный спектр услуг и реализацию проекта «под ключ»: от разработки индивидуального проекта пожарного резервуара до его монтажа и проведения гидравлических испытаний. При необходимости проект может быть доукомплектован утепленной кровлей, внутренней  и /или внешней теплоизоляцией стенок и дна резервуара, нагревательными элементами или иными источниками тепла.
+                                                    </div>
+                                                </div>
+                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
+                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp18.jpg');"></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -403,9 +353,11 @@ get_header();
                             </div>
                         </div>
                     </div>
+
+
                 </div>
 
-                <div class="swiper-slide" data-title="Видео-презентация">
+                <div class="swiper-slide ss-slide" data-title="Видео-презентация">
                     <div class="wrapper">
                         <div class="is-tech-layout-e">
 
@@ -453,7 +405,7 @@ get_header();
                     </div>
                 </div>
 
-                <div class="swiper-slide" data-title="Наши клиенты">
+                <div class="swiper-slide ss-slide" data-title="Наши клиенты">
 
                     <div class="wrapper">
                         <div class="is-tech-layout-f">
