@@ -51,8 +51,6 @@ define("B_DATA_ARRAY", $bDataArray);
 
 function edit_admin_menus(){
 
-    return true;
-
     global $menu;
 
     $menu[25][0] = 'Обратаня связь';
@@ -74,7 +72,6 @@ function edit_admin_menus(){
 
 
 function edit_admin_custom() {
-    return true;
     echo '<style>';
     echo '#wp-admin-bar-updates {display:none !important;}'; // hide updates
     echo '#adminmenu .wp-submenu.wp-submenu-wrap {display:none !important;}'; // hide sub menu

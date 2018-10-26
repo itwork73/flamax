@@ -7,11 +7,13 @@
 // result modifier
 
 $filterOutput = array(
-    "YEAR"=>array()
+    "YEAR"=>array(),
+    "SUBJ"=>array()
 );
 
 $filterInput = array(
     "YEAR"=>empty($_REQUEST["filterYear"]) ? false : $_REQUEST["filterYear"],
+    "SUBJ"=>empty($_REQUEST["filterSubj"]) ? false : $_REQUEST["filterSubj"],
 );
 
 $outputArray = array();
@@ -27,9 +29,18 @@ foreach($inputArray as $key => $thisPage){
 
     $thisID = $thisPage->ID;
 
+    // filter
+
     $filterYear = trim(get_the_date("Y", $thisID));
     if(!in_array($filterYear, $filterOutput["YEAR"], false)){
         array_push($filterOutput["YEAR"], $filterYear);
+    }
+
+
+
+    $filterSubj = trim(get_field('filter_subj', $thisID));
+    if(!in_array($filterSubj, $filterOutput["SUBJ"], false)){
+        array_push($filterOutput["SUBJ"], $filterSubj);
     }
 
     $outputArray[] = array(
@@ -39,11 +50,13 @@ foreach($inputArray as $key => $thisPage){
         "DATE"=>get_the_date("j F Y", $thisID),
         "DATA_YEAR"=>get_the_date("Y", $thisID),
         "IMAGE_MAIN"=>get_field('image_main', $thisID),
-        "FILTER_YEAR"=>$filterYear
+        "FILTER_YEAR"=>$filterYear,
+        "FILTER_SUBJ"=>$filterSubj
     );
 
 }
 
+sort($filterOutput["SUBJ"]);
 rsort($filterOutput["YEAR"]);
 
 //echo '<pre>';var_dump($outputArray);echo'</pre>';exit();
@@ -89,6 +102,18 @@ get_header();
                                                 <?endforeach?>
                                             </select>
                                         </div>
+
+                                        <div class="is-select-filter" data-is="field-selectric">
+                                            <select name="filterSubj">
+                                                <option value="">Тема</option>
+                                                <option value="">Все</option>
+                                                <?foreach($filterOutput["SUBJ"] as $key => $value):?>
+                                                    <option value="<?=$value?>" <?if($filterInput["SUBJ"] == $value):?> selected<?endif?>>
+                                                        <?=$value?>
+                                                    </option>
+                                                <?endforeach?>
+                                            </select>
+                                        </div>
                                     </div>
                                 </form>
                             </div>
@@ -107,9 +132,9 @@ get_header();
 
                             <?if($key>49){ break; }?>
 
-                            <? if($filterInput["TYPE"] && $filterInput["TYPE"] !== $value["FILTER_TYPE"]) { continue; } ?>
-                            <? if($filterInput["OWNER"] && $filterInput["OWNER"] !== $value["FILTER_OWNER"]) { continue; } ?>
                             <? if($filterInput["YEAR"] && $filterInput["YEAR"] !== $value["FILTER_YEAR"]) { continue; } ?>
+                            <? if($filterInput["SUBJ"] && $filterInput["SUBJ"] !== $value["FILTER_SUBJ"]) { continue; } ?>
+
 
                             <div class="swiper-slide">
                                 <a class="ps-cell" href="<?=$value["LINK"]?>">
