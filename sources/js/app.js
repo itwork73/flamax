@@ -46,6 +46,9 @@ var globalApp = {
         'closeNav':function(){
             conf.nodeBody.removeClass('body-state-nav-open');
         },
+        'toggleAdaptiveNav':function($thisNode,thisValue){
+            conf.nodeBody.toggleClass('state-a-header-open');
+        },
         'submitClosestForm':function($thisNode,thisValue){
             $thisNode.closest('form').submit();
         },
@@ -183,6 +186,11 @@ var moduleApp = {
             prevButton: $thisModule.find('.ss-arrow-prev')[0],
             nextButton: $thisModule.find('.ss-arrow-next')[0]
         };
+
+        if (appConfig.mobileVersion) {
+            swiperParams.speed = 500;
+            swiperParams.onlyExternal = false;
+        }
 
         var thisSwiper = $thisModule.find('.swiper-container').swiper(swiperParams);
     },
