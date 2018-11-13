@@ -85,7 +85,7 @@ get_header();
                         </h1>
                     </div>
                     <div class="hl-right">
-                        <div class="is-tabs-nav">
+                        <div class="is-tabs-nav" data-is="tabs-nav-active">
                             <a class="is-tabs-link active" href="/contacts/">
                                 Сотрудники
                             </a>

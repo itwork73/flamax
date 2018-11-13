@@ -1287,6 +1287,7 @@ p {
     display: block;
     width: 100%;
     input {
+      -webkit-appearance: none;
       box-sizing: border-box;
       display: block;
       position: relative;
@@ -1296,9 +1297,12 @@ p {
       padding: 0 10px;
       outline: none;
       border: none;
+      border-radius: 0;
+      background: transparent;
       @include intro-book;
       @include font(#000,17px,40px);
       @include placeholder(#000,17px,40px);
+
       &:hover {
 
       }

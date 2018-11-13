@@ -121,55 +121,7 @@
     </a>
     <div class="gh-dock">
         <div class="gh-dock-content">
-
-
-            <div class="gh-dock-nav">
-                <?foreach(B_DATA_ARRAY["NAV_ARRAY"] as $key=>$value):?>
-                    <?
-                        $activeClass = "";
-                        if(str_replace('/', '', $value["href"]) == B_DATA_ARRAY["URI_ARRAY"][0]) {
-                            $activeClass = " state-active";
-                        }
-                    ?>
-                    <a class="dn-link <?=$activeClass?>" href="<?=$value["href"]?>">
-                        <?=$value["title"]?>
-                    </a>
-                <?endforeach?>
-            </div>
-
-            <div class="gn-dock-order">
-                <a class="is-button-c" data-gclick="showOrderModal" href="#">
-                    Оставить заявку
-                </a>
-            </div>
-
-            <div class="gn-dock-search">
-                <div class="is-search-tools" data-is="search-tools">
-                    <form data-node="searchToolsForm" action="/" method="get">
-                        <div class="st-search-inner">
-                            <a class="st-search-submit" href="#" data-gclick="submitClosestForm">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26">
-                                    <path d="M1 10a9 9 0 0 1 18 0 9 9 0 0 1-18 0zm25 14l-8-8a10 10 0 1 0-18-6 10 10 0 0 0 16 8l8 8z"></path>
-                                </svg>
-                            </a>
-                            <div class="st-search-input">
-                                <input data-node="searchToolsInput" autocomplete="off" type="text" name="s" placeholder="Поиск по сайту">
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-
-            <div class="gn-dock-lang">
-                <div class="l-item state-active">
-                    Ru
-                </div>
-                <a class="l-item state-link" href="/">
-                    En
-                </a>
-            </div>
-
-
+            <?include("header-nav.php");?>
         </div>
     </div>
 </div>
@@ -183,7 +135,7 @@
     </div>
 
 
-    <?if(true):?>
+    <?if(B_DATA_ARRAY["URI_ARRAY"][0] == ""):?>
         <div class="a-gh-logo">
             <svg viewBox="0 0 1117 258" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd" d="M1099 139L1117 166H1036L1018 130L1099 139ZM1022 27L1034 0H1115L1094 29L1022 27ZM924 25L905 0H989L1001 27L924 25ZM953 64L934 39L1008 41L1012 50L1016 42L1082 44L1063 70L953 64ZM944 107L962 80L1065 87L1087 120L944 107ZM881 74L890 102L816 95L808 69L881 74ZM741 21L749 0H854L863 23L741 21ZM731 52L738 32L867 37L876 60L804 56L802 48L800 56L731 52ZM719 86L727 63L796 68L789 92L719 86ZM590 17L594 0H671L673 19L590 17ZM584 44L588 27L675 30L678 49L584 44ZM482 15L484 0H561L565 17L482 15ZM479 38L481 23L568 26L572 43L479 38ZM476 63L478 46L575 53L578 67L581 53L679 60L682 82L476 63ZM141 7V0H218V9L141 7ZM141 19V12L218 14V23L141 19ZM141 32V23L218 28V39L141 32ZM297 11L301 0H406L411 13L297 11ZM291 27L295 17L414 21L419 35L291 27ZM354 52L353 48L352 52L285 45L289 33L421 42L427 59L354 52ZM338 97H367L356 60L430 68L463 159L474 72L684 95L693 161L715 98L896 117L911 159L935 121L1006 129L989 166H837L829 138H775L766 166H623L614 105L596 166H560L542 105L533 166H388L380 138H326L317 166H141V37L218 45V118H260L283 52L350 59L338 97ZM0 0H126L122 42L75 36V67H119L116 97H75V166H0V0Z" fill="#DB2424"></path>
@@ -199,7 +151,7 @@
         </a>
     <?endif?>
 
-    <a class="a-gh-callback" href="tel:+78469201000" onclick="gtag('event','event_name',{'event_category':'phone_click','event_action':'click'});yaCounter50929832.reachGoal('phone_click');return true;">
+    <a class="a-gh-callback" href="tel:88002006269">
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12">
             <path fill="#333" d="M11.73 9.5L9.88 7.63a.96.96 0 0 0-1.36.03l-.94.94-.18-.1a9.3 9.3 0 0 1-2.25-1.64c-.85-.85-1.3-1.66-1.63-2.25l-.1-.18.63-.63.3-.3c.4-.4.4-1 .03-1.37L2.53.27A.96.96 0 0 0 1.17.3L.65.82l.01.02a3.03 3.03 0 0 0-.62 1.53c-.25 2.03.68 3.89 3.2 6.41 3.47 3.49 6.28 3.22 6.4 3.21a3.13 3.13 0 0 0 1.53-.62l.54-.51c.38-.39.39 1 .02-1.37z"></path>
         </svg>
@@ -209,7 +161,7 @@
     <div class="a-gh-parent">
         <div class="a-gh-parent-inner">
 
-
+            <?include("header-nav.php");?>
 
         </div>
     </div>

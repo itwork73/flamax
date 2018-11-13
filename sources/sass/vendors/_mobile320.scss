@@ -31,7 +31,6 @@
       height: 100%;
       width: 100%;
       min-width: 320px;
-      background: #3e4046;
   }
 
   // body states
@@ -237,7 +236,6 @@
     }
     .a-gh-logo {
       user-select: none;
-      cursor: pointer;
       display: block;
       position: absolute;
       top: 12px;
@@ -298,9 +296,93 @@
       -webkit-overflow-scrolling: touch;
     }
 
-    .a-gh-nav {
 
+    .gh-dock-nav {
+      display: block;
+      width: 100%;
+      margin: 0 0 20px 0;
+      .dn-link {
+        box-sizing: border-box;
+        position: relative;
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 10px 15px;
+        @include intro-black;
+        @include font(#444,25px,25px);
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        &.state-active {
+          color: $red;
+        }
+      }
+      .dn-link + .dn-link {
+        &:after {
+          pointer-events: none;
+          user-select: none;
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 1px;
+          background: linear-gradient(to right, rgba(34,26,24,0) 10%, rgba(34,26,24,0.1) 50%, rgba(34,26,24,0) 90%);
+        }
+      }
     }
+    .gn-dock-order {
+      box-sizing: border-box;
+      display: block;
+      margin: 0 0 20px 0;
+      padding: 0 15px;
+      width: 100%;
+      text-align: center;
+    }
+    .gn-dock-search {
+      box-sizing: border-box;
+      display: block;
+      width: 100%;
+
+      max-width: 200px;
+      margin: 0 auto 20px auto;
+    }
+    .gn-dock-lang {
+      box-sizing: border-box;
+      position: relative;
+      width: 100%;
+
+      display: flex;
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      justify-content: center;
+      .l-item {
+        position: relative;
+        display: block;
+        @include intro-black;
+        @include font(#444,19px,19px);
+        + .l-item {
+          margin-left: 30px;
+          &:before {
+            pointer-events: none;
+            content: '';
+            display: block;
+            position: absolute;
+            top: 50%;
+            left: -20px;
+            width: 10px;
+            height: 1px;
+            background: #444;
+          }
+        }
+        &.state-active {
+          color: $red;
+        }
+      }
+    }
+
+
 
   }
 
@@ -416,6 +498,145 @@
     .ss-arrow {
       width: 50px;
       height: 50px;
+    }
+  }
+
+  // generic
+
+  h1 {
+    margin: 0 0 30px -3px;
+    @include intro-black;
+    @include font(#444444,33px,33px);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  h2 {
+    margin: 0 0 40px -3px;
+    @include intro-black;
+    @include font(#444444,49px,49px);
+    text-transform: uppercase;
+  }
+
+  h3 {
+
+    margin: 0 0 40px -1px;
+    @include intro-black;
+    @include font(#444444,33px,39px);
+    text-transform: uppercase;
+  }
+
+  h4 {
+    margin: 0 0 20px 0;
+    @include intro;
+    @include font(#444444,25px,31px);
+    text-transform: uppercase;
+  }
+
+  h5 {
+
+  }
+
+  p {
+    margin: 0 0 25px 0;
+    @include intro-book;
+    @include font(#000,18px,30px);
+    a {
+      color: #000;
+      text-decoration: underline;
+      transition: color .2s;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
+
+  .is-tabs-nav {
+    box-sizing: border-box;
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+
+    overflow: hidden;
+    overflow-x: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    width: auto;
+    margin: 0 -15px;
+    padding: 0 0 10px 0;
+    &:before,&:after {
+      content: '';
+      display: block;
+      position: relative;
+      flex-grow: 0;
+      flex-shrink: 0;
+      width: 15px;
+      height: 20px;
+    }
+    .is-tabs-link + .is-tabs-link {
+      margin-left: 20px;
+    }
+  }
+
+  .is-tabs-link {
+    flex-grow: 0;
+    flex-shrink: 0;
+
+    position: relative;
+    display: block;
+    z-index: 10;
+    padding: 0 0 10px 0;
+    @include intro;
+    @include font(#a4a4a4,21px,21px);
+    transition: color .2s;
+    &:before {
+      content: '';
+      display: block;
+      position: absolute;
+      z-index: -1;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 3px;
+      background: $red;
+      visibility: hidden;
+      transform: scale(0,1);
+      transition: transform .2s, visibility .2s;
+    }
+    &:hover {
+      color: #a4a4a4;
+    }
+    &.active {
+      color: #000;
+      &:before {
+        transform: scale(1,1);
+        visibility: visible;
+      }
+    }
+  }
+
+  .is-tabs-container {
+    display: block;
+    position: relative;
+    overflow: hidden;
+    height: auto;
+    .is-tabs-wrapper {
+      display: block;
+      position: relative;
+      &:after {
+        content: '';
+        display: block;
+        height: 1px;
+      }
+    }
+    .is-tabs-tab {
+      display: none;
+      &:first-child {
+        display: block;
+      }
     }
   }
 
@@ -594,6 +815,33 @@
     }
   }
 
+  // contacts
+
+  .is-header-layout {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: flex-start;
+
+    margin: 0 0 0 0;
+    .hl-left {
+      display: block;
+      flex-shrink: 0;
+      width: 100%;
+      margin: 0 0 15px 0;
+    }
+    .hl-right {
+      display: block;
+      flex-shrink: 0;
+      width: 100%;
+      margin: 0 0 15px 0;
+    }
+    h1, .is-tabs-nav {
+      margin-bottom: 0;
+    }
+  }
+
   // pages
 
   .page-default {
@@ -602,7 +850,7 @@
     position: relative;
     z-index: 10;
     width: 100%;
-    padding: 0 !important;
+    padding: 30px 0 0 0;
   }
 
 }

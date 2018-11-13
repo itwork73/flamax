@@ -285,6 +285,16 @@ var moduleApp = {
         tabsCore.addEvent();
         $navLinks.eq(0).addClass('active');
     },
+    'tabs-nav-active':function($thisModule){
+        if (!appConfig.mobileVersion) { return false; }
+
+        $active = $thisModule.find('.active');
+        if($active.length) {
+            var l = parseInt($active.position().left) - 15;
+            console.log(l);
+            $thisModule.scrollLeft(l);
+        }
+    },
     'contacts-map':function($thisModule){
 
         ymaps.ready(function(){
