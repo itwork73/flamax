@@ -213,8 +213,8 @@
         width: 100%;
         text-align: center;
         padding: 10px 15px;
-        @include intro;
-        @include font(#444,26px,26px);
+        @include intro-black;
+        @include font(#444,23px,23px);
         text-transform: uppercase;
         letter-spacing: 1px;
         &.state-active {
@@ -226,7 +226,7 @@
           pointer-events: none;
           user-select: none;
           content: '';
-          display: block;
+          display: none;
           position: absolute;
           top: 0;
           left: 0;
