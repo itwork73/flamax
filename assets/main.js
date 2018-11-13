@@ -1509,6 +1509,16 @@ var globalApp = {
             $.fancyModal.open({
                 content: t
             });
+        },
+        'showFilterModal':function($thisNode,thisValue){
+            var t = $thisNode.closest('.is-mobile-filters').find('.hidden-content').html();
+
+            $.fancyModal.open({
+                content: t,
+                afterShow:function($thisModal){
+                    globalApp.executeModules($thisModal);
+                }
+            });
         }
     },
     'pageLoader':function(){
@@ -1856,13 +1866,25 @@ var moduleApp = {
             }
         };
 
-        if (swiperCount > 2) {
+        if (appConfig.mobileVersion) {
+            swiperParams.slidesOffsetBefore = 0;
+            swiperParams.slidesOffsetAfter = 0;
+            swiperParams.spaceBetween = 15;
+            swiperParams.onlyExternal = false;
+            swiperParams.spaceBetween = 15;
+            swiperParams.slidesPerView = 1;
+        }
+
+        if (swiperCount > 2 && !appConfig.mobileVersion) {
             swiperParams.mousewheelControl = true;
         }
 
         var thisSwiper = $thisModule.find('.swiper-container').swiper(swiperParams);
 
+
         conf.nodeWindow.on('resize',function(){
+            if (appConfig.mobileVersion) { return true; }
+
             clearTimeout(timeout);
             timeout = setTimeout(function(){
                 var shift = parseInt((Math.max(document.documentElement.clientWidth, window.innerWidth || 0) - 1140)/2);
@@ -1923,8 +1945,13 @@ var moduleApp = {
     },
     'field-selectric':function($thisModule){
 
+        if (appConfig.mobileVersion) {
+
+            return false;
+        }
+
         $thisModule.find('select').selectric({
-            arrowButtonMarkup:'<b class="button"></b>'
+            arrowButtonMarkup:'<b class="button"></b>',
         });
 
     },
@@ -2474,6 +2501,13 @@ var moduleApp = {
         }
 
         var thisSwiper = $thisModule.find('.swiper-container').swiper(swiperParams);
+    },
+    'mobile-filter-single':function($thisModule){
+        $thisModule.find('select').on('change',function(){
+            $thisModule.addClass('state-progress');
+            var $this = $(this);
+            location.href = '?' + $this.attr('name') + '=' + encodeURI($this.val());
+        })
     }
 
 };

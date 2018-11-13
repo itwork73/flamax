@@ -141,6 +141,71 @@ get_header();
                             </div>
 
                         </div>
+
+
+                        <?/* mobile filters */?>
+
+                        <div class="is-mobile-filters">
+                            <div class="f-link" data-gclick="showFilterModal">
+                                <div class="fh-label">
+                                    Фильтровать
+                                </div>
+                                <div class="fh-image">
+                                    <img src="/assets/img/icon-filter.svg" />
+                                </div>
+                            </div>
+                            <div class="hidden-content">
+                                <div class="fb-modal-default">
+                                    <div class="md-header">
+                                        Фильтровать проекты
+                                    </div>
+
+                                    <div class="is-mobile-filters-modal" data-is="mobile-filter-single">
+                                        <form>
+                                            <div class="is-form-field field-select">
+                                                <label>
+                                                    <select name="filterType">
+                                                        <option value="">Область применения</option>
+                                                        <?foreach($filterOutput["TYPE"] as $key => $value):?>
+                                                            <option value="<?=$value?>" <?if($filterInput["TYPE"] == $value):?> selected<?endif?>>
+                                                                <?=$value?>
+                                                            </option>
+                                                        <?endforeach?>
+                                                    </select>
+                                                    <span class="is-select-arrow"></span>
+                                                </label>
+                                            </div>
+                                            <div class="is-form-field field-select">
+                                                <label>
+                                                    <select name="filterOwner">
+                                                        <option value="">Заказчик</option>
+                                                        <?foreach($filterOutput["OWNER"] as $key => $value):?>
+                                                            <option value="<?=$value?>" <?if($filterInput["OWNER"] == $value):?> selected<?endif?>>
+                                                                <?=$value?>
+                                                            </option>
+                                                        <?endforeach?>
+                                                    </select>
+                                                    <span class="is-select-arrow"></span>
+                                                </label>
+                                            </div>
+                                            <div class="is-form-field field-select">
+                                                <label>
+                                                    <select name="filterYear">
+                                                        <option value="">Год выполнения</option>
+                                                        <?foreach($filterOutput["YEAR"] as $key => $value):?>
+                                                            <option value="<?=$value?>" <?if($filterInput["YEAR"] == $value):?> selected<?endif?>>
+                                                                <?=$value?>
+                                                            </option>
+                                                        <?endforeach?>
+                                                    </select>
+                                                    <span class="is-select-arrow"></span>
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

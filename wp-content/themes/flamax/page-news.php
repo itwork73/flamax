@@ -119,6 +119,58 @@ get_header();
                             </div>
 
                         </div>
+
+
+                        <?/* mobile filters */?>
+
+                        <div class="is-mobile-filters">
+                            <div class="f-link" data-gclick="showFilterModal">
+                                <div class="fh-label">
+                                    Фильтровать
+                                </div>
+                                <div class="fh-image">
+                                    <img src="/assets/img/icon-filter.svg" />
+                                </div>
+                            </div>
+                            <div class="hidden-content">
+                                <div class="fb-modal-default">
+                                    <div class="md-header">
+                                        Фильтровать новости
+                                    </div>
+
+                                    <div class="is-mobile-filters-modal" data-is="mobile-filter-single">
+                                        <form>
+                                            <div class="is-form-field field-select">
+                                                <label>
+                                                    <select name="filterYear">
+                                                        <option value="">Год</option>
+                                                        <?foreach($filterOutput["YEAR"] as $key => $value):?>
+                                                            <option value="<?=$value?>" <?if($filterInput["YEAR"] == $value):?> selected<?endif?>>
+                                                                <?=$value?>
+                                                            </option>
+                                                        <?endforeach?>
+                                                    </select>
+                                                    <span class="is-select-arrow"></span>
+                                                </label>
+                                            </div>
+                                            <div class="is-form-field field-select">
+                                                <label>
+                                                    <select name="filterSubj">
+                                                        <option value="">Тема</option>
+                                                        <?foreach($filterOutput["SUBJ"] as $key => $value):?>
+                                                            <option value="<?=$value?>" <?if($filterInput["SUBJ"] == $value):?> selected<?endif?>>
+                                                                <?=$value?>
+                                                            </option>
+                                                        <?endforeach?>
+                                                    </select>
+                                                    <span class="is-select-arrow"></span>
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

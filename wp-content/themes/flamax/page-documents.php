@@ -102,6 +102,45 @@ get_header();
                             </div>
 
                         </div>
+
+                        <?/* mobile filters */?>
+
+                        <div class="is-mobile-filters">
+                            <div class="f-link" data-gclick="showFilterModal">
+                                <div class="fh-label">
+                                    Фильтровать
+                                </div>
+                                <div class="fh-image">
+                                    <img src="/assets/img/icon-filter.svg" />
+                                </div>
+                            </div>
+                            <div class="hidden-content">
+                                <div class="fb-modal-default">
+                                    <div class="md-header">
+                                        Фильтровать документы
+                                    </div>
+
+                                    <div class="is-mobile-filters-modal" data-is="mobile-filter-single">
+                                        <form>
+                                            <div class="is-form-field field-select">
+                                                <label>
+                                                    <select name="filterType">
+                                                        <option value="">Тип документа</option>
+                                                        <?foreach($filterOutput["TYPE"] as $key => $value):?>
+                                                            <option value="<?=$value?>" <?if($filterInput["TYPE"] == $value):?> selected<?endif?>>
+                                                                <?=$value?>
+                                                            </option>
+                                                        <?endforeach?>
+                                                    </select>
+                                                    <span class="is-select-arrow"></span>
+                                                </label>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
