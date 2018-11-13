@@ -195,7 +195,7 @@ get_header();
 
                     <div class="pc-header">
                         <h2>
-                            Проект в цифрах
+                            Проект в&nbsp;цифрах
                         </h2>
                     </div>
 

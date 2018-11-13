@@ -1767,6 +1767,18 @@ p {
       margin-left: 30px;
     }
   }
+  .cm-meta-d {
+    margin-bottom: 30px;
+    @include intro;
+    @include font(#444,16px,24px);
+    a {
+      color: #000;
+      transition: color .2s;
+      &:hover {
+        color: $red;
+      }
+    }
+  }
 }
 
 .is-contacts-drag-image {

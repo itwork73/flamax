@@ -1469,6 +1469,9 @@ var globalApp = {
                 // shift
                 if (!isNaN(thisValue.shift)) { h = h + Number(thisValue.shift); }
 
+                // mobile shift
+                if (appConfig.mobileVersion) { h = h - 50; }
+
                 $scrollNode.animate({'scrollTop':h}, 800);
             }
 
@@ -1702,6 +1705,7 @@ var moduleApp = {
         }
     },
     'contacts-map':function($thisModule){
+        if (!appConfig.mobileVersion) { return false; }
 
         ymaps.ready(function(){
 
@@ -1742,8 +1746,6 @@ var moduleApp = {
 
 
         });
-
-
     },
     'contacts-drag-image':function($thisModule){
 
@@ -1886,6 +1888,12 @@ var moduleApp = {
             prevButton: $thisModule.find('.ws-arrow-prev')[0],
             nextButton: $thisModule.find('.ws-arrow-next')[0]
         };
+
+
+        if (appConfig.mobileVersion) {
+            swiperParams.slidesPerView = 1.4;
+            swiperParams.spaceBetween = 10;
+        }
 
         var thisSwiper = $thisModule.find('.swiper-container').swiper(swiperParams);
     },
@@ -2399,7 +2407,7 @@ var moduleApp = {
 
         var swiperCount = $thisModule.find('.swiper-slide').length;
 
-        if (swiperCount<3) { return false; }
+        if (swiperCount<3 && !appConfig.mobileVersion) { return false; }
 
         $thisModule.removeClass('state-initial');
 
@@ -2414,6 +2422,11 @@ var moduleApp = {
             nextButton: $thisModule.find('.ws-arrow-next')[0],
             prevButton: $thisModule.find('.ws-arrow-prev')[0]
         };
+
+        if (appConfig.mobileVersion) {
+            swiperParams.slidesPerView = 1;
+            swiperParams.onlyExternal = false;
+        }
 
         var thisSwiper = $thisModule.find('.swiper-container').swiper(swiperParams);
     }
