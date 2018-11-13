@@ -343,6 +343,8 @@ var moduleApp = {
     },
     'contacts-drag-image':function($thisModule){
 
+        if (appConfig.mobileVersion) { return false; }
+
         var dragStatus = false;
 
         var v = [0,0]; // velocity
@@ -487,6 +489,7 @@ var moduleApp = {
         if (appConfig.mobileVersion) {
             swiperParams.slidesPerView = 1.4;
             swiperParams.spaceBetween = 10;
+            swiperParams.onlyExternal = false;
         }
 
         var thisSwiper = $thisModule.find('.swiper-container').swiper(swiperParams);
