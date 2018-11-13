@@ -1940,7 +1940,8 @@ var moduleApp = {
 
             autoHeight: false,
             onlyExternal: true,
-            spaceBetween: 100
+            spaceBetween: 100,
+            partnersTiles: 4
         };
 
         var customEvents = {
@@ -1985,6 +1986,7 @@ var moduleApp = {
                     params.autoHeight = true;
                     params.onlyExternal = false;
                     params.spaceBetween = 15;
+                    params.partnersTiles = 1;
                 }
 
                 params.swipers.swiperProduction = $thisNodes.swiperProduction.swiper({
@@ -2022,8 +2024,8 @@ var moduleApp = {
                 params.swipers.swiperPartners = $thisNodes.swiperPartners.swiper({
                     speed: 400,
                     loop: true,
-                    slidesPerView: 4,
-                    onlyExternal: true,
+                    slidesPerView: params.partnersTiles,
+                    onlyExternal: params.onlyExternal,
                     roundLengths: true,
                     preventClicks: false,
                     simulateTouch: false,
@@ -2115,6 +2117,12 @@ var moduleApp = {
 
             },
             'showPartnerOnMap':function(e){
+
+                if (appConfig.mobileVersion) {
+                    methods.showPartnerModel(e);
+                    return false;
+                }
+
                 if (!params.ymapReady) { return false; }
 
 
@@ -2131,6 +2139,16 @@ var moduleApp = {
                 });
 
                 markerThis.balloon.open();
+            },
+            'showPartnerModel':function(e){
+                var template = '<div class="fb-modal-default">';
+                template += '<div class="md-header">'+e.thisValue.title+'</div>';
+                template += '<div class="md-body">'+e.thisValue.preview+'</div>';
+                template += '</div>';
+
+                $.fancyModal.open({
+                    content: template
+                });
             },
             'swipePrev':function(e){
                 params.swipers[e.thisValue.target].slidePrev();
