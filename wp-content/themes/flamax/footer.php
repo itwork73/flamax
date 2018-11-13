@@ -93,7 +93,7 @@
                     <input type="hidden" name="wp_sent_status" value="contacts" />
 
                     <div class="is-columns">
-                        <div class="col">
+                        <div class="col column-product">
 
                             <div class="is-form-field field-select">
                                 <label>
@@ -202,26 +202,9 @@
                                     </div>
                                 </div>
                             </div>
-
-                            <div class="is-hr-float" style="height:20px;"></div>
-
-                            <div class="is-form-field field-group" data-validation='<?=json_encode(["mask"=>"checkedGroup"])?>'>
-
-
-
-                                <div class="is-form-field field-checkbox no-mar">
-                                    <label>
-                                        <input name="field[rules]" type="checkbox" /><i></i>
-                                        <span class="checkbox-label">
-                                            Вы согласны с <a class="is-link" href="#">правилами обработки данных.</a>
-                                        </span>
-                                    </label>
-                                </div>
-                            </div>
-
-
                         </div>
-                        <div class="col">
+
+                        <div class="col column-person">
 
                             <div class="is-form-field field-text">
                                 <label>
@@ -265,12 +248,24 @@
                                     <textarea placeholder="Комментарии"></textarea>
                                 </label>
                             </div>
-                            <div>
-                                <a class="is-button-a state-wide js-form-submit" href="#">
-                                    Отправить
-                                </a>
+                        </div>
+                    </div>
+
+
+                    <div class="mf-action">
+                        <div class="is-form-field field-group" data-validation='<?=json_encode(["mask"=>"checkedGroup"])?>'>
+                            <div class="is-form-field field-checkbox">
+                                <label>
+                                    <input name="field[rules]" type="checkbox" /><i></i>
+                                    <span class="checkbox-label">
+                                            Вы согласны с <a class="is-link" href="#">правилами обработки данных.</a>
+                                        </span>
+                                </label>
                             </div>
                         </div>
+                        <a class="is-button-a js-form-submit" href="#">
+                            Отправить
+                        </a>
                     </div>
 
 

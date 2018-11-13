@@ -1559,6 +1559,23 @@
       text-transform: uppercase;
       text-align: center;
     }
+    .is-columns {
+
+    }
+    .column-product {
+      order: 20;
+    }
+    .column-person {
+      order: 10;
+    }
+    .mf-action {
+      padding: 0;
+      text-align: left;
+      .is-button-a {
+        display: block;
+        text-align: center;
+      }
+    }
   }
 
   .fb-modal-gallery {
