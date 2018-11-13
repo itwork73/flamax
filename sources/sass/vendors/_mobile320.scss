@@ -747,6 +747,19 @@
     height: 10px;
   }
 
+  .is-columns {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: stretch;
+    justify-content: flex-start;
+    .col {
+      flex-grow: 1;
+      width: 100%;
+      margin: 0 !important;
+    }
+  }
+
   // index
 
   .is-index-slider {
@@ -1498,7 +1511,7 @@
     margin: 0 auto;
     padding: 40px;
     background: #fff;
-    border-radius: 6px;
+    border-radius: 0;
     .fmo-cross {
       border-top-right-radius: 6px;
     }
@@ -1534,11 +1547,13 @@
   }
 
   .fb-modal-contact-form {
-    width: 880px;
-    padding: 50px 80px;
+    width: 100vw;
+    padding: 30px 15px;
     .mf-header {
+      box-sizing: border-box;
       display: block;
-      margin: 0 0 40px 0;
+      margin: 0 0 30px 0;
+      padding: 0 50px;
       @include intro;
       @include font(#000,29px,29px);
       text-transform: uppercase;
