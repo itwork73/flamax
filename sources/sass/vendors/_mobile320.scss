@@ -213,7 +213,7 @@
         width: 100%;
         text-align: center;
         padding: 10px 15px;
-        @include intro-black;
+        @include intro;
         @include font(#444,26px,26px);
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -226,7 +226,7 @@
           pointer-events: none;
           user-select: none;
           content: '';
-          display: none;
+          display: block;
           position: absolute;
           top: 0;
           left: 0;
