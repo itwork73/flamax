@@ -1494,8 +1494,16 @@ var globalApp = {
 
         },
         'showYoutubeModal':function($thisNode,thisValue){
+
+            var link = 'https://www.youtube.com/embed/'+thisValue+'?autoplay=true&rel=false';
+
+            if (appConfig.mobileVersion) {
+                location.href = link;
+                return false;
+            }
+
             var t = '<div class="fb-modal-default fb-modal-video-youtube">';
-            t += '<div class="mv-frame-parent"><iframe src="https://www.youtube.com/embed/'+thisValue+'?autoplay=true&rel=false" frameborder="0" allowfullscreen></iframe></div>';
+            t += '<div class="mv-frame-parent"><iframe src="'+link+'" frameborder="0" allowfullscreen></iframe></div>';
             t += '</div>';
 
             $.fancyModal.open({
@@ -1928,7 +1936,11 @@ var moduleApp = {
             swipers:{},
             ymapReady: false,
             markers: {},
-            markerLast: false
+            markerLast: false,
+
+            autoHeight: false,
+            onlyExternal: true,
+            spaceBetween: 100
         };
 
         var customEvents = {
@@ -1937,10 +1949,12 @@ var moduleApp = {
 
         var methods = {
             'init':function(){
-                this.initSwipers();
+                this.initSwiperMain();
+                this.initSwiperExt();
                 this.initYandexMap();
             },
-            'initSwipers':function(){
+            'initSwiperMain':function(){
+                if (appConfig.mobileVersion) { return false; }
                 params.swipers.swiperMain = $thisNodes.swiperMain.swiper({
                     speed: 500,
                     loop: false,
@@ -1964,16 +1978,25 @@ var moduleApp = {
                         }
                     }
                 });
+            },
+            'initSwiperExt':function(){
+
+                if (appConfig.mobileVersion) {
+                    params.autoHeight = true;
+                    params.onlyExternal = false;
+                    params.spaceBetween = 15;
+                }
 
                 params.swipers.swiperProduction = $thisNodes.swiperProduction.swiper({
                     speed: 600,
                     loop: true,
                     direction: 'horizontal',
-                    onlyExternal: true,
+                    onlyExternal: params.onlyExternal,
                     roundLengths: true,
                     preventClicks: false,
                     simulateTouch: false,
-                    spaceBetween: 100,
+                    spaceBetween: params.spaceBetween,
+                    autoHeight: params.autoHeight,
                     onSlideChangeStart:function(sw){
                         var t = $thisNodes.swiperProduction.find('.swiper-slide-active .js-preview').html();
                         $thisNodes.swiperProductionPreview.html(t);
@@ -1984,11 +2007,12 @@ var moduleApp = {
                     speed: 600,
                     loop: true,
                     direction: 'horizontal',
-                    onlyExternal: true,
+                    onlyExternal: params.onlyExternal,
                     roundLengths: true,
                     preventClicks: false,
                     simulateTouch: false,
-                    spaceBetween: 100,
+                    spaceBetween: params.spaceBetween,
+                    autoHeight: params.autoHeight,
                     onSlideChangeStart:function(sw){
                         var t = $thisNodes.swiperFlamax.find('.swiper-slide-active .js-preview').html();
                         $thisNodes.swiperFlamaxPreview.html(t);

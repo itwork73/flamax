@@ -72,7 +72,7 @@ get_header();
     <div class="is-technology-page" data-is="technology-page" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
 
         <div class="swiper-container ss-container" data-node="swiperMain">
-            <div class="swiper-wrapper sw-wrapper-w">
+            <div class="swiper-wrapper ss-wrapper">
 
                 <?=$outputArray["CONTENT"]["CONTENT_PREVIEW"]?>
 
