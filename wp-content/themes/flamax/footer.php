@@ -139,7 +139,7 @@
                             </div>
                             <div class="is-form-field field-text">
                                 <label>
-                                    <input name="field[region]" placeholder="Регион утсановки резервуара" type="text" />
+                                    <input name="field[region]" placeholder="Регион установки резервуара" type="text" />
                                 </label>
                             </div>
 

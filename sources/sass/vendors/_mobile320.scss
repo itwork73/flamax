@@ -3,7 +3,7 @@
   display: none !important;
 }
 
-.a-global-header {
+.a-global-header, .a-contacts-slider, .is-a-show-on-map {
   display: none;
 }
 
@@ -583,6 +583,25 @@
     }
   }
 
+  .is-button-a {
+    padding: 18px 40px;
+  }
+
+  .is-a-show-on-map {
+    display: block;
+    margin: -20px 0 30px 0;
+    a {
+      display: inline-block;
+      vertical-align: middle;
+
+      padding: 10px 30px;
+      @include intro-book;
+      @include font(#000,16px,16px);
+      background: #ddd;
+      border-radius: 4px;
+    }
+  }
+
   .is-tabs-nav {
     box-sizing: border-box;
     position: relative;
@@ -1025,6 +1044,19 @@
 
   .is-contacts-drag-image {
     display: none !important;
+  }
+
+  .a-contacts-slider {
+    display: block;
+    margin: 30px 0 0 0;
+    .a-cs-header {
+      margin-bottom: 20px;
+      @include intro-black;
+      @include font(#000,19px,25px);
+    }
+    .is-wide-slider {
+      margin: 0;
+    }
   }
 
   // projects/news/documents list
@@ -2399,86 +2431,8 @@
 
     // arrows
     .fmg-arrow {
-      cursor: pointer;
-      user-select: none;
-      display: block;
-      position: absolute;
-      z-index: 20;
-      top: 0;
-      width: 50%;
-      height: 100%;
-      &:before {
-        pointer-events: none;
-        content: '';
-        display: block;
-        position: absolute;
-        top: 0;
-        width: 100px;
-        height: 100%;
-        opacity: 0;
-        transition: opacity .3s;
-        will-change: opacity;
-      }
-      svg {
-        pointer-events: none;
-        display: block;
-        position: absolute;
-        width: 30px;
-        height: 52px;
-        top: 50%;
-        margin: -13px 0 0 0;
-        opacity: 0;
-        transition: transform .3s, opacity .3s;
-        will-change: transform, opacity;
-        path {
-          fill: none;
-          stroke: #fff;
-          stroke-width: 1px;
-        }
-      }
-      &:hover {
-        svg {
-          opacity: 1;
-        }
-        &:before {
-          opacity: 1;
-        }
-      }
-
+      display: none;
     }
-    .fmg-arrow-prev {
-      left: 0;
-      svg {
-        left: 30px;
-        transform: scale(-1,1) translateX(20px);
-      }
-      &:before {
-        left: 0;
-        background: linear-gradient(to right, rgba(0,0,0,.3) 0%,rgba(0,0,0,0) 100%);
-      }
-      &:hover {
-        svg {
-          transform: scale(-1,1) translateX(0);
-        }
-      }
-    }
-    .fmg-arrow-next {
-      right: 0;
-      svg {
-        right: 30px;
-        transform: translateX(20px);
-      }
-      &:before {
-        right: 0;
-        background: linear-gradient(to left, rgba(0,0,0,.3) 0%,rgba(0,0,0,0) 100%);
-      }
-      &:hover {
-        svg {
-          transform: translateX(0);
-        }
-      }
-    }
-  ;
   }
 
   .fb-modal-video-youtube {

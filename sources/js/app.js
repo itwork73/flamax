@@ -166,6 +166,11 @@ var globalApp = {
                     prevButton: $thisFancy.find('.fmg-arrow-prev')[0]
                 };
 
+                if (appConfig.mobileVersion) {
+                    swiperParams.nextButton = false;
+                    swiperParams.prevButton = false;
+                }
+
                 $gallerySwiperNode.swiper(swiperParams);
             }
         });
@@ -317,7 +322,22 @@ var moduleApp = {
         }
     },
     'contacts-map':function($thisModule){
-        if (!appConfig.mobileVersion) { return false; }
+        if (appConfig.mobileVersion) {
+
+            var $mapNode = $thisModule.find('[data-node="cYmap"]');
+            var link = "https://www.google.com/maps/@"+$mapNode.data().lat+","+$mapNode.data().lng+",14z";
+            var $target = $('.is-a-show-on-map > a');
+
+            $target.attr({
+                href:link,
+                target:'_blank',
+                rel:'nofollow'
+            });
+
+            return false;
+
+
+        }
 
         ymaps.ready(function(){
 
