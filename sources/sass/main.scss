@@ -2721,6 +2721,7 @@ p {
   .l-right {
     position: relative;
     display: block;
+    overflow: hidden;
     width: 700px;
     .swiper-container, .swiper-slide {
       width: 100%;
@@ -2762,26 +2763,68 @@ p {
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: flex-start;
-    justify-content: flex-start;
+    justify-content: space-between;
 
 
     margin-right: 30px;
     width: 230px;
+    height: 510px;
   }
   .l-col-text {
     flex-grow: 1;
+    height: 510px;
 
-    display: flex;
-    flex-direction: column;
-    flex-wrap: nowrap;
-    align-items: flex-start;
-    justify-content: space-between;
-    &.col-state-a {
-      justify-content: flex-start;
-      .l-text {
-        margin-bottom: 30px;
-      }
+    display: block;
+
+    overflow: hidden;
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+
+    &::-webkit-scrollbar {
+      width: 4px;
+      height: 4px;
     }
+    &::-webkit-scrollbar-button {
+      width: 0;
+      height: 0;
+    }
+    &::-webkit-scrollbar-thumb {
+      background: rgba(0,0,0,.4);
+      border: none;
+      border-radius: 0;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: rgba(0,0,0,.5);
+    }
+    &::-webkit-scrollbar-thumb:active {
+      background: rgba(0,0,0,.4);
+    }
+    &::-webkit-scrollbar-track {
+      background: rgba(0,0,0,.1);
+      border: none;
+      border-radius: 0;
+    }
+    &::-webkit-scrollbar-track:hover {
+      background: rgba(0,0,0,.1);
+    }
+    &::-webkit-scrollbar-track:active {
+      background: rgba(0,0,0,.1);
+    }
+    &::-webkit-scrollbar-corner {
+      background: transparent;
+    }
+
+    .l-text + .l-text {
+      margin-top: 20px;
+    }
+
+  }
+  .l-text-group {
+    box-sizing: border-box;
+    display: block;
+    width: 100%;
+    padding: 0 15px 0 0;
   }
   .l-image {
     position: relative;
@@ -2790,9 +2833,6 @@ p {
     height: auto;
     padding-bottom: 100%;
     background: #444;
-    +.l-image {
-      margin-top: 20px;
-    }
   }
   .l-image-link {
     cursor: pointer;
@@ -3123,6 +3163,7 @@ p {
 
     }
     .spb-label {
+      pointer-events: none;
       position: absolute;
       top: 0;
       right: 100%;
@@ -3381,7 +3422,11 @@ p {
         line-height: 21px;
       }
     }
+    .l-col-text {
+      height: 360px;
+    }
     .l-col-image {
+      height: 360px;
       width: 170px;
     }
   }

@@ -1896,6 +1896,9 @@
     }
     .l-col-image {
 
+      height: auto;
+      overflow: visible !important;
+      
       flex-shrink: 0;
       flex-grow: 0;
       margin: 0 0 30px 0;
@@ -1904,6 +1907,8 @@
     .l-col-text {
       flex-grow: 1;
       width: 100%;
+      height: auto;
+      overflow: visible !important;
 
       display: flex;
       flex-direction: column;
