@@ -82,8 +82,10 @@ var globalApp = {
         'showGalleryModal':function($thisNode,thisValue){
 
             $parent = $thisNode.closest('[data-images]');
+
+            var externalClass = $parent.data().ext || "";
             if ($parent.length) {
-                globalApp.showImageGallery($parent.data().images, thisValue);
+                globalApp.showImageGallery($parent.data().images, thisValue, externalClass);
             }
 
         },
@@ -130,10 +132,11 @@ var globalApp = {
             });
         }
     },
-    'showImageGallery':function(imageArray, imageIndex){
+    'showImageGallery':function(imageArray, imageIndex, externalClass){
         imageIndex = imageIndex || 0;
+        externalClass = externalClass || "";
 
-        t = '<div class="fb-modal-default fb-modal-gallery">';
+        t = '<div class="fb-modal-default fb-modal-gallery '+externalClass+'">';
 
         if (imageArray.length>1) {
             t += '<div class="fmg-arrow fmg-arrow-prev"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 26"><path d="M1 25l12-12L1 1"></path></svg></div>';

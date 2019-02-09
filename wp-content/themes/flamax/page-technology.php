@@ -157,7 +157,7 @@ get_header();
                                                     Проектирование
                                                 </div>
                                             </div>
-                                            <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["ENGINEERING"])?>'>
+                                            <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["ENGINEERING"])?>' data-ext="state-fit-contain">
                                                 <div class="l-col-image">
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp8.jpg');"></div>
