@@ -50,7 +50,7 @@ $bDataArray = array(
 define("B_DATA_ARRAY", $bDataArray);
 
 function edit_admin_menus(){
-
+    return true;
     global $menu;
 
     $menu[25][0] = 'Обратаня связь';
@@ -66,7 +66,7 @@ function edit_admin_menus(){
     remove_menu_page('users.php');
     remove_menu_page('tools.php');
     remove_menu_page('edit.php?post_type=acf-field-group');
-    return true;
+
 }
 
 
