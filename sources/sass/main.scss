@@ -3704,6 +3704,16 @@ p {
     .full-size.img-cover {
       background-size: contain !important;
     }
+    .fmg-arrow {
+      svg path {
+        stroke: #000;
+      }
+    }
+    .fmg-arrow-prev, .fmg-arrow-next {
+      &:before {
+        display: none;
+      }
+    }
   }
 }
 
