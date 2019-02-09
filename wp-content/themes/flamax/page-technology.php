@@ -549,11 +549,11 @@ get_header();
 
                             <div class="l-middle">
                                 <div class="l-video-parent">
-                                    <div class="is-video-player" data-is="video-player">
+                                    <div class="is-video-player">
                                         <div class="hp-inner">
                                             <div class="full-size hp-poster">
                                                 <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp1.jpg');"></div>
-                                                <div class="hp-play"></div>
+                                                <div class="hp-play" data-gclick="showYoutubeModal" data-value="qBxsq8b3KnA"></div>
                                             </div>
                                             <video class="full-size hp-video" controls preload="none">
                                                 <source type="video/mp4" src="/assets/img/temp/temp24.mp4">
