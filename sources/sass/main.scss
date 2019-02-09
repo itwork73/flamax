@@ -3701,6 +3701,9 @@ p {
 
   &.state-fit-contain {
     background: #fff;
+    .fmo-cross {
+      background-color: #333 !important;
+    }
     .full-size.img-cover {
       background-size: contain !important;
     }

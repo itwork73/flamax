@@ -2407,18 +2407,13 @@
     .fmo-cross {
       width: 45px;
       height: 45px;
-      background-color: transparent !important;
       background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAElBMVEUAAAD///////////////////8+Uq06AAAABXRSTlMAA1uh/LMgW5EAAABZSURBVHja7ZMxDgAhCAQR9P9fvis2sZpMec1ZKDAbFQK1pgtXz6o5u5HvM+9GiqAczGMgvybzOMyv6wG/0j/laWlhtLThrAhnRbgI/Anm/ffHZ/2hw6vj/wATGAPprxVMIwAAAABJRU5ErkJggg==);
       background-position: 50% 50%;
       background-size: 16px 16px;
-      &:hover {
-        background-color: transparent !important;
-      }
     }
-    .swiper-container {
-      display: block;
-      width: 100%;
+    .md-floater {
       height: 100%;
+      padding: 0;
     }
     .swiper-wrapper {
       height: 100%;
