@@ -143,13 +143,13 @@ var globalApp = {
             t += '<div class="fmg-arrow fmg-arrow-next"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 26"><path d="M1 25l12-12L1 1"></path></svg></div>';
         }
 
-        t += '<div class="swiper-container"><div class="swiper-wrapper">';
+        t += '<div class="md-floater"><div class="swiper-container"><div class="swiper-wrapper">';
 
         $.each(imageArray,function(i,thisImage){
             t+= '<div class="swiper-slide"><div class="full-size img-cover" style="background-image:url('+thisImage+');"></div></div>';
         });
 
-        t += '</div></div></div>';
+        t += '</div></div></div></div>';
 
         $.fancyModal.open({
             content:t,

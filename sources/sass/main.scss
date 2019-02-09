@@ -3592,11 +3592,19 @@ p {
       background-color: transparent !important;
     }
   }
-  .swiper-container {
-    position: relative;
+  .md-floater {
     display: block;
+    position: relative;
     width: 100%;
     padding-bottom: 57%;
+  }
+  .swiper-container {
+    position: absolute;
+    display: block;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
   }
   .swiper-wrapper {
     height: 100%;
