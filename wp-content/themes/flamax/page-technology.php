@@ -11,8 +11,17 @@
 $thisID = get_the_ID();
 
 $outputArray = array(
-    "IMAGE_GALLERY"=>get_field('tech_images', $thisID),
-    "PARTNERS"=>array()
+    "IMAGE_GALLERY"=>[
+            "ENGINEERING"=>get_field('tech_images_engineering', $thisID),
+            "PRODUCTION"=>get_field('tech_images_production', $thisID),
+            "DELIVERY"=>get_field('tech_images_delivery', $thisID),
+            "MOUNTING"=>get_field('tech_images_mounting', $thisID),
+            "TESTING"=>get_field('tech_images_testing', $thisID),
+            "SERVICES"=>get_field('tech_images_services', $thisID),
+            "WHY_FLAMAX"=>get_field('tech_images_why_flamax', $thisID)
+    ],
+    "IMAGE_GALLERY_COMPLETE"=>[],
+    "PARTNERS"=>[]
 );
 
 $inputArray = get_pages(array(
@@ -36,17 +45,18 @@ foreach($inputArray as $key => $thisPage) {
     );
 }
 
-$tempImageArr = [];
 
 if ($outputArray["IMAGE_GALLERY"]) {
     foreach($outputArray["IMAGE_GALLERY"] as $key => $value){
-        $tempImageArr[] = $value["sizes"]["large"];
+        $outputArray["IMAGE_GALLERY_COMPLETE"][$key] = [];
+        foreach($value as $image){
+            $outputArray["IMAGE_GALLERY_COMPLETE"][$key][] = $image["sizes"]["extra-1600"];
+        }
     }
 }
 
-$outputArray["IMAGE_GALLERY_URL"] = $tempImageArr;
 
-//echo '<pre>';var_dump($tempImageArr);echo'</pre>';die();
+//echo '<pre>';var_dump($outputArray["IMAGE_GALLERY_COMPLETE"]);echo'</pre>';die();
 
 ?>
 
@@ -66,7 +76,7 @@ get_header();
 
     <script type="text/javascript" src="//api-maps.yandex.ru/2.1/?lang=ru_RU"></script>
 
-    <div class="is-technology-page" data-is="technology-page" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
+    <div class="is-technology-page" data-is="technology-page">
 
         <div class="swiper-container ss-container" data-node="swiperMain">
             <div class="swiper-wrapper ss-wrapper">
@@ -147,7 +157,7 @@ get_header();
                                                     Проектирование
                                                 </div>
                                             </div>
-                                            <div class="l-right-inner">
+                                            <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["ENGINEERING"])?>'>
                                                 <div class="l-col-image">
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp8.jpg');"></div>
@@ -180,7 +190,7 @@ get_header();
                                                     Изготовление
                                                 </div>
                                             </div>
-                                            <div class="l-right-inner">
+                                            <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["PRODUCTION"])?>'>
                                                 <div class="l-col-image">
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="2">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp10.jpg');"></div>
@@ -216,7 +226,7 @@ get_header();
                                                     Доставка
                                                 </div>
                                             </div>
-                                            <div class="l-right-inner">
+                                            <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["DELIVERY"])?>'>
                                                 <div class="l-col-image l-image-link">
                                                     <div class="l-image" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp14.jpg');"></div>
@@ -244,7 +254,7 @@ get_header();
                                                     Монтаж
                                                 </div>
                                             </div>
-                                            <div class="l-right-inner">
+                                            <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["MOUNTING"])?>'>
                                                 <div class="l-col-image l-image-link">
                                                     <div class="l-image" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp14.jpg');"></div>
@@ -280,7 +290,7 @@ get_header();
                                                     Испытания
                                                 </div>
                                             </div>
-                                            <div class="l-right-inner">
+                                            <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["TESTING"])?>'>
                                                 <div class="l-col-image l-image-link">
                                                     <div class="l-image" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp14.jpg');"></div>
@@ -313,7 +323,7 @@ get_header();
                                                     Гарантия и&nbsp;сервисное обслуживание
                                                 </div>
                                             </div>
-                                            <div class="l-right-inner">
+                                            <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["SERVICES"])?>'>
                                                 <div class="l-col-image l-image-link">
                                                     <div class="l-image" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp14.jpg');"></div>
@@ -395,7 +405,7 @@ get_header();
                 <div class="swiper-slide ss-slide" data-title="Почему Flamax">
 
                     <div class="wrapper">
-                        <div class="is-tech-layout-d">
+                        <div class="is-tech-layout-d" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["WHY_FLAMAX"])?>'>
                             <div class="l-left">
                                 <div class="l-header">
                                     Почему Flamax
