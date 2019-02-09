@@ -50,7 +50,7 @@ if ($outputArray["IMAGE_GALLERY"]) {
     foreach($outputArray["IMAGE_GALLERY"] as $key => $value){
         $outputArray["IMAGE_GALLERY_COMPLETE"][$key] = [];
         foreach($value as $image){
-            $outputArray["IMAGE_GALLERY_COMPLETE"][$key][] = $image["sizes"]["extra-1600"];
+            $outputArray["IMAGE_GALLERY_COMPLETE"][$key][] = $image["sizes"]["large"];
         }
     }
 }
