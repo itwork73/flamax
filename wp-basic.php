@@ -98,5 +98,5 @@ function bCustomState(){
     return $bCustomState;
 };
 
-
+add_image_size('extra-1600', 1600, 1600);
 ?>

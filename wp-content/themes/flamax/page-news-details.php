@@ -25,7 +25,7 @@ $tempImageArr = [];
 
 if ($outputArray["IMAGE_GALLERY_ARRAY"]) {
     foreach ($outputArray["IMAGE_GALLERY_ARRAY"] as $key => $value) {
-        $tempImageArr[] = $value["sizes"]["large"];
+        $tempImageArr[] = $value["sizes"]["full"];
     }
 }
 

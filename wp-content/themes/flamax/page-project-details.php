@@ -47,10 +47,14 @@ if (!empty($outputArray["SIMILAR"]) && count($outputArray["SIMILAR_ARRAY"]) > 0)
 
 
 // image url
+
 $tempImageArr = [];
 if ($outputArray["IMAGE_GALLERY_ARRAY"]) {
     foreach ($outputArray["IMAGE_GALLERY_ARRAY"] as $key => $value) {
-        $tempImageArr[] = $value["sizes"]["large"];
+
+        
+        $tempImageArr[] = wp_get_attachment_image_src($value["ID"], "extra-1600")[0];
+        
     }
 }
 $outputArray["IMAGE_GALLERY_URL"] = $tempImageArr;
