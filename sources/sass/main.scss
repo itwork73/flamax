@@ -2903,6 +2903,10 @@ p {
     }
   }
   .l-item-image {
+    user-select: none;
+    cursor: pointer;
+    position: relative;
+    display: block;
     height: 130px;
     img {
       display: block;

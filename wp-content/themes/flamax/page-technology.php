@@ -18,6 +18,7 @@ $outputArray = array(
             "MOUNTING"=>get_field('tech_images_mounting', $thisID),
             "TESTING"=>get_field('tech_images_testing', $thisID),
             "SERVICES"=>get_field('tech_images_services', $thisID),
+            "PLANNING"=>get_field('tech_images_planning', $thisID),
             "WHY_FLAMAX"=>get_field('tech_images_why_flamax', $thisID)
     ],
     "IMAGE_GALLERY_COMPLETE"=>[],
@@ -367,10 +368,10 @@ get_header();
                                     Сборные стальные резервуары FLAMAX пожарного запаса воды могут располагаться на объекте тремя различными способами. Размещение пожарных резервуаров зависит от исходных данных объекта и от требований заказчика
                                 </div>
                             </div>
-                            <div class="l-right">
+                            <div class="l-right" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["PLANNING"])?>'>
 
                                 <div class="l-item">
-                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="2">
+                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="0">
                                         <img src="/assets/img/temp/temp15.jpg" />
                                     </div>
                                     <div class="l-item-details">
@@ -379,7 +380,7 @@ get_header();
                                 </div>
 
                                 <div class="l-item">
-                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="3">
+                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="1">
                                         <img src="/assets/img/temp/temp16.jpg" />
                                     </div>
                                     <div class="l-item-details">
@@ -388,7 +389,7 @@ get_header();
                                 </div>
 
                                 <div class="l-item">
-                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="0">
+                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="2">
                                         <img src="/assets/img/temp/temp17.jpg" />
                                     </div>
                                     <div class="l-item-details">
