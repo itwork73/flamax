@@ -193,10 +193,10 @@ get_header();
                                             </div>
                                             <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["PRODUCTION"])?>'>
                                                 <div class="l-col-image">
-                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="2">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img3.jpg');"></div>
                                                     </div>
-                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="3">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img4.jpg');"></div>
                                                     </div>
                                                 </div>
@@ -228,8 +228,8 @@ get_header();
                                                 </div>
                                             </div>
                                             <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["DELIVERY"])?>'>
-                                                <div class="l-col-image l-image-link">
-                                                    <div class="l-image" data-gclick="showGalleryModal" data-value="0">
+                                                <div class="l-col-image">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img5.jpg');"></div>
                                                     </div>
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
@@ -256,8 +256,8 @@ get_header();
                                                 </div>
                                             </div>
                                             <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["MOUNTING"])?>'>
-                                                <div class="l-col-image l-image-link">
-                                                    <div class="l-image" data-gclick="showGalleryModal" data-value="0">
+                                                <div class="l-col-image">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img7.jpg');"></div>
                                                     </div>
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
@@ -292,8 +292,8 @@ get_header();
                                                 </div>
                                             </div>
                                             <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["TESTING"])?>'>
-                                                <div class="l-col-image l-image-link">
-                                                    <div class="l-image" data-gclick="showGalleryModal" data-value="0">
+                                                <div class="l-col-image">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img9.jpg');"></div>
                                                     </div>
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
@@ -325,8 +325,8 @@ get_header();
                                                 </div>
                                             </div>
                                             <div class="l-right-inner" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["SERVICES"])?>'>
-                                                <div class="l-col-image l-image-link">
-                                                    <div class="l-image" data-gclick="showGalleryModal" data-value="0">
+                                                <div class="l-col-image">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img11.jpg');"></div>
                                                     </div>
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
@@ -441,7 +441,7 @@ get_header();
                                                     </div>
                                                 </div>
                                                 <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp4.jpg');"></div>
+                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img14.jpg');"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -456,7 +456,7 @@ get_header();
                                                     </div>
                                                 </div>
                                                 <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp18.jpg');"></div>
+                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img15.jpg');"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -470,8 +470,8 @@ get_header();
                                                         Все комплектующие для резервуаров FLAMAX изготавливаются в заводских условиях в Европе на высокотехнологичном оборудовании и проходят двойной контроль качества
                                                     </div>
                                                 </div>
-                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp18.jpg');"></div>
+                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="2">
+                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img16.jpg');"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -485,8 +485,8 @@ get_header();
                                                         Продукция FLAMAX имеет необходимые отечественные и международные аккредитации, сертификаты и разрешения. Кроме того, наши резервуары соответствуют требованиям FM Global, международной компании по промышленно имущественному страхованию. 
                                                     </div>
                                                 </div>
-                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp18.jpg');"></div>
+                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="3">
+                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img17.jpg');"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -500,8 +500,8 @@ get_header();
                                                         Сборка резервуаров осуществляется непосредственно на объекте строительства в максимально короткие сроки (от 7 дней) бригадой из 6 человек в любое время года. Также сборка возможна в стесненных условиях внутри зданий и сооружений.
                                                     </div>
                                                 </div>
-                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp18.jpg');"></div>
+                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="4">
+                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img18.jpg');"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -515,8 +515,8 @@ get_header();
                                                         У нас работают только опытные специалисты! Мы никогда не использовали и не будем использовать для выполнения монтажных и технических работ низкоквалифицированную рабочую силу.
                                                     </div>
                                                 </div>
-                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp18.jpg');"></div>
+                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="5">
+                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img19.jpg');"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -530,8 +530,8 @@ get_header();
                                                         Для безотказной работы оборудования и увеличения срока его эксплуатации специалисты компании FLAMAX предоставляют своим заказчикам квалифицированное гарантийное и постгарантийное сервисное обслуживание.
                                                     </div>
                                                 </div>
-                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/temp/temp18.jpg');"></div>
+                                                <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="6">
+                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img20.jpg');"></div>
                                                 </div>
                                             </div>
                                         </div>
