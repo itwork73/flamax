@@ -371,7 +371,7 @@ get_header();
                             <div class="l-right" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["PLANNING"])?>' data-ext="state-fit-contain">
 
                                 <div class="l-item">
-                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="1">
+                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="0">
                                         <img src="/assets/img/temp/temp15.jpg" />
                                     </div>
                                     <div class="l-item-details">
@@ -380,7 +380,7 @@ get_header();
                                 </div>
 
                                 <div class="l-item">
-                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="2">
+                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="1">
                                         <img src="/assets/img/temp/temp16.jpg" />
                                     </div>
                                     <div class="l-item-details">
@@ -389,7 +389,7 @@ get_header();
                                 </div>
 
                                 <div class="l-item">
-                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="3">
+                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="2">
                                         <img src="/assets/img/temp/temp17.jpg" />
                                     </div>
                                     <div class="l-item-details">
