@@ -163,7 +163,7 @@ get_header();
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img1.jpg');"></div>
                                                     </div>
-                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="13">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img2.jpg');"></div>
                                                     </div>
                                                 </div>
@@ -196,7 +196,7 @@ get_header();
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img3.jpg');"></div>
                                                     </div>
-                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="13">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img4.jpg');"></div>
                                                     </div>
                                                 </div>
@@ -232,7 +232,7 @@ get_header();
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img5.jpg');"></div>
                                                     </div>
-                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="3">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img6.jpg');"></div>
                                                     </div>
                                                 </div>
@@ -260,7 +260,7 @@ get_header();
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img7.jpg');"></div>
                                                     </div>
-                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="14">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img8.jpg');"></div>
                                                     </div>
                                                 </div>
@@ -296,7 +296,7 @@ get_header();
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img9.jpg');"></div>
                                                     </div>
-                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="5">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img10.jpg');"></div>
                                                     </div>
                                                 </div>
@@ -329,7 +329,7 @@ get_header();
                                                     <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="0">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img11.jpg');"></div>
                                                     </div>
-                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="1">
+                                                    <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="3">
                                                         <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img12.jpg');"></div>
                                                     </div>
                                                 </div>
@@ -371,7 +371,7 @@ get_header();
                             <div class="l-right" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["PLANNING"])?>' data-ext="state-fit-contain">
 
                                 <div class="l-item">
-                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="0">
+                                    <div class="l-item-image" data-gclick="showGalleryModalSingle" data-value="0">
                                         <img src="/assets/img/temp/temp15.jpg" />
                                     </div>
                                     <div class="l-item-details">
@@ -380,7 +380,7 @@ get_header();
                                 </div>
 
                                 <div class="l-item">
-                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="1">
+                                    <div class="l-item-image" data-gclick="showGalleryModalSingle" data-value="1">
                                         <img src="/assets/img/temp/temp16.jpg" />
                                     </div>
                                     <div class="l-item-details">
@@ -389,7 +389,7 @@ get_header();
                                 </div>
 
                                 <div class="l-item">
-                                    <div class="l-item-image" data-gclick="showGalleryModal" data-value="2">
+                                    <div class="l-item-image" data-gclick="showGalleryModalSingle" data-value="2">
                                         <img src="/assets/img/temp/temp17.jpg" />
                                     </div>
                                     <div class="l-item-details">
@@ -582,7 +582,7 @@ get_header();
                                             <path d="m0 12.402 35.687-4.8602.0156 34.423-35.67.20313zm35.67 33.529.0277 34.453-35.67-4.9041-.002-29.78zm4.3261-39.025 47.318-6.906v41.527l-47.318.37565zm47.329 39.349-.0111 41.34-47.318-6.6784-.0663-34.739z"></path>
                                         </svg>
                                         <span>
-                                            Интерактивная презнтация
+                                            Интерактивная презентация
                                         </span>
                                     </a>
 

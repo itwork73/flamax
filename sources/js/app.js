@@ -89,6 +89,20 @@ var globalApp = {
             }
 
         },
+        'showGalleryModalSingle':function($thisNode,thisValue){
+
+            $parent = $thisNode.closest('[data-images]');
+            var externalClass = $parent.data().ext || "";
+            if ($parent.length) {
+                t = '<div class="fb-modal-default fb-modal-gallery '+externalClass+'">';
+                t += '<div class="md-floater"><div class="full-size img-cover" style="background-image:url('+$parent.data().images[thisValue]+');"></div></div>';
+                t += '</div>';
+
+                $.fancyModal.open({
+                    content:t
+                });
+            }
+        },
         'showYoutubeModal':function($thisNode,thisValue){
 
             var link = 'https://www.youtube.com/embed/'+thisValue+'?autoplay=true&rel=false';
