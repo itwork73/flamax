@@ -516,7 +516,7 @@ get_header();
                                                     </div>
                                                 </div>
                                                 <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="5">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img19.jpg');"></div>
+                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img20.jpg');"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -531,7 +531,7 @@ get_header();
                                                     </div>
                                                 </div>
                                                 <div class="l-image l-image-link" data-gclick="showGalleryModal" data-value="6">
-                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img20.jpg');"></div>
+                                                    <div class="full-size img-cover" style="background-image:url('/assets/img/tech/img21.jpg');"></div>
                                                 </div>
                                             </div>
                                         </div>
