@@ -97,51 +97,88 @@
 
                             <div class="is-form-field field-select">
                                 <label>
+                                  	<div class="ff-label">
+        								Продукт для хранения
+    								</div>
                                     <select>
-                                        <option value="0" selected>Продукт для хранения</option>
-                                        <option value="1">Категория один</option>
-                                        <option value="2">Категория два</option>
-                                        <option value="3">Категория три</option>
-                                        <option value="4">Категория четыре</option>
-                                        <option value="5">Категория пять</option>
-                                        <option value="6">Категория шесть</option>
+                                        <option value="0" selected>Выберите</option>
+                                        <option value="Пожарный запас воды">Пожарный запас воды</option>
+                                        <option value="Совмещенный с питьевым запас воды">Совмещенный с питьевым запас воды</option>
                                     </select>
                                     <span class="is-select-arrow"></span>
                                 </label>
                             </div>
                             <div class="is-form-field field-select">
                                 <label>
+                                  	<div class="ff-label">
+        								Количество резервузаров
+    								</div>
                                     <select>
-                                        <option value="0" selected>Количество резервузаров</option>
-                                        <option value="1">Категория один</option>
-                                        <option value="2">Категория два</option>
-                                        <option value="3">Категория три</option>
-                                        <option value="4">Категория четыре</option>
-                                        <option value="5">Категория пять</option>
-                                        <option value="6">Категория шесть</option>
+                                        <option value="0" selected>Выберите</option>
+                                        <option value="1">1</option>
+                                        <option value="2">2</option>
+                                        <option value="3">3</option>
+                                        <option value="4">4</option>
+                                        <option value="5">5</option>
+                                        <option value="Другое">Другое</option>
                                     </select>
                                     <span class="is-select-arrow"></span>
                                 </label>
                             </div>
                             <div class="is-form-field field-select">
                                 <label>
+                                  	<div class="ff-label">
+        								Требуемый полезный объем, м³
+    								</div>
                                     <select>
-                                        <option value="0" selected>Требуемый полезный объем</option>
-                                        <option value="1">Категория один</option>
-                                        <option value="2">Категория два</option>
-                                        <option value="3">Категория три</option>
-                                        <option value="4">Категория четыре</option>
-                                        <option value="5">Категория пять</option>
-                                        <option value="6">Категория шесть</option>
+                                        <option value="0">Выбрать</option>
+                                        <option value="100">100</option>
+                                        <option value="150">150</option>
+                                        <option value="200">200</option>
+                                        <option value="250">250</option>
+                                        <option value="300">300</option>
+                                        <option value="350">350</option>
+                                        <option value="400">400</option>
+                                        <option value="450">450</option>
+                                        <option value="500">500</option>
+                                        <option value="550">550</option>
+                                        <option value="600">600</option>
+                                        <option value="650">650</option>
+                                        <option value="700">700</option>
+                                        <option value="750">750</option>
+                                        <option value="800">800</option>
+                                        <option value="850">850</option>
+                                        <option value="900">900</option>
+                                        <option value="950">950</option>
+                                        <option value="1000">1000</option>
+                                        <option value="1050">1050</option>
+                                        <option value="1100">1100</option>
+                                        <option value="1150">1150</option>
+                                        <option value="1200">1200</option>
+                                        <option value="1250">1250</option>
+                                        <option value="1300">1300</option>
+                                        <option value="1350">1350</option>
+                                        <option value="1400">1400</option>
+                                        <option value="1450">1450</option>
+                                        <option value="1500">1500</option>
+                                        <option value="Другое">Другое</option>
                                     </select>
                                     <span class="is-select-arrow"></span>
                                 </label>
                             </div>
                             <div class="is-form-field field-text">
                                 <label>
-                                    <input name="field[region]" placeholder="Регион установки резервуара" type="text" />
+                                  	<div class="ff-label">
+        								Регион установки резервуара
+    								</div>
+                                    <input name="field[region]" type="text" />
                                 </label>
                             </div>
+
+
+                          	<div class="is-form-label">
+								Площадь под застройку
+							</div>
 
                             <div class="is-columns gap-10">
                                 <div class="col">
@@ -166,6 +203,13 @@
                                     </div>
                                 </div>
                             </div>
+
+
+
+                          	<div class="is-form-label">
+								Срок сдачи объекта
+							</div>
+
                             <div class="is-columns gap-10">
                                 <div class="col">
 
@@ -173,14 +217,20 @@
                                         <label>
                                             <select>
                                                 <option value="0" selected>Месяц</option>
-                                                <option value="1">Категория один</option>
-                                                <option value="2">Категория два</option>
-                                                <option value="3">Категория три</option>
-                                                <option value="4">Категория четыре</option>
-                                                <option value="5">Категория пять</option>
-                                                <option value="6">Категория шесть</option>
+                                                <option value="Январь">Январь</option>
+                                                <option value="Февраль">Февраль</option>
+                                                <option value="Март">Март</option>
+                                                <option value="Апрель">Апрель</option>
+                                                <option value="Май">Май</option>
+                                                <option value="Июнь">Июнь</option>
+                                                <option value="Июль">Июль</option>
+                                                <option value="Август">Август</option>
+                                                <option value="Сентябрь">Сентябрь</option>
+                                                <option value="Октябрь">Октябрь</option>
+                                                <option value="Ноябрь">Ноябрь</option>
+                                                <option value="Декабрь">Декабрь</option>
                                             </select>
-                                            <span class="is-select-arrow"></span>
+                                            <span class="is-select-arrow" style="margin-top:-20px;"></span>
                                         </label>
                                     </div>
                                 </div>
@@ -190,25 +240,27 @@
                                         <label>
                                             <select>
                                                 <option value="0" selected>Год</option>
-                                                <option value="1">Категория один</option>
-                                                <option value="2">Категория два</option>
-                                                <option value="3">Категория три</option>
-                                                <option value="4">Категория четыре</option>
-                                                <option value="5">Категория пять</option>
-                                                <option value="6">Категория шесть</option>
+                                                <option value="2019">2019</option>
+                                                <option value="2020">2019</option>
+                                                <option value="2021">2021</option>
+                                                <option value="2022">2022</option>
                                             </select>
-                                            <span class="is-select-arrow"></span>
+                                            <span class="is-select-arrow" style="margin-top:-20px;"></span>
                                         </label>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
+
                         <div class="col column-person">
 
                             <div class="is-form-field field-text">
                                 <label>
-                                    <input name="field[name]" placeholder="Имя *" type="text" data-validation='<?=json_encode([
+                                  	<div class="ff-label">
+        								Имя *
+    								</div>
+                                    <input name="field[name]" type="text" data-validation='<?=json_encode([
                                         "mask"=>"text",
                                         "require"=>true,
                                         "visible"=>true,
@@ -218,7 +270,10 @@
                             </div>
                             <div class="is-form-field field-text">
                                 <label>
-                                    <input name="field[phone]" placeholder="Телефон *" type="text" data-validation='<?=json_encode([
+                                  	<div class="ff-label">
+        								Телефон *
+    								</div>
+                                    <input name="field[phone]" type="text" data-validation='<?=json_encode([
                                         "mask"=>"text",
                                         "require"=>true,
                                         "visible"=>true,
@@ -229,12 +284,18 @@
                             </div>
                             <div class="is-form-field field-text">
                                 <label>
-                                    <input name="field[phone]" placeholder="Название компании" type="text" />
+                                  	<div class="ff-label">
+        								Название компании
+    								</div>
+                                    <input name="field[company]" placeholder="Название компании" type="text" />
                                 </label>
                             </div>
                             <div class="is-form-field field-text">
                                 <label>
-                                    <input name="field[email]" placeholder="E-mail *" type="text" data-validation='<?=json_encode([
+                                  	<div class="ff-label">
+        								E-mail *
+    								</div>
+                                    <input name="field[email]" type="text" data-validation='<?=json_encode([
                                         "mask"=>"email",
                                         "require"=>true,
                                         "visible"=>true,
@@ -245,7 +306,10 @@
 
                             <div class="is-form-field field-text">
                                 <label>
-                                    <textarea placeholder="Комментарии"></textarea>
+                                  	<div class="ff-label">
+        								Комментарии
+    								</div>
+                                    <textarea></textarea>
                                 </label>
                             </div>
                         </div>
@@ -283,8 +347,6 @@
 
 
 <script type="text/javascript" src="/assets/main.js?nocache=<?=rand()?>"></script>
-
-
 
 
 

@@ -119,7 +119,7 @@ get_header();
                                         <div class="pi-details">
                                             <?=$value["PERSON_DETAILS"]?>
                                         </div>
-                                        <div class="pi-links">
+                                        <div class="pi-links" style="display:block;">
                                             <?=$value["PERSON_LINKS"]?>
                                         </div>
                                     </div>
