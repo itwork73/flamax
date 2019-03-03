@@ -607,6 +607,22 @@ p {
 
 // forms
 
+.is-form-label {
+  position: relative;
+  display: block;
+  z-index: 10;
+  margin: 0 0 7px 0;
+  @include intro;
+  @include font(#111,12px,12px);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  em {
+    @include times;
+    font-style: normal;
+    color: $red;
+  }
+}
+
 .is-form-field {
   position: relative;
   display: block;
@@ -622,8 +638,8 @@ p {
     display: block;
     z-index: 10;
     margin: 0 0 7px 0;
-    @include intro-book;
-    @include font(#444,11px,11px);
+    @include intro;
+    @include font(#111,12px,12px);
     text-transform: uppercase;
     letter-spacing: 1px;
     em {
@@ -673,7 +689,7 @@ p {
     }
     textarea {
       resize: none;
-      height: 140px;
+      height: 159px;
       padding: 15px 15px;
       font-size: 16px;
       line-height: 20px;
@@ -766,7 +782,6 @@ p {
     }
   }
   &.field-select {
-    height: 60px;
     select {
       box-sizing: border-box;
       display: block;
@@ -839,7 +854,7 @@ p {
   right: 5px;
   width: 40px;
   height: 40px;
-  margin: -20px 0 0 0;
+  margin: -10px 0 0 0;
   background-color: #fff;
   background-position: 50% 50%;
   background-repeat: no-repeat;
