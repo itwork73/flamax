@@ -34,3 +34,6 @@ node_modules/
 coral_log.txt
 .DS_Store
 wp-config.php
+flamax.sql.zip
+wp-content/uploads
+flamax-windows.zip

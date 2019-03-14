@@ -1369,12 +1369,12 @@ ul {
     display: block;
     margin-bottom: 15px;
     padding-left: 20px;
-    @include font(#000,16px,26px);
+    @include font(#000,18px,30px);
     &:before {
       content: '';
       position: absolute;
       display: block;
-      top: 10px; left: 1px;
+      top: 12px; left: 1px;
       width: 4px; height: 4px;
       border-radius: 50%;
       background: $red;
@@ -1409,7 +1409,7 @@ ol {
     display: block;
     margin-bottom: 15px;
     padding-left: 25px;
-    @include font(#000,16px,26px);
+    @include font(#000,18px,30px);
     &:before {
       content: counter(list) '.';
       position: absolute;
@@ -1454,7 +1454,6 @@ ol {
     }
   }
 }
-
 
 .is-style-image {
   img {
