@@ -14,8 +14,8 @@ $outputArray = array(
     "ID"=>$thisID,
     "TITLE"=>get_post_field('post_title', $thisID),
     "DATE"=>get_the_date("j F Y", $thisID),
-    "CONTENT_UP"=>get_post_field('post_content', $thisID),
-    "CONTENT_DOWN"=>get_field('content_down', $thisID),
+    "CONTENT_UP"=>nl2br(get_post_field('post_content', $thisID)),
+    "CONTENT_DOWN"=>nl2br(get_field('content_down', $thisID)),
     "IMAGE_GALLERY_ARRAY"=>get_field('image_gallery', $thisID),
     "NEWS_FILE"=>get_field('file_main', $thisID),
 );
@@ -31,7 +31,14 @@ if ($outputArray["IMAGE_GALLERY_ARRAY"]) {
 
 $outputArray["IMAGE_GALLERY_URL"] = $tempImageArr;
 
+$outputArray["CONTENT_UP"] = apply_filters('the_content', $outputArray["CONTENT_UP"]);
+$outputArray["CONTENT_UP"] = str_replace( ']]>', ']]&gt;', $outputArray["CONTENT_UP"]);
+
+$outputArray["CONTENT_DOWN"] = apply_filters('the_content', $outputArray["CONTENT_DOWN"]);
+$outputArray["CONTENT_DOWN"] = str_replace( ']]>', ']]&gt;', $outputArray["CONTENT_DOWN"]);
 //echo '<pre>';var_dump($outputArray);echo'</pre>';
+
+//die();
 
 ?>
 
