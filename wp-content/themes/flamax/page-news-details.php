@@ -25,7 +25,7 @@ $tempImageArr = [];
 
 if ($outputArray["IMAGE_GALLERY_ARRAY"]) {
     foreach ($outputArray["IMAGE_GALLERY_ARRAY"] as $key => $value) {
-        $tempImageArr[] = $value["sizes"]["full"];
+        $tempImageArr[] = $value["sizes"]["extra-1600"];
     }
 }
 
@@ -37,7 +37,6 @@ $outputArray["CONTENT_UP"] = str_replace( ']]>', ']]&gt;', $outputArray["CONTENT
 $outputArray["CONTENT_DOWN"] = apply_filters('the_content', $outputArray["CONTENT_DOWN"]);
 $outputArray["CONTENT_DOWN"] = str_replace( ']]>', ']]&gt;', $outputArray["CONTENT_DOWN"]);
 
-//echo '<pre>';var_dump($outputArray);echo'</pre>';
 
 ?>
 
