@@ -196,7 +196,7 @@ get_header();
             </div>
         <?endif?>
         <div class="wrapper">
-            <div class="wrapper-a">
+            <div class="wrapper-a is-style-list">
                 <?=$outputArray["CONTENT_DOWN"]?>
 
 

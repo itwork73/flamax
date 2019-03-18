@@ -1362,98 +1362,103 @@ p {
   }
 }
 
-ul {
-  margin-bottom: 30px;
-  li {
-    position: relative;
-    display: block;
-    margin-bottom: 15px;
-    padding-left: 20px;
-    @include font(#000,18px,30px);
-    &:before {
-      content: '';
-      position: absolute;
+.is-style-list {
+
+  ul {
+    margin-bottom: 30px;
+    li {
+      position: relative;
       display: block;
-      top: 12px; left: 1px;
-      width: 4px; height: 4px;
-      border-radius: 50%;
-      background: $red;
-    }
-    > ol {
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    > ul {
-      margin-top: 10px;
-      margin-bottom: 10px;
-      li {
-        padding-left: 20px;
+      margin-bottom: 15px;
+      padding-left: 20px;
+      @include font(#000,18px,30px);
+      &:before {
+        content: '';
+        position: absolute;
+        display: block;
+        top: 12px; left: 1px;
+        width: 4px; height: 4px;
+        border-radius: 50%;
+        background: $red;
       }
-    }
-  }
-  a {
-    color: $red;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
-
-}
-
-ol {
-  margin-bottom: 30px;
-  counter-reset: list;
-  > li {
-    counter-increment: list;
-    position: relative;
-    display: block;
-    margin-bottom: 15px;
-    padding-left: 25px;
-    @include font(#000,18px,30px);
-    &:before {
-      content: counter(list) '.';
-      position: absolute;
-      display: block;
-      top: 7px; left: 0;
-      width: 20px;
-      height: 20px;
-      @include font($red,14px,14px);
-      text-align: center;
-    }
-    > ol {
-      margin-top: 10px;
-      margin-bottom: 10px;
-      counter-reset: sublist;
-      > li {
-        counter-increment: sublist;
-        padding-left: 40px;
-        &:before {
-          display: none;
-        }
-        &:after {
-          content: counter(list) '.' counter(sublist) '.';
-          position: absolute;
-          display: block;
-          top: 7px; left: 0;
-          height: 20px;
-          padding: 0 5px;
-          @include font($red,14px,14px);
-          text-align: center;
+      > ol {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+      > ul {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        li {
+          padding-left: 20px;
         }
       }
     }
-    > ul {
-      margin-top: 10px;
-      margin-bottom: 10px;
+    a {
+      color: $red;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+
+  }
+
+  ol {
+    margin-bottom: 30px;
+    counter-reset: list;
+    > li {
+      counter-increment: list;
+      position: relative;
+      display: block;
+      margin-bottom: 15px;
+      padding-left: 25px;
+      @include font(#000,18px,30px);
+      &:before {
+        content: counter(list) '.';
+        position: absolute;
+        display: block;
+        top: 7px; left: 0;
+        width: 20px;
+        height: 20px;
+        @include font($red,14px,14px);
+        text-align: center;
+      }
+      > ol {
+        margin-top: 10px;
+        margin-bottom: 10px;
+        counter-reset: sublist;
+        > li {
+          counter-increment: sublist;
+          padding-left: 40px;
+          &:before {
+            display: none;
+          }
+          &:after {
+            content: counter(list) '.' counter(sublist) '.';
+            position: absolute;
+            display: block;
+            top: 7px; left: 0;
+            height: 20px;
+            padding: 0 5px;
+            @include font($red,14px,14px);
+            text-align: center;
+          }
+        }
+      }
+      > ul {
+        margin-top: 10px;
+        margin-bottom: 10px;
+      }
+    }
+    a {
+      color: $red;
+      &:hover {
+        text-decoration: underline;
+      }
     }
   }
-  a {
-    color: $red;
-    &:hover {
-      text-decoration: underline;
-    }
-  }
+  
 }
+
 
 .is-style-image {
   img {
