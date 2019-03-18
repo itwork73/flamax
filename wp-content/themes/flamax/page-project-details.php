@@ -59,6 +59,14 @@ if ($outputArray["IMAGE_GALLERY_ARRAY"]) {
 }
 $outputArray["IMAGE_GALLERY_URL"] = $tempImageArr;
 
+
+
+$outputArray["CONTENT_UP"] = apply_filters('the_content', $outputArray["CONTENT_UP"]);
+$outputArray["CONTENT_UP"] = str_replace( ']]>', ']]&gt;', $outputArray["CONTENT_UP"]);
+
+$outputArray["CONTENT_DOWN"] = apply_filters('the_content', $outputArray["CONTENT_DOWN"]);
+$outputArray["CONTENT_DOWN"] = str_replace( ']]>', ']]&gt;', $outputArray["CONTENT_DOWN"]);
+
 //echo '<pre>';var_dump($outputArray);echo'</pre>';die();
 
 ?>
@@ -164,9 +172,9 @@ get_header();
                         <?foreach($outputArray["IMAGE_GALLERY_URL"] as $key => $value):?>
 
                             <div class="swiper-slide">
-                                <div class="ws-cell" data-gclick="showGalleryModal" data-value="<?=$key?>">
+                                <a class="ws-cell" href="<?=$value?>" data-gclick="showGalleryModal" data-value="<?=$key?>">
                                     <div class="full-size img-cover" style="background-image:url('<?=$value?>');"></div>
-                                </div>
+                                </a>
                             </div>
 
                         <?endforeach?>

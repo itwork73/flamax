@@ -95,7 +95,7 @@ var globalApp = {
             var externalClass = $parent.data().ext || "";
             if ($parent.length) {
                 t = '<div class="fb-modal-default fb-modal-gallery '+externalClass+'">';
-                t += '<div class="md-floater"><div class="full-size img-cover" style="background-image:url('+$parent.data().images[thisValue]+');"></div></div>';
+                t += '<div class="md-floater"><a class="full-size img-cover" href="'+$parent.data().images[thisValue]+'" style="background-image:url('+$parent.data().images[thisValue]+');cursor:default;"></a></div>';
                 t += '</div>';
 
                 $.fancyModal.open({
@@ -160,7 +160,7 @@ var globalApp = {
         t += '<div class="md-floater"><div class="swiper-container"><div class="swiper-wrapper">';
 
         $.each(imageArray,function(i,thisImage){
-            t+= '<div class="swiper-slide"><div class="full-size img-cover" style="background-image:url('+thisImage+');"></div></div>';
+            t+= '<div class="swiper-slide"><a onclick="return false;" class="full-size img-cover" href="'+thisImage+'" style="background-image:url('+thisImage+');cursor:default;"></a></div>';
         });
 
         t += '</div></div></div></div>';

@@ -79,9 +79,9 @@ get_header();
                     <?foreach($outputArray["IMAGE_GALLERY_URL"] as $key => $value):?>
 
                         <div class="swiper-slide">
-                            <div class="ws-cell" data-gclick="showGalleryModal" data-value="<?=$key?>">
-                                <div class="full-size img-cover" style="background-image:url('<?=$value?>');"></div>
-                            </div>
+                            <a class="ws-cell" href="<?=$value?>" data-ext="fb-modal-contain" data-gclick="showGalleryModal" data-value="<?=$key?>">
+                                <div class="full-size img-contain" style="background-image:url('<?=$value?>');"></div>
+                            </a>
                         </div>
 
                     <?endforeach?>
