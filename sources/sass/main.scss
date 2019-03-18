@@ -3586,6 +3586,19 @@ p {
   }
 }
 
+.is-certs-list {
+  display: block;
+  margin: 0 0 30px 0;
+  @include is-grid(6,30);
+  .cert-cell {
+    box-sizing: border-box;
+    position: relative;
+    display: block;
+    width: 100%;
+    padding-bottom: 140%;
+  }
+}
+
 // pages
 
 .page-default {

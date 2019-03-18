@@ -72,35 +72,23 @@ get_header();
     </div>
 
     <?if(count($outputArray["IMAGE_GALLERY_URL"])>0):?>
-        <div class="is-wide-slider" data-is="wide-slider" data-ext="state-fit-contain" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
-            <div class="swiper-container">
-                <div class="swiper-wrapper">
 
-                    <?foreach($outputArray["IMAGE_GALLERY_URL"] as $key => $value):?>
 
-                        <div class="swiper-slide">
-                            <a class="ws-cell" href="<?=$value?>" data-gclick="showGalleryModal" data-value="<?=$key?>">
-                                <div class="full-size img-contain" style="background-image:url('<?=$value?>');"></div>
-                            </a>
-                        </div>
+        <div class="is-certs-list" data-ext="state-fit-contain" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
+            <div class="is-grid">
+                <?foreach($outputArray["IMAGE_GALLERY_URL"] as $key => $value):?>
 
-                    <?endforeach?>
+                    <div class="grid-item">
+                        <a class="cert-cell" href="<?=$value?>" data-gclick="showGalleryModal" data-value="<?=$key?>">
+                            <div class="full-size img-contain" style="background-image:url('<?=$value?>');"></div>
+                        </a>
+                    </div>
 
-                </div>
+                <?endforeach?>
             </div>
 
-            <a class="ws-arrow ws-arrow-prev" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
-                    <path fill="#fff" d="M22 6.6H3.97l3.26 3.2L5.78 11 0 6.2V4.8L5.78 0l1.45 1.2-3.26 3.2H22z"></path>
-                </svg>
-            </a>
-
-            <a class="ws-arrow ws-arrow-next" href="#">
-                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="11" viewBox="0 0 22 11">
-                    <path fill="#fff" d="M0 4.4h18.03l-3.26-3.2L16.22 0 22 4.8v1.4L16.22 11l-1.45-1.2 3.26-3.2H0z"></path>
-                </svg>
-            </a>
         </div>
+
     <?endif?>
 
 
