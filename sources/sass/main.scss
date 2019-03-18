@@ -3810,8 +3810,10 @@ p {
 
   &.state-fit-contain {
     background: #fff;
-    width: 400px;
-    height: 800px;
+    width: 580px;
+    .md-floater {
+      padding-bottom: 140%;
+    }
     .fmo-cross {
       background-color: #333 !important;
       width: 45px;
