@@ -1644,7 +1644,6 @@
 
     .na-item {
       display: block;
-      width: 100%;
       margin: 0 0 20px 0;
       + .na-item {
         margin: 0 0 20px 0;
@@ -1656,6 +1655,7 @@
     }
     .is-file-download {
       order: 10;
+      width: 100%;
     }
   }
 
