@@ -72,7 +72,7 @@ get_header();
     </div>
 
     <?if(count($outputArray["IMAGE_GALLERY_URL"])>0):?>
-        <div class="is-wide-slider" data-is="wide-slider" data-ext="fb-modal-image-contain" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
+        <div class="is-wide-slider" data-is="wide-slider" data-ext="state-fit-contain" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
 
