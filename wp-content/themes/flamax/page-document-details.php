@@ -69,30 +69,29 @@ get_header();
             </div>
         </div>
 
-    </div>
 
-    <?if(count($outputArray["IMAGE_GALLERY_URL"])>0):?>
+        <?if(count($outputArray["IMAGE_GALLERY_URL"])>0):?>
 
 
-        <div class="is-certs-list" data-ext="state-fit-contain" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
-            <div class="is-grid">
-                <?foreach($outputArray["IMAGE_GALLERY_URL"] as $key => $value):?>
 
-                    <div class="grid-item">
-                        <a class="cert-cell" href="<?=$value?>" data-gclick="showGalleryModal" data-value="<?=$key?>">
-                            <div class="full-size img-contain" style="background-image:url('<?=$value?>');"></div>
-                        </a>
-                    </div>
+            <div class="is-certs-list" data-ext="state-fit-contain" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
+                <div class="is-grid">
+                    <?foreach($outputArray["IMAGE_GALLERY_URL"] as $key => $value):?>
 
-                <?endforeach?>
+                        <div class="grid-item">
+                            <a class="cert-cell" href="<?=$value?>" data-gclick="showGalleryModal" data-value="<?=$key?>">
+                                <div class="full-size img-contain" style="background-image:url('<?=$value?>');"></div>
+                            </a>
+                        </div>
+
+                    <?endforeach?>
+                </div>
+
             </div>
 
-        </div>
-
-    <?endif?>
+        <?endif?>
 
 
-    <div class="wrapper">
         <div class="wrapper-a">
 
             <div class="is-style-list is-style-image">
