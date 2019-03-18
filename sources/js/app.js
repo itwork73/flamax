@@ -95,7 +95,7 @@ var globalApp = {
             var externalClass = $parent.data().ext || "";
             if ($parent.length) {
                 t = '<div class="fb-modal-default fb-modal-gallery '+externalClass+'">';
-                t += '<div class="md-floater"><a class="full-size img-cover" href="'+$parent.data().images[thisValue]+'" style="background-image:url('+$parent.data().images[thisValue]+');cursor:default;"></a></div>';
+                t += '<div class="md-floater"><a class="full-size img-cover" onclick="return false;" href="'+$parent.data().images[thisValue]+'" style="background-image:url('+$parent.data().images[thisValue]+');cursor:default;"></a></div>';
                 t += '</div>';
 
                 $.fancyModal.open({

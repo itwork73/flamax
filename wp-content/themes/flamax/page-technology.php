@@ -368,7 +368,7 @@ get_header();
                                     Сборные стальные резервуары FLAMAX пожарного запаса воды могут располагаться на объекте тремя различными способами. Размещение пожарных резервуаров зависит от исходных данных объекта и от требований заказчика
                                 </div>
                             </div>
-                            <div class="l-right" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["PLANNING"])?>' data-ext="state-fit-contain">
+                            <div class="l-right" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_COMPLETE"]["PLANNING"])?>'>
 
                                 <div class="l-item">
                                     <div class="l-item-image" data-gclick="showGalleryModalSingle" data-value="0">
