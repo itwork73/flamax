@@ -54,19 +54,18 @@ get_header();
 <div class="page-default">
 
     <div class="wrapper">
-        <div class="wrapper-a">
-            <h3>
-                <?=$outputArray["TITLE"]?>
-            </h3>
 
-            <div class="is-news-date">
-                <?=$outputArray["DATE"]?>
-            </div>
+        <h3>
+            <?=$outputArray["TITLE"]?>
+        </h3>
 
-            <div class="is-style-list is-style-image">
+        <div class="is-news-date">
+            <?=$outputArray["DATE"]?>
+        </div>
 
-                <?=$outputArray["CONTENT_UP"]?>
-            </div>
+        <div class="is-style-list is-style-image">
+
+            <?=$outputArray["CONTENT_UP"]?>
         </div>
 
 
@@ -92,32 +91,29 @@ get_header();
         <?endif?>
 
 
-        <div class="wrapper-a">
 
-            <div class="is-style-list is-style-image">
-                <?=$outputArray["CONTENT_DOWN"]?>
-            </div>
+        <div class="is-style-list is-style-image">
+            <?=$outputArray["CONTENT_DOWN"]?>
+        </div>
 
-            <div class="is-news-action">
-                <a class="is-button-a na-item" href="/documents/">
-                    Все документы
+        <div class="is-news-action">
+            <a class="is-button-a na-item" href="/documents/">
+                Все документы
+            </a>
+            <?if($outputArray["NEWS_FILE"]):?>
+                <a class="is-file-download na-item" href="<?=$outputArray["NEWS_FILE"]["url"]?>" download>
+                    <div class="fd-label">
+                        Скачать документ
+                    </div>
+                    <div class="fd-ext">
+                        <?=mb_strtoupper($outputArray["NEWS_FILE"]["subtype"])?>, <?=round(($outputArray["NEWS_FILE"]["filesize"]/1000000), 2)?> Мб
+                    </div>
+
+                    <span>
+
+                </span>
                 </a>
-                <?if($outputArray["NEWS_FILE"]):?>
-                    <a class="is-file-download na-item" href="<?=$outputArray["NEWS_FILE"]["url"]?>" download>
-                        <div class="fd-label">
-                            Скачать документ
-                        </div>
-                        <div class="fd-ext">
-                            <?=mb_strtoupper($outputArray["NEWS_FILE"]["subtype"])?>, <?=round(($outputArray["NEWS_FILE"]["filesize"]/1000000), 2)?> Мб
-                        </div>
-
-                        <span>
-
-                    </span>
-                    </a>
-                <?endif?>
-            </div>
-
+            <?endif?>
         </div>
 
 
