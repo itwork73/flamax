@@ -72,14 +72,14 @@ get_header();
     </div>
 
     <?if(count($outputArray["IMAGE_GALLERY_URL"])>0):?>
-        <div class="is-wide-slider" data-is="wide-slider" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
+        <div class="is-wide-slider" data-is="wide-slider" data-ext="fb-modal-image-contain" data-images='<?=json_encode($outputArray["IMAGE_GALLERY_URL"])?>'>
             <div class="swiper-container">
                 <div class="swiper-wrapper">
 
                     <?foreach($outputArray["IMAGE_GALLERY_URL"] as $key => $value):?>
 
                         <div class="swiper-slide">
-                            <a class="ws-cell" href="<?=$value?>" data-ext="fb-modal-contain" data-gclick="showGalleryModal" data-value="<?=$key?>">
+                            <a class="ws-cell" href="<?=$value?>" data-gclick="showGalleryModal" data-value="<?=$key?>">
                                 <div class="full-size img-contain" style="background-image:url('<?=$value?>');"></div>
                             </a>
                         </div>
