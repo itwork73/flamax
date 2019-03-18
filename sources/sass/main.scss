@@ -2021,7 +2021,7 @@ p {
   .ps-c-news-title {
     margin-bottom: 30px;
     @include intro-book;
-    @include font(#ffffff,36px,40px);
+    @include font(#ffffff,26px,36px);
   }
   .ps-c-description {
     @include intro-book;
