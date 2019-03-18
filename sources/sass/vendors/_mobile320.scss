@@ -1662,7 +1662,7 @@
     display: block;
     @include is-grid(2,20);
     .cert-cell {
-      
+
     }
   }
 
@@ -2440,6 +2440,27 @@
     // arrows
     .fmg-arrow {
       display: none;
+    }
+
+
+    &.state-fit-contain {
+      background: #222;
+      width: 100vw;
+      .md-floater {
+        height: 100%;
+        padding: 0;
+      }
+      .fmo-cross {
+        width: 45px;
+        height: 45px;
+        background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAMAAABEpIrGAAAAElBMVEUAAAD///////////////////8+Uq06AAAABXRSTlMAA1uh/LMgW5EAAABZSURBVHja7ZMxDgAhCAQR9P9fvis2sZpMec1ZKDAbFQK1pgtXz6o5u5HvM+9GiqAczGMgvybzOMyv6wG/0j/laWlhtLThrAhnRbgI/Anm/ffHZ/2hw6vj/wATGAPprxVMIwAAAABJRU5ErkJggg==);
+        background-position: 50% 50%;
+        background-size: 16px 16px;
+        border-radius: 0 !important;
+      }
+      .full-size.img-cover {
+        background-size: contain !important;
+      }
     }
   }
 
