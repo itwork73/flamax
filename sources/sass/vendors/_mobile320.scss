@@ -1249,7 +1249,6 @@
     }
   }
 
-
   // project detail
 
   .is-project-lead-overlay {
@@ -1656,6 +1655,14 @@
     }
     .is-file-download {
       order: 10;
+    }
+  }
+
+  .is-certs-list {
+    display: block;
+    @include is-grid(2,20);
+    .cert-cell {
+      
     }
   }
 
