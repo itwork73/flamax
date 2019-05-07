@@ -954,10 +954,19 @@ var moduleApp = {
                 var returnState = methods.checkingFieldsAll(params.fields.initialNodes);
 
                 // if fields valid then add progress state to form
-
-
                 if (returnState == true) {
                     params.form.moduleParent.addClass(params.form.progressFormClass);
+                }
+
+                // captcha
+                if(returnState){
+                    var cc = params.form.parent.find('[name="bform[cc]"]').val();
+                    var cd = params.form.parent.find('[name="bform[cd]"]').val();
+                    var ce = JSMD5(JSMD5(cc+'var'+cd));
+
+                    params.form.parent.find('[name="bform[cb]"]').val("");
+                    params.form.parent.find('[name="bform[ce]"]').val(ce);
+
                 }
 
                 // if submit callback

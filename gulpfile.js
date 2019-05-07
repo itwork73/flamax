@@ -17,6 +17,7 @@ var jslibs = [
     sourcesPath + '/js/vendors/jquery.fancyModal.js',
     sourcesPath + '/js/vendors/cleave.min.js',
     sourcesPath + '/js/vendors/cleave.phone.ru.js',
+    sourcesPath + '/js/vendors/md5.js',
     sourcesPath + '/js/app.js'
 ];
 
