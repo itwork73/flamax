@@ -1,5 +1,53 @@
 <? $cacheLock = rand(1000,9999); ?>
-<? $bCustomState = bCustomState(); ?>
+<? $bCustomState = bCustomState();
+
+
+
+
+
+$captcha = md5(md5($_REQUEST["bform"]["cc"] . 'var' . $_REQUEST["bform"]["cd"]));
+
+
+if($_REQUEST["bform"]["form"] === "contactForm" && $_REQUEST["bform"]["ce"] === $captcha && empty($_REQUEST["bform"]["cb"])){
+    // write form here
+    $bFormMail = "Клиент<br/>";
+    $bFormMail .= "Имя: " . $_REQUEST["bform"]["name"]  . "<br/>";
+    $bFormMail .= "Телефон: " . $_REQUEST["bform"]["phone"]  . "<br/>";
+    $bFormMail .= "Название компании: " . $_REQUEST["bform"]["company"]  . "<br/>";
+    $bFormMail .= "E-mail: " . $_REQUEST["bform"]["email"]  . "<br/>";
+    $bFormMail .= "Комментарии: " . $_REQUEST["bform"]["comment"]  . "<br/>";
+
+    $bFormMail .= "<br/>Резервуары<br/>";
+    $bFormMail .= "Продукт для хранения: " . $_REQUEST["bform"]["product"]  . "<br/>";
+    $bFormMail .= "Количество резервуаров: " . $_REQUEST["bform"]["count"]  . "<br/>";
+    $bFormMail .= "Требуемый полезный объем: " . $_REQUEST["bform"]["volume"]  . "м³<br/>";
+    $bFormMail .= "Регион установки резервуара: " . $_REQUEST["bform"]["region"]  . "<br/>";
+
+    $bFormMail .= "<br/>Площадь под застройку<br/>";
+    $bFormMail .= "Длина: " . $_REQUEST["bform"]["length"]  . "м<br/>";
+    $bFormMail .= "Ширина: " . $_REQUEST["bform"]["width"]  . "м<br/>";
+    $bFormMail .= "Высота: " . $_REQUEST["bform"]["height"]  . "м<br/>";
+
+    $bFormMail .= "<br/>Срок сдачи объекта<br/>";
+    $bFormMail .= "Месяц: " . $_REQUEST["bform"]["month"]  . "м<br/>";
+    $bFormMail .= "Год: " . $_REQUEST["bform"]["year"]  . "м<br/>";
+
+
+    // insert on email
+    $from = "no-reply@flamaxtank.ru";
+    $to = "itwork73@yandex.ru";
+    $subject = "Сообщение с сайта flamaxtank.ru";
+    $message = $bFormMail;
+
+    $headers = "Content-Type: text/html; charset=UTF-8\r\n";
+    $headers .= "From: " . $from . "\r\n";
+    mail($to,$subject,$message,$headers);
+}
+
+
+
+
+?>
 <!DOCTYPE html>
 
 <html lang="ru">

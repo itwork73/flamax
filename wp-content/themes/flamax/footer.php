@@ -90,6 +90,13 @@
 
                 <form method="post" action="">
 
+                    <input type="hidden" name="bform[form]" value="orderForm" />
+                    <input type="hidden" name="bform[cb]" value="<?=rand(1000000,9999999)?>" />
+                    <input type="hidden" name="bform[cc]" value="<?=rand(1000000,9999999)?>" />
+                    <input type="hidden" name="bform[cd]" value="<?=rand(1000000,9999999)?>" />
+                    <input type="hidden" name="bform[ce]" value="<?=rand(1000000,9999999)?>" />
+
+
                     <input type="hidden" name="wp_sent_status" value="contacts" />
 
                     <div class="is-columns">
@@ -100,7 +107,7 @@
                                   	<div class="ff-label">
         								Продукт для хранения
     								</div>
-                                    <select>
+                                    <select name="bform[product]">
                                         <option value="0" selected>Выберите</option>
                                         <option value="Пожарный запас воды">Пожарный запас воды</option>
                                         <option value="Совмещенный с питьевым запас воды">Совмещенный с питьевым запас воды</option>
@@ -111,9 +118,9 @@
                             <div class="is-form-field field-select">
                                 <label>
                                   	<div class="ff-label">
-        								Количество резервузаров
+        								Количество резервуаров
     								</div>
-                                    <select>
+                                    <select name="bform[count]">
                                         <option value="0" selected>Выберите</option>
                                         <option value="1">1</option>
                                         <option value="2">2</option>
@@ -130,7 +137,7 @@
                                   	<div class="ff-label">
         								Требуемый полезный объем, м³
     								</div>
-                                    <select>
+                                    <select name="bform[volume]">
                                         <option value="0">Выбрать</option>
                                         <option value="100">100</option>
                                         <option value="150">150</option>
@@ -171,7 +178,7 @@
                                   	<div class="ff-label">
         								Регион установки резервуара
     								</div>
-                                    <input name="field[region]" type="text" />
+                                    <input name="bform[region]" type="text" />
                                 </label>
                             </div>
 
@@ -184,21 +191,21 @@
                                 <div class="col">
                                     <div class="is-form-field field-text">
                                         <label>
-                                            <input name="field[name]" placeholder="Длина, м" type="text" />
+                                            <input name="bform[length]" placeholder="Длина, м" type="text" />
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="is-form-field field-text">
                                         <label>
-                                            <input name="field[name]" placeholder="Ширина, м" type="text" />
+                                            <input name="bform[width]" placeholder="Ширина, м" type="text" />
                                         </label>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <div class="is-form-field field-text">
                                         <label>
-                                            <input name="field[name]" placeholder="Высота, м" type="text" />
+                                            <input name="bform[height]" placeholder="Высота, м" type="text" />
                                         </label>
                                     </div>
                                 </div>
@@ -215,7 +222,7 @@
 
                                     <div class="is-form-field field-select">
                                         <label>
-                                            <select>
+                                            <select name="bform[month]">
                                                 <option value="0" selected>Месяц</option>
                                                 <option value="Январь">Январь</option>
                                                 <option value="Февраль">Февраль</option>
@@ -238,7 +245,7 @@
 
                                     <div class="is-form-field field-select">
                                         <label>
-                                            <select>
+                                            <select name="bform[year]">
                                                 <option value="0" selected>Год</option>
                                                 <option value="2019">2019</option>
                                                 <option value="2020">2020</option>
@@ -260,7 +267,7 @@
                                   	<div class="ff-label">
         								Имя *
     								</div>
-                                    <input name="field[name]" type="text" data-validation='<?=json_encode([
+                                    <input name="bform[name]" type="text" data-validation='<?=json_encode([
                                         "mask"=>"text",
                                         "require"=>true,
                                         "visible"=>true,
@@ -273,7 +280,7 @@
                                   	<div class="ff-label">
         								Телефон *
     								</div>
-                                    <input name="field[phone]" type="text" data-validation='<?=json_encode([
+                                    <input name="bform[phone]" type="text" data-validation='<?=json_encode([
                                         "mask"=>"text",
                                         "require"=>true,
                                         "visible"=>true,
@@ -287,7 +294,7 @@
                                   	<div class="ff-label">
         								Название компании
     								</div>
-                                    <input name="field[company]" placeholder="Название компании" type="text" />
+                                    <input name="bform[company]" placeholder="Название компании" type="text" />
                                 </label>
                             </div>
                             <div class="is-form-field field-text">
@@ -295,7 +302,7 @@
                                   	<div class="ff-label">
         								E-mail *
     								</div>
-                                    <input name="field[email]" type="text" data-validation='<?=json_encode([
+                                    <input name="bform[email]" type="text" data-validation='<?=json_encode([
                                         "mask"=>"email",
                                         "require"=>true,
                                         "visible"=>true,
@@ -309,7 +316,7 @@
                                   	<div class="ff-label">
         								Комментарии
     								</div>
-                                    <textarea></textarea>
+                                    <textarea name="bform[comment]"></textarea>
                                 </label>
                             </div>
                         </div>
@@ -322,8 +329,8 @@
                                 <label>
                                     <input name="field[rules]" type="checkbox" /><i></i>
                                     <span class="checkbox-label">
-                                            Вы согласны с <a class="is-link" href="#">правилами обработки данных.</a>
-                                        </span>
+                                        Вы согласны с <a class="is-link" href="#">правилами обработки данных.</a>
+                                    </span>
                                 </label>
                             </div>
                         </div>
