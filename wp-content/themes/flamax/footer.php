@@ -90,7 +90,7 @@
 
                 <form method="post" action="">
 
-                    <input type="hidden" name="bform[form]" value="orderForm" />
+                    <input type="hidden" name="bform[form]" value="contactForm" />
                     <input type="hidden" name="bform[cb]" value="<?=rand(1000000,9999999)?>" />
                     <input type="hidden" name="bform[cc]" value="<?=rand(1000000,9999999)?>" />
                     <input type="hidden" name="bform[cd]" value="<?=rand(1000000,9999999)?>" />
